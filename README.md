@@ -192,7 +192,7 @@ This template makes specific technology choices to provide the best modern Pytho
 
 ## 📦 Examples of Projects Using This Template
 
-(Add links to your projects here after creating them!)
+[uniqseq](https://github.com/JeffreyUrban/uniqseq)
 
 ## 🐛 Issues & Contributions
 
