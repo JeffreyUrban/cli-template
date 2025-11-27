@@ -1,0 +1,27 @@
+"""Tests for CLI statistics printing."""
+
+from io import StringIO
+
+import pytest
+
+from {{ cookiecutter.project_slug }}.cli import print_stats
+from {{ cookiecutter.project_slug }}.{{ cookiecutter.project_slug }} import {{ cookiecutter.class_name }}
+
+
+@pytest.mark.unit
+def test_print_stats_normal():
+    """Test print_stats with normal processor."""
+    processor = {{ cookiecutter.class_name }}()
+
+    # print_stats writes to stderr via rich Console
+    # Just verify it doesn't crash
+    print_stats(processor)
+
+
+@pytest.mark.unit
+def test_print_stats_empty():
+    """Test print_stats with no lines processed."""
+    processor = {{ cookiecutter.class_name }}()
+
+    # print_stats should handle empty stats
+    print_stats(processor)
