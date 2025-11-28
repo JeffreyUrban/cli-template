@@ -26,7 +26,7 @@ placeholder
 
 ### {{ cookiecutter.class_name }}
 
-The main placeholder class. See [{{ cookiecutter.class_name }} API]({{ cookiecutter.package_name }}.md) for complete reference.
+The main placeholder class. See [{{ cookiecutter.class_name }} API]({{ cookiecutter.command_name }}.md) for complete reference.
 
 ```python
 placeholder
@@ -72,6 +72,6 @@ placeholder
 
 ## See Also
 
-- [{{ cookiecutter.class_name }} API]({{ cookiecutter.package_name }}.md) - Complete API reference
+- [{{ cookiecutter.class_name }} API]({{ cookiecutter.command_name }}.md) - Complete API reference
 - [CLI Reference](cli.md) - Command-line usage
 - [Algorithm Details](../about/algorithm.md) - How it works

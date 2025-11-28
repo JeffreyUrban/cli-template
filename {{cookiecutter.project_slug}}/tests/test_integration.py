@@ -4,7 +4,7 @@ from io import StringIO
 
 import pytest
 
-from {{ cookiecutter.package_name }}.{{ cookiecutter.project_slug }} import {{ cookiecutter.class_name }}
+from {{ cookiecutter.package_name }}.{{ cookiecutter.package_name }} import {{ cookiecutter.class_name }}
 
 
 @pytest.mark.integration

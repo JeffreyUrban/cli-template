@@ -293,7 +293,7 @@ pytest_collect_file = Sybil(
         "about/algorithm.md",
         "reference/cli.md",
         "reference/library.md",
-        "reference/{{ cookiecutter.package_name }}.md",
+        "reference/{{ cookiecutter.command_name }}.md",
     ],
 ).pytest()
 

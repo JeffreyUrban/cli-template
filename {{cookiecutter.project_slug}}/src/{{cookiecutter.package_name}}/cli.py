@@ -20,7 +20,7 @@ from rich.progress import (
 from rich.table import Table
 
 from . import __version__
-from .{{ cookiecutter.project_slug }} import (
+from .{{ cookiecutter.package_name }} import (
     {{ cookiecutter.class_name }},
 )
 
