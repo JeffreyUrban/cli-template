@@ -3,7 +3,7 @@ requires = ["hatchling", "hatch-vcs"]
 build-backend = "hatchling.build"
 
 [project]
-name = "{{ cookiecutter.project_slug }}"
+name = "{{ cookiecutter.package_name }}"
 # Version is automatically determined from git tags via hatch-vcs
 dynamic = ["version"]
 description = "{{ cookiecutter.project_short_description }}"
@@ -57,7 +57,7 @@ docs = [
 ]
 
 [project.scripts]
-{{ cookiecutter.command_name }} = "{{ cookiecutter.project_slug }}.cli:app"
+{{ cookiecutter.command_name }} = "{{ cookiecutter.package_name }}.cli:app"
 
 [project.urls]
 Homepage = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}"
@@ -68,7 +68,7 @@ Issues = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.
 source = "vcs"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/{{ cookiecutter.project_slug }}"]
+packages = ["src/{{ cookiecutter.package_name }}"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests", "docs"]
@@ -119,7 +119,7 @@ warn_unused_configs = true
 disallow_untyped_defs = true
 
 [tool.coverage.run]
-source = ["src/{{ cookiecutter.project_slug }}"]
+source = ["src/{{ cookiecutter.package_name }}"]
 omit = ["*/tests/*"]
 branch = true
 
@@ -134,4 +134,4 @@ exclude_lines = [
 ]
 
 [tool.hatch.build.hooks.vcs]
-version-file = "src/{{ cookiecutter.project_slug }}/_version.py"
+version-file = "src/{{ cookiecutter.package_name }}/_version.py"

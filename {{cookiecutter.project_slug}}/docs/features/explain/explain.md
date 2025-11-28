@@ -33,7 +33,7 @@ Without `--explain`, placeholder happens without feedback.
 
     <!-- verify-file: output.txt expected: expected-output.txt -->
     ```python
-    from {{ cookiecutter.project_slug }} import {{ cookiecutter.class_name }}
+    from {{ cookiecutter.package_name }} import {{ cookiecutter.class_name }}
 
     processor = {{ cookiecutter.class_name }}(
         placeholder=False  # (1)!
@@ -71,7 +71,7 @@ With `--explain`, stderr shows why placeholder.
 
     <!-- verify-file: output.txt expected: expected-output.txt -->
     ```python
-    from {{ cookiecutter.project_slug }} import {{ cookiecutter.class_name }}
+    from {{ cookiecutter.package_name }} import {{ cookiecutter.class_name }}
     import sys
 
     processor = {{ cookiecutter.class_name }}(

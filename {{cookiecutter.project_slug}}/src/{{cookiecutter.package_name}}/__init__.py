@@ -1,6 +1,6 @@
-"""{{ cookiecutter.project_slug }} - placeholder."""
+"""{{ cookiecutter.package_name }} - placeholder."""
 
-from .{{ cookiecutter.project_slug }} import {{ cookiecutter.class_name }}
+from .{{ cookiecutter.package_name }} import {{ cookiecutter.class_name }}
 
 # Version is managed by hatch-vcs and set during build
 try:

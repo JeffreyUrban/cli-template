@@ -30,21 +30,32 @@ cookiecutter gh:JeffreyUrban/cli-template
 You'll be prompted for:
 
 - **project_name**: "My Awesome CLI" (human-readable)
-- **project_slug**: my_awesome_cli (auto-generated, Python package name)
+- **project_slug**: my-awesome-cli (auto-generated, uses hyphens for CLI/repo name)
 - **project_short_description**: Brief description of your tool
 - **author_name**: Your Name
 - **author_email**: your.email@example.com
 - **github_username**: yourusername
 - **python_version**: 3.9 (minimum Python version)
 - **license**: MIT, Apache-2.0, BSD-3-Clause, or GPL-3.0
-- **command_name**: my_awesome_cli (CLI command, defaults to project_slug)
+- **command_name**: my-awesome-cli (CLI command, defaults to project_slug)
+
+### Naming Convention
+
+This template enforces hyphen-based naming for consistency with CLI best practices:
+
+- **CLI command**: `my-awesome-cli` (hyphens)
+- **Repository name**: `my-awesome-cli` (hyphens)
+- **Directory name**: `my-awesome-cli` (hyphens)
+- **Python package**: `my_awesome_cli` (underscores, auto-converted internally)
+
+This follows the standard convention used by popular CLI tools like `docker-compose`, `git-flow`, and `gh-cli`.
 
 ### Example Session
 
 ```bash
 $ cookiecutter gh:JeffreyUrban/cli-template
 project_name [My CLI Tool]: Weather CLI
-project_slug [weather_cli]:
+project_slug [weather-cli]:
 project_short_description [A brief description of what your CLI tool does]: Get weather forecasts from the command line
 author_name [Your Name]: Jane Developer
 author_email [your.email@example.com]: jane@example.com
@@ -56,7 +67,7 @@ Select license:
 3 - BSD-3-Clause
 4 - GPL-3.0
 Choose from 1, 2, 3, 4 [1]:
-command_name [weather_cli]: weather
+command_name [weather-cli]: weather
 
 ✨ Created project: Weather CLI
 ```
@@ -64,7 +75,7 @@ command_name [weather_cli]: weather
 ### Set Up Your New Project
 
 ```bash
-cd weather_cli
+cd weather-cli
 
 # Initialize git
 git init
@@ -175,6 +186,7 @@ The template includes comprehensive documentation:
 
 This template makes specific technology choices to provide the best modern Python CLI development experience:
 
+- **Hyphen-based naming**: CLI commands and repos use hyphens (like `docker-compose`, `git-flow`)
 - **typer over click/argparse**: Type-safe, less boilerplate
 - **rich for output**: Beautiful terminal UIs out of the box
 - **ruff over black+flake8**: Single tool, 10-100x faster

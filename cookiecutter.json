@@ -1,6 +1,7 @@
 {
   "project_name": "My CLI Tool",
-  "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
+  "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '-').replace('_', '-') }}",
+  "package_name": "{{ cookiecutter.project_slug.replace('-', '_') }}",
   "class_name": "{{ cookiecutter.project_name.title().replace(' ', '').replace('-', '').replace('_', '') }}",
   "project_short_description": "A brief description of what your CLI tool does",
   "author_name": "Your Name",

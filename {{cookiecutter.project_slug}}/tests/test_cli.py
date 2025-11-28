@@ -6,7 +6,7 @@ import re
 import pytest
 from typer.testing import CliRunner
 
-from {{ cookiecutter.project_slug }}.cli import app
+from {{ cookiecutter.package_name }}.cli import app
 
 # Ensure consistent terminal width for Rich formatting across all environments
 os.environ.setdefault("COLUMNS", "120")

@@ -6,7 +6,7 @@ from pathlib import Path
 
 import pytest
 
-from {{ cookiecutter.project_slug }}.{{ cookiecutter.project_slug }} import {{ cookiecutter.class_name }}
+from {{ cookiecutter.package_name }}.{{ cookiecutter.project_slug }} import {{ cookiecutter.class_name }}
 
 
 def load_fixtures(filename: str):

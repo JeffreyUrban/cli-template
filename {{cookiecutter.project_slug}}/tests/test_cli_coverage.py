@@ -12,7 +12,7 @@ from typing import Optional
 import pytest
 from typer.testing import CliRunner, Result
 
-from {{ cookiecutter.project_slug }}.cli import app
+from {{ cookiecutter.package_name }}.cli import app
 
 # Ensure consistent terminal width
 os.environ.setdefault("COLUMNS", "120")
@@ -51,7 +51,7 @@ def get_stderr(result: Result) -> str:
 def run_command(args: list[str], input_data: Optional[str] = None) -> tuple[int, str, str]:
     """Run {{ cookiecutter.project_slug }} CLI and return (exit_code, stdout, stderr)."""
     result = subprocess.run(
-        [sys.executable, "-m", "{{ cookiecutter.project_slug }}"] + args,
+        [sys.executable, "-m", "{{ cookiecutter.package_name }}"] + args,
         input=input_data,
         capture_output=True,
         text=True,

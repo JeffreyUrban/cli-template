@@ -163,7 +163,7 @@ pytest --cov=src --cov-report=html
 **Writing tests**:
 ```python
 import pytest
-from {{ cookiecutter.project_slug }} import {{ cookiecutter.class_name }}
+from {{ cookiecutter.package_name }} import {{ cookiecutter.class_name }}
 
 def test_placeholder():
     """Test that placeholder."""
@@ -415,7 +415,7 @@ touch tests/test_new_feature.py
 # Write test
 cat > tests/test_new_feature.py << 'EOF'
 import pytest
-from {{ cookiecutter.project_slug }} import {{ cookiecutter.class_name }}
+from {{ cookiecutter.package_name }} import {{ cookiecutter.class_name }}
 
 def test_new_feature():
     """Test the new feature."""
