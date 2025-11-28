@@ -1,12 +1,10 @@
-"""Command-line interface for {{ cookiecutter.project_slug }}."""
+"""Command-line interface for {{ cookiecutter.command_name }}."""
 
 import json
-import re
-import subprocess
 import sys
 from collections.abc import Iterator
 from pathlib import Path
-from typing import BinaryIO, Callable, Optional, TextIO, Union
+from typing import Optional, TextIO
 
 import typer
 from rich.console import Console
@@ -50,7 +48,7 @@ def placeholder(stream: TextIO) -> Iterator[str]:
     Yields:
         placeholder
     """
-    for line in stream:
+    for _line in stream:
         yield "placeholder"
 
 
@@ -184,15 +182,12 @@ def main(
     else:
         pass
 
-
     # Create processor
     processor = {{ cookiecutter.class_name }}(
         explain=explain,
     )
 
     try:
-        # Create progress callback for library monitoring (independent of visual progress)
-        progress_callback = None
         if show_progress:
             # Create progress display
             with Progress(

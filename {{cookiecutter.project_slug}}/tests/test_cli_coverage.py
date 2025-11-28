@@ -12,8 +12,6 @@ from typing import Optional
 import pytest
 from typer.testing import CliRunner, Result
 
-from {{ cookiecutter.package_name }}.cli import app
-
 # Ensure consistent terminal width
 os.environ.setdefault("COLUMNS", "120")
 
@@ -67,9 +65,7 @@ def test_json_stats_format():
         input_file = tmpdir / "input.log"
         input_file.write_text("A\nB\nC\nA\nB\nC\nD\n")
 
-        exit_code, stdout, stderr = run_command(
-            [str(input_file), "--stats-format", "json"]
-        )
+        exit_code, stdout, stderr = run_command([str(input_file), "--stats-format", "json"])
 
         assert exit_code == 0
         # Stats should be in stderr for JSON format

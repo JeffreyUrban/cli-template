@@ -1,6 +1,7 @@
 """Core logic for processor."""
+
 import sys
-from typing import BinaryIO, Optional, TextIO, Union
+from typing import BinaryIO, Callable, Optional, TextIO, Union
 
 
 class {{ cookiecutter.class_name }}:
@@ -38,7 +39,7 @@ class {{ cookiecutter.class_name }}:
         self,
         stream: Union[TextIO, BinaryIO],
         output: Union[TextIO, BinaryIO],
-        progress_callback: Optional[callable] = None,
+        progress_callback: Optional[Callable[[int, int], None]] = None,
     ) -> None:
         """
         Process input stream and write to output.
@@ -52,10 +53,7 @@ class {{ cookiecutter.class_name }}:
         line_num = 0
         skipped = 0
         for line in stream:
-            if isinstance(line, bytes):
-                output.write(line)
-            else:
-                output.write(line)
+            output.write(line)  # type: ignore[arg-type]
             line_num += 1
 
             # Template placeholder - show explain messages

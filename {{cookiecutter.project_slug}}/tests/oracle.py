@@ -1,7 +1,7 @@
 """Oracle implementation for testing - simple but obviously correct."""
 
-from dataclasses import dataclass, field
-from typing import Any, Optional
+from dataclasses import dataclass
+from typing import Any
 
 
 def placeholder_naive() -> bool:

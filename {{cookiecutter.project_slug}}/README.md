@@ -46,6 +46,10 @@ pip install -e ".[dev]"
 
 **Requirements:** Python 3.9+
 
+**IDE Configuration:**
+- **PyCharm**: Project settings are pre-configured in `.idea/` (source roots automatically set)
+- **VS Code**: Settings are pre-configured in `.vscode/settings.json` (includes pytest, ruff, mypy configuration)
+
 ## Quick Start
 
 ### Command Line
@@ -123,7 +127,7 @@ MIT License - See [LICENSE](LICENSE) file for details
 
 ## Author
 
-`[{{ cookiecutter.author_name }}](https://{{ cookiecutter.author_email }})`
+{{ cookiecutter.author_name }}{% if cookiecutter.author_email and cookiecutter.author_email != "(optional)" %} ({{ cookiecutter.author_email }}){% endif %}
 
 ---
 

@@ -10,7 +10,7 @@ description = "{{ cookiecutter.project_short_description }}"
 readme = "README.md"
 license = {file = "LICENSE"}
 authors = [
-    {name = "{{ cookiecutter.author_name }}"{% if cookiecutter.author_email %}, email = "{{ cookiecutter.author_email }}"{% endif %}}
+    {name = "{{ cookiecutter.author_name }}"{% if cookiecutter.author_email and cookiecutter.author_email != "(optional)" %}, email = "{{ cookiecutter.author_email }}"{% endif %}}
 ]
 requires-python = ">={{ cookiecutter.python_version }}"
 keywords = [
@@ -107,6 +107,7 @@ ignore = [
 [tool.ruff.lint.per-file-ignores]
 "tests/**/*.py" = ["E741", "E501"]  # Allow short var names and long lines in tests
 "tests/generate_fixtures.py" = ["E402"]  # Module imports after sys.path modification
+"*/_version.py" = ["UP", "I001"]  # Auto-generated file by hatch-vcs
 
 [tool.ruff.format]
 quote-style = "double"

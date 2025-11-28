@@ -33,7 +33,6 @@ jobs:
           cookiecutter . --no-input \
             project_name="Test CLI Tool" \
             author_name="Test Author" \
-            author_email="test@example.com" \
             github_username="testuser"
 
       - name: Verify generated structure
@@ -110,7 +109,7 @@ jobs:
           ruff check src/ tests/
           echo ""
           echo "=== Running ruff formatter check ==="
-          ruff format --check src/ tests/
+          ruff format --check src/ tests/ --exclude '*/_version.py'
           echo ""
           echo "=== Running mypy ==="
           mypy src/test_cli_tool

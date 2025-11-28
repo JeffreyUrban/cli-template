@@ -1,7 +1,5 @@
 """Tests for CLI statistics printing."""
 
-from io import StringIO
-
 import pytest
 
 from {{ cookiecutter.package_name }}.cli import print_stats
