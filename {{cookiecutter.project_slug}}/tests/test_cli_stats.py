@@ -1,11 +1,9 @@
 """Tests for CLI statistics printing."""
 
-from io import StringIO
-
 import pytest
 
-from {{ cookiecutter.project_slug }}.cli import print_stats
-from {{ cookiecutter.project_slug }}.{{ cookiecutter.project_slug }} import {{ cookiecutter.class_name }}
+from {{ cookiecutter.package_name }}.cli import print_stats
+from {{ cookiecutter.package_name }}.{{ cookiecutter.package_name }} import {{ cookiecutter.class_name }}
 
 
 @pytest.mark.unit

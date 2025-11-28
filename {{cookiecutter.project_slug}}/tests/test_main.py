@@ -15,7 +15,7 @@ def test_main_module_execution(tmp_path):
 
     # Run as module
     result = subprocess.run(
-        [sys.executable, "-m", "{{ cookiecutter.project_slug }}", str(test_file), "--quiet"],
+        [sys.executable, "-m", "{{ cookiecutter.package_name }}", str(test_file), "--quiet"],
         capture_output=True,
         text=True,
     )
@@ -28,7 +28,7 @@ def test_main_module_execution(tmp_path):
 def test_main_module_help():
     """Test python -m {{ cookiecutter.project_slug }} --help."""
     result = subprocess.run(
-        [sys.executable, "-m", "{{ cookiecutter.project_slug }}", "--help"],
+        [sys.executable, "-m", "{{ cookiecutter.package_name }}", "--help"],
         capture_output=True,
         text=True,
     )

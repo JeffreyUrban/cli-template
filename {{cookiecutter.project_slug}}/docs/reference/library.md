@@ -5,7 +5,7 @@ Guide to using {{ cookiecutter.command_name }} as a Python library in your appli
 ## Installation
 
 ```bash
-pip install {{ cookiecutter.command_name }}
+pip install {{ cookiecutter.package_name }}
 ```
 
 ## Quick Start

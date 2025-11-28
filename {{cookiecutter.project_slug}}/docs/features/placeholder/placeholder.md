@@ -37,7 +37,7 @@ With `--placeholder`, placeholder.
 
     <!-- verify-file: output-placeholder.txt expected: expected-placeholder.txt -->
     ```python
-    from {{ cookiecutter.project_slug }} import {{ cookiecutter.class_name }}
+    from {{ cookiecutter.package_name }} import {{ cookiecutter.class_name }}
 
     processor = {{ cookiecutter.class_name }}(
         placeholder=True  # (1)!

@@ -12,9 +12,11 @@ The `{{ cookiecutter.class_name }}` class provides the core placeholder.
 
 ## Class Reference
 
-::: {{ cookiecutter.project_slug }}.{{ cookiecutter.project_slug }}.{{ cookiecutter.class_name }}
+::: {{ cookiecutter.package_name }}.{{ cookiecutter.package_name }}.{{ cookiecutter.class_name }}
     options:
-      placeholder: placeholder
+      show_source: false
+      show_root_heading: true
+      heading_level: 3
 
 ## Basic Usage
 

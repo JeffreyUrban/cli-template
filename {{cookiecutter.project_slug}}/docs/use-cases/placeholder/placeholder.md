@@ -32,13 +32,15 @@ placeholder.
 
     **Options:**
 
-    - `--placeholder`: placeholder
+      show_source: false
+      show_root_heading: true
+      heading_level: 3
 
 === "Python"
 
     <!-- verify-file: output.log expected: expected-output.log -->
     ```python
-    from {{ cookiecutter.project_slug }} import {{ cookiecutter.class_name }}
+    from {{ cookiecutter.package_name }} import {{ cookiecutter.class_name }}
 
     processor = {{ cookiecutter.class_name }}(
         placeholder=True,  # (1)!
@@ -67,5 +69,3 @@ placeholder
 ```
 
 ## See Also
-
-- [placeholder](../placeholder/placeholder.md) - placeholder

@@ -1,7 +1,5 @@
 """Test algorithm invariants hold under all conditions."""
 
-from io import StringIO
-
 import pytest
 
 

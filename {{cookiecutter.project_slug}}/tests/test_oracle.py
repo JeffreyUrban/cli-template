@@ -1,7 +1,5 @@
 """Compare algorithm output against reference implementation."""
 
-from io import StringIO
-
 import pytest
 
 

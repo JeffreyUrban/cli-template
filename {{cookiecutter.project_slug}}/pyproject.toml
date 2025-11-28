@@ -3,14 +3,14 @@ requires = ["hatchling", "hatch-vcs"]
 build-backend = "hatchling.build"
 
 [project]
-name = "{{ cookiecutter.project_slug }}"
+name = "{{ cookiecutter.package_name }}"
 # Version is automatically determined from git tags via hatch-vcs
 dynamic = ["version"]
 description = "{{ cookiecutter.project_short_description }}"
 readme = "README.md"
 license = {file = "LICENSE"}
 authors = [
-    {name = "{{ cookiecutter.author_name }}"{% if cookiecutter.author_email %}, email = "{{ cookiecutter.author_email }}"{% endif %}}
+    {name = "{{ cookiecutter.author_name }}"{% if cookiecutter.author_email and cookiecutter.author_email != "(optional)" %}, email = "{{ cookiecutter.author_email }}"{% endif %}}
 ]
 requires-python = ">={{ cookiecutter.python_version }}"
 keywords = [
@@ -57,7 +57,7 @@ docs = [
 ]
 
 [project.scripts]
-{{ cookiecutter.command_name }} = "{{ cookiecutter.project_slug }}.cli:app"
+{{ cookiecutter.command_name }} = "{{ cookiecutter.package_name }}.cli:app"
 
 [project.urls]
 Homepage = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}"
@@ -68,7 +68,7 @@ Issues = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.
 source = "vcs"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/{{ cookiecutter.project_slug }}"]
+packages = ["src/{{ cookiecutter.package_name }}"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests", "docs"]
@@ -107,6 +107,7 @@ ignore = [
 [tool.ruff.lint.per-file-ignores]
 "tests/**/*.py" = ["E741", "E501"]  # Allow short var names and long lines in tests
 "tests/generate_fixtures.py" = ["E402"]  # Module imports after sys.path modification
+"*/_version.py" = ["UP", "I001"]  # Auto-generated file by hatch-vcs
 
 [tool.ruff.format]
 quote-style = "double"
@@ -119,7 +120,7 @@ warn_unused_configs = true
 disallow_untyped_defs = true
 
 [tool.coverage.run]
-source = ["src/{{ cookiecutter.project_slug }}"]
+source = ["src/{{ cookiecutter.package_name }}"]
 omit = ["*/tests/*"]
 branch = true
 
@@ -134,4 +135,4 @@ exclude_lines = [
 ]
 
 [tool.hatch.build.hooks.vcs]
-version-file = "src/{{ cookiecutter.project_slug }}/_version.py"
+version-file = "src/{{ cookiecutter.package_name }}/_version.py"

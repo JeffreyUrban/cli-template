@@ -1,12 +1,11 @@
 """Comprehensive tests using precomputed oracle fixtures with detailed analysis."""
 
 import json
-from io import StringIO
 from pathlib import Path
 
 import pytest
 
-from {{ cookiecutter.project_slug }}.{{ cookiecutter.project_slug }} import {{ cookiecutter.class_name }}
+from {{ cookiecutter.package_name }}.{{ cookiecutter.package_name }} import {{ cookiecutter.class_name }}
 
 
 def load_fixtures(filename: str):

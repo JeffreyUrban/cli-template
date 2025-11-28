@@ -77,7 +77,7 @@ nav:
       - Troubleshooting: guides/troubleshooting.md
   - Reference:
       - CLI: reference/cli.md
-      - {{ cookiecutter.class_name }}: reference/{{ cookiecutter.project_slug }}.md
+      - {{ cookiecutter.class_name }}: reference/{{ cookiecutter.command_name }}.md
       - Library Usage: reference/library.md
   - About:
       - Algorithm: about/algorithm.md
