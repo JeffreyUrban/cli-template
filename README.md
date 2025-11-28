@@ -33,7 +33,7 @@ You'll be prompted for:
 - **project_slug**: my-awesome-cli (auto-generated, uses hyphens for CLI/repo name)
 - **project_short_description**: Brief description of your tool
 - **author_name**: Your Name
-- **author_email**: your.email@example.com
+- **author_email (optional)**: your.email@example.com
 - **github_username**: yourusername
 - **python_version**: 3.9 (minimum Python version)
 - **license**: MIT, Apache-2.0, BSD-3-Clause, or GPL-3.0
