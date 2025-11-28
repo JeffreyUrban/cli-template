@@ -89,6 +89,7 @@ jobs:
       - name: Verify naming convention
         run: |
           cd test-cli-tool
+          source .venv/bin/activate
           echo "=== Verifying naming convention ==="
           echo "✓ CLI command name should use hyphens: test-cli-tool"
           which test-cli-tool
