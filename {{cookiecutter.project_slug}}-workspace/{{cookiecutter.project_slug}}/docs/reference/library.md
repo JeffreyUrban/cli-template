@@ -1,3 +1,5 @@
+# ⚠️ Template doc: Testing disabled ⚠️
+
 # Library Usage
 
 Guide to using {{ cookiecutter.command_name }} as a Python library in your applications.

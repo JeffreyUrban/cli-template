@@ -1,3 +1,5 @@
+# ⚠️ Template doc: Testing disabled ⚠️
+
 # Basic Concepts
 
 Understand the core concepts behind `{{ cookiecutter.project_slug }}`.

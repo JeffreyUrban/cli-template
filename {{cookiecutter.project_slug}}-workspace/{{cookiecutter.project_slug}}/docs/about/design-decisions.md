@@ -1,3 +1,5 @@
+# ⚠️ Template doc: Testing disabled ⚠️
+
 # Design Decisions
 
 Why {{ cookiecutter.command_name }} works the way it does.

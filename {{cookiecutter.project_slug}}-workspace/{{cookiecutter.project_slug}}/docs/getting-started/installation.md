@@ -1,3 +1,5 @@
+# ⚠️ Template doc: Testing disabled ⚠️
+
 # Installation
 
 `{{ cookiecutter.command_name }}` can be installed via Homebrew, pipx, pip, or from source.

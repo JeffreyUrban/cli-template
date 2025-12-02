@@ -1,3 +1,5 @@
+# ⚠️ Template doc: Testing disabled ⚠️
+
 # Troubleshooting Guide
 
 Solutions to common problems when using processor.

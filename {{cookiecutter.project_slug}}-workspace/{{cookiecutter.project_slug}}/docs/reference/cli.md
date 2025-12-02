@@ -1,3 +1,5 @@
+# ⚠️ Template doc: Testing disabled ⚠️
+
 # CLI Reference
 
 Complete reference for the `{{ cookiecutter.project_slug }}` command-line interface.

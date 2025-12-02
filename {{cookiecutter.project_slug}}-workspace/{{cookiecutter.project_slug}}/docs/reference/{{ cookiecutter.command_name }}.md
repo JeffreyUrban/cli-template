@@ -1,3 +1,5 @@
+# ⚠️ Template doc: Testing disabled ⚠️
+
 # {{ cookiecutter.class_name }} API
 
 API reference for the `{{ cookiecutter.class_name }}` class - the core placeholder.

@@ -1,3 +1,5 @@
+# ⚠️ Template doc: Testing disabled ⚠️
+
 # Quick Start
 
 Get started with `{{ cookiecutter.project_slug }}` in 5 minutes.
