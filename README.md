@@ -264,3 +264,4 @@ Built with:
 - [MkDocs Material](https://squidfunk.github.io/mkdocs-material/)
 - [ruff](https://docs.astral.sh/ruff/)
 - [uv](https://docs.astral.sh/uv/)
+- [Homebrew](https://brew.sh/)
