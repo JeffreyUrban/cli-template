@@ -4,6 +4,7 @@ A production-ready, opinionated [cookiecutter](https://github.com/cookiecutter/c
 
 ## ✨ What You Get
 
+### Main Project
 - 🎨 **Modern CLI framework**: typer + rich for beautiful terminal UIs
 - ⚡️ **Fast package management**: uv for 10-100x faster installs
 - 🧪 **Complete test suite**: pytest with organized markers (unit/integration/property)
@@ -13,6 +14,12 @@ A production-ready, opinionated [cookiecutter](https://github.com/cookiecutter/c
 - 📦 **Modern packaging**: pyproject.toml + hatch-vcs for git-based versioning
 - 🎯 **PyCharm ready**: Run configurations included
 - ✅ **Fully working**: All 88 tests pass out of the box
+
+### Homebrew Tap (NEW!)
+- 🍺 **Automated Homebrew distribution**: Complete tap repository structure
+- 🔄 **Auto-update workflows**: Formulas update automatically on PyPI release
+- ✅ **CI/CD ready**: Brew test-bot integration for quality checks
+- 📋 **Formula template**: Pre-configured with standard Python CLI dependencies
 
 ## 🚀 Quick Start
 
@@ -70,12 +77,22 @@ Choose from 1, 2, 3, 4 [1]:
 command_name [weather-cli]: weather
 
 ✨ Created project: Weather CLI
+
+📦 Two repositories created:
+   1. weather-cli/ - Main project
+   2. homebrew-weather-cli/ - Homebrew tap
 ```
 
 ### Set Up Your New Project
 
+The template creates a workspace directory containing two repositories:
+- **weather-cli-workspace/weather-cli/** - Main project
+- **weather-cli-workspace/homebrew-weather-cli/** - Homebrew tap
+
+#### Main Project Setup
+
 ```bash
-cd weather-cli
+cd weather-cli-workspace/weather-cli
 
 # Initialize git
 git init
@@ -99,31 +116,43 @@ mkdocs serve
 
 ## 📁 What's Included
 
-Your generated project will have:
+Your generated workspace will have:
 
 ```
-your-project/
-├── src/
-│   └── your_project/
-│       ├── __init__.py
-│       ├── cli.py              # CLI interface (typer + rich)
-│       └── your_project.py     # Core logic (placeholder)
-├── tests/
-│   ├── fixtures/               # Test data
-│   ├── test_*.py              # Organized tests
-│   └── conftest.py            # Shared fixtures
-├── docs/                       # MkDocs documentation
-│   ├── getting-started/
-│   ├── features/
-│   ├── use-cases/
-│   ├── guides/
-│   └── reference/
-├── .github/                    # GitHub Actions ready
-├── .run/                       # PyCharm run configs
-├── pyproject.toml             # All config in one place
-├── mkdocs.yml                 # Docs configuration
-├── .pre-commit-config.yaml    # Git hooks
-└── README.md                  # Your project README
+your-project-workspace/
+├── your-project/               # Main Python project
+│   ├── src/
+│   │   └── your_project/
+│   │       ├── __init__.py
+│   │       ├── cli.py          # CLI interface (typer + rich)
+│   │       └── your_project.py # Core logic (placeholder)
+│   ├── tests/
+│   │   ├── fixtures/           # Test data
+│   │   ├── test_*.py          # Organized tests
+│   │   └── conftest.py        # Shared fixtures
+│   ├── docs/                   # MkDocs documentation
+│   │   ├── getting-started/
+│   │   ├── features/
+│   │   ├── use-cases/
+│   │   ├── guides/
+│   │   └── reference/
+│   ├── .github/                # GitHub Actions (tests, publish, update-homebrew)
+│   ├── .run/                   # PyCharm run configs
+│   ├── pyproject.toml         # All config in one place
+│   ├── mkdocs.yml             # Docs configuration
+│   ├── .pre-commit-config.yaml # Git hooks
+│   └── README.md              # Your project README
+│
+└── homebrew-your-project/      # Homebrew tap repository
+    ├── Formula/
+    │   └── your-project.rb    # Homebrew formula (with placeholders)
+    ├── .github/workflows/
+    │   ├── tests.yml          # Brew test-bot integration
+    │   ├── publish.yml        # Auto-merge workflow
+    │   └── update-formula.yml # Auto-update from PyPI
+    ├── .gitignore
+    ├── LICENSE
+    └── README.md              # Homebrew tap instructions
 ```
 
 ## 🎯 Features
@@ -158,6 +187,14 @@ your-project/
 - PyCharm run configurations
 - GitHub Actions workflow structure
 - Automatic versioning from git tags
+
+### Homebrew Distribution
+
+- **Complete tap structure**: Ready-to-use Homebrew tap repository
+- **Automated formula updates**: Workflows trigger on PyPI release
+- **Quality assurance**: Brew test-bot integration for CI/CD
+- **Standard dependencies**: Pre-configured with typer, rich, and transitive deps
+- **Easy setup**: Detailed instructions in HOMEBREW_AUTOMATION_SETUP.md
 
 ## 🛠️ Customization
 

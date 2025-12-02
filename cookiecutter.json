@@ -17,11 +17,11 @@
     "*.jpeg",
     "*.gif",
     "*.ico",
-    ".github/renovate.json",
-    ".github/workflows/*.yml",
-    ".github/workflows/*.yaml",
-    ".idea/*.iml",
-    ".idea/*.xml",
-    ".vscode/*.json"
+    "{{cookiecutter.project_slug}}/.github/renovate.json",
+    "{{cookiecutter.project_slug}}/.github/workflows/*.yml",
+    "{{cookiecutter.project_slug}}/.github/workflows/*.yaml",
+    "{{cookiecutter.project_slug}}/.idea/*.iml",
+    "{{cookiecutter.project_slug}}/.idea/*.xml",
+    "{{cookiecutter.project_slug}}/.vscode/*.json"
   ]
 }
