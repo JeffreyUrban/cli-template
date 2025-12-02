@@ -2,6 +2,12 @@
 
 Guidance for Claude Code (claude.ai/code) when working with this repository.
 
+## Overview
+
+This file is the **entry point** for Claude guidance. Detailed guidance is organized by scope in the `.claude/` directory.
+
+**Philosophy:** Keep this file focused on universal rules and navigation. Put detailed, scope-specific guidance in dedicated files.
+
 ## Critical Rules
 
 **NEVER mention version numbers** (v0.x, v1.x, etc.) unless they have been explicitly agreed upon and documented in planning. Use:
@@ -17,7 +23,21 @@ Guidance for Claude Code (claude.ai/code) when working with this repository.
 - Planning documents
 - Unless the user has explicitly specified and approved a versioning scheme and specific versions
 
-## Quick Links
+## Navigation
+
+### Scope-Specific Guidance
+
+Claude guidance is organized by scope:
+
+- **[Development](.claude/development.md)** - Coding standards, patterns, tools, modern practices
+- **[Testing](.claude/testing.md)** - Test strategy, pytest, coverage, oracle testing
+- **[Documentation](.claude/documentation.md)** - Doc standards, MkDocs, Sybil, doc testing
+- **[Workflows](.claude/workflows/)** - Common task workflows and checklists
+- **[Handoffs](.claude/handoffs/)** - Context preservation between Claude instances
+
+### Project Documentation
+
+Key documentation by purpose:
 
 **User Documentation:**
 - **[README.md](./README.md)** - Project overview and installation
@@ -35,200 +55,111 @@ Guidance for Claude Code (claude.ai/code) when working with this repository.
 - **[dev-docs/testing/TEST_COVERAGE.md](./dev-docs/testing/TEST_COVERAGE.md)** - Test coverage plan
 - **[dev-docs/testing/ORACLE_TESTING.md](./dev-docs/testing/ORACLE_TESTING.md)** - Oracle-based testing approach
 
-**Code Quality:**
+## Project Context
 
-- **Type hints required** for function signatures
-- **Docstrings required** for public functions/classes
-- **Avoid magic numbers** - use named constants
+**Tech Stack:**
+- **Language:** Python {{ cookiecutter.python_version }}+
+- **CLI Framework:** typer + rich
+- **Testing:** pytest with organized markers
+- **Documentation:** MkDocs Material with Sybil (tested code examples)
+- **Code Quality:** ruff (lint + format) + mypy (type checking)
+- **Package Management:** uv for fast installs
+- **Version Control:** Git with conventional commits
 
-## Modern Tools & Techniques Philosophy
+**Project Structure:**
+- `src/{{ cookiecutter.project_slug }}/` - Source code
+- `tests/` - Test files with pytest markers
+- `docs/` - MkDocs documentation with tested examples
+- `dev-docs/` - Design and planning documentation
+- `.claude/` - Claude guidance files (this system)
 
-**Approach:** Favor modern, mature tools over legacy approaches. Not bleeding edge, but proven improvements.
+## Universal Workflows
 
-**When relevant, consider these modern alternatives:**
+### Git & Commits
 
-**Python libraries** (consider when use case arises):
+**Only create commits when requested by the user.** If unclear, ask first.
 
-- **CLI tools:** `typer` (type-based, modern) over `argparse`/`click` ✓ Project standard
-- **Terminal output:** `rich` for beautiful CLI output, progress bars, tables
+When creating commits:
+- Follow conventional commit format
+- Include co-authorship footer:
+  ```
+  🤖 Generated with [Claude Code](https://claude.com/claude-code)
 
-## Code Standards
+  Co-Authored-By: Claude <noreply@anthropic.com>
+  ```
+- See detailed commit workflow in system instructions
 
-**Python:**
+### Tool Usage
 
-- Type hints required for function signatures
-- Docstrings for public functions/classes
-- **Avoid magic numbers** - use named constants
-    - Example: `MY_CONSTANT = 0.5` instead of hardcoded `0.5`
+- **Proactively use Task tool** with specialized agents when the task matches the agent's description
+- **Use dedicated tools** instead of bash for file operations (Read/Edit/Write, not cat/sed)
+- **Run tools in parallel** when they're independent (multiple reads, searches, etc.)
+- See [Development](.claude/development.md) for tool-specific guidance
 
-## Documentation Standards
+### Communication
 
-**Three Types of Documentation:**
+- **Be concise** - CLI output is displayed in terminal
+- **Use markdown** - GitHub-flavored markdown for formatting
+- **Avoid emojis** unless explicitly requested
+- **Output text directly** - never use bash echo or comments to communicate
 
-1. **Planning Documentation** (temporary) - Design explorations, implementation plans, "Next Steps", "TODO"
-2. **Progress Documentation** (temporary) - "What We've Built", implementation status
-3. **Work Product Documentation** (permanent) - Current implementation, usage, architecture decisions
+## Handoffs Between Claude Instances
 
-**Key Principles:**
+**When transitioning work to another Claude instance:**
 
-- Work is not complete until documentation is production-ready
-- Planning/progress docs are valuable during development - archive after completion
-- Work product docs describe current reality, not plans or history
-- Put function details in docstrings, not external docs
-- Reference code locations, don't duplicate values or implementation
-- Preserve design rationales when converting planning → work product docs
+1. **Create handoff document** in `.claude/handoffs/YYYY-MM-DD-topic.md`
+2. **Document state**: What's complete, in progress, blocked
+3. **List decisions**: Key technical decisions and rationale
+4. **Note open questions**: Ambiguities or needed clarifications
+5. **Provide commands**: How to resume work
 
-**Before creating directory structures:** Discuss scope and organization with user
+See [Handoffs README](.claude/handoffs/README.md) for detailed template and guidance.
 
-### Documentation-Driven Engineering
+**When to create handoffs:**
+- Switching Claude instances mid-task
+- End of session with incomplete work
+- Blocked by external dependency
+- Complex feature requiring context preservation
 
-**CRITICAL: Before implementing, understand and document requirements first!**
+## Maintenance Rules
 
-This project follows a documentation-driven approach. When working on features or fixing issues:
+**When code works correctly:**
+- Remove outdated code and documentation
+- Update relevant documentation
+- Add test cases for issues found and fixed
 
-1. **Clarify requirements** through discussion with the user
-2. **Document the design** in the appropriate work product documentation
-3. **Reference the documentation** during implementation
-4. **Update documentation** as design evolves
+**Before creating directory structures:**
+- Discuss scope and organization with user
+- Don't create documentation/planning hierarchies without approval
 
-**Documentation Organization:**
+## Getting Started
 
-Documentation is organized by audience and purpose:
+1. **Review this CLAUDE.md** for universal rules and navigation
+2. **Check scope-specific guidance** in `.claude/` for your current task:
+   - Adding features? → [Development](.claude/development.md)
+   - Writing tests? → [Testing](.claude/testing.md)
+   - Updating docs? → [Documentation](.claude/documentation.md)
+3. **Reference project documentation** in `dev-docs/` for design decisions
+4. **Follow workflows** in `.claude/workflows/` for common tasks
 
-1. **User Documentation** (`dev-docs/user/`):
-   - Usage guides, examples, and user-facing features
-   - **Update when**: Adding features, changing CLI, updating examples
-   - **Audience**: End users of {{ cookiecutter.project_slug }}
+## About This Structure
 
-2. **Design Documentation** (`dev-docs/design/`):
-   - Technical architecture, algorithms, implementation details
-   - **Update when**: Changing algorithms, adding design decisions, modifying architecture
-   - **Audience**: Developers, contributors, technical reviewers
+**Why split CLAUDE.md?**
+- Main file stays focused and navigable
+- Scope-specific details don't clutter universal rules
+- Different Claude instances can focus on relevant guidance
+- Easier to maintain and update
 
-3. **Planning Documentation** (`dev-docs/planning/`):
-   - Roadmaps, feature plans, implementation stages
-   - **Update when**: Completing milestones, planning new stages, updating roadmap
-   - **Audience**: Project maintainers, contributors
+**When to update:**
+- **This file:** Universal rules, navigation, project context
+- **`.claude/*.md`:** Scope-specific patterns, standards, examples
+- **`dev-docs/`:** Design decisions, architecture, rationale
+- **`docs/`:** User-facing documentation
 
-4. **Testing Documentation** (`dev-docs/testing/`):
-   - Test strategy, coverage plans, testing approaches
-   - **Update when**: Adding test categories, changing coverage targets, new testing approaches
-   - **Audience**: Developers, QA, contributors
+**File organization principle:**
+- `CLAUDE.md` - Project-wide rules, entry point (this file)
+- `.claude/*.md` - Specialized guidance by scope
+- `dev-docs/**/*.md` - Design decisions, architecture
+- `docs/**/*.md` - User-facing documentation
 
-**Documentation Maintenance Rules:**
-
-When working on different scopes of work, maintain corresponding documentation:
-
-| Work Scope | Documentation to Update |
-|------------|------------------------|
-| **Adding/changing features** | `dev-docs/design/IMPLEMENTATION.md`, `dev-docs/user/EXAMPLES.md` |
-| **Modifying algorithm** | `dev-docs/design/ALGORITHM_DESIGN.md`, `dev-docs/design/IMPLEMENTATION.md` |
-| **Adding tests** | `dev-docs/testing/TESTING_STRATEGY.md` |
-| **CLI changes** | `README.md`, `dev-docs/user/EXAMPLES.md` |
-| **Completing milestones** | `dev-docs/planning/PLANNING.md` |
-| **Design decisions** | `dev-docs/design/DESIGN_RATIONALE.md` |
-
-**Implementation Workflow:**
-
-When implementing or fixing features:
-
-1. **Identify scope**: Determine which documentation category applies
-2. **Read relevant docs**: Reference appropriate design/planning docs
-3. **Ask for clarification** if requirements are unclear or incomplete
-4. **Update documentation FIRST**: Document design changes before implementing
-5. **Implement** according to documented design
-6. **Update related docs**: Ensure all affected documentation is updated
-7. **Verify** implementation matches documentation
-
-**DO NOT:**
-- Implement based on assumptions without documented requirements
-- Add implementation details to @CLAUDE.md (they belong in @docs/IMPLEMENTATION.md)
-- Skip documentation updates when design changes
-- Document violations of requirements as "limitations" or "TODO" items
-- **Make unsubstantiated causal claims** - only state what is observed, not assumed causes
-
-**Example violations:**
-
-*Requirement violation:*
-```
-Requirement: "Keep the most recent value"
-Wrong: Implement to keep old value, add TODO to fix later
-Right: Ask for clarification if unclear, implement correctly
-```
-
-*Unsubstantiated causal claim:*
-```
-Wrong: "Substring matching causes performance degradation"
-  (we observed slow performance AND learned of a requirement - no causal link established)
-Right: "Full-line matching required per user specification. Performance issue under investigation."
-```
-
-**Evidence-Based Documentation:**
-- Distinguish between **observed facts** and **inferred causes**
-- Use precise language: "observed", "measured", "specified by user" vs "causes", "due to", "because"
-- When debugging, document what was tried and what was observed, not assumed root causes
-- If stating a cause, cite the evidence or mark as hypothesis
-
-**When Asked to Justify Decisions:**
-- If the user asks why you made a decision or assumption, search documentation and code comments for supporting evidence
-- Present the evidence with specific references (file paths and line numbers where applicable)
-- If no supporting evidence is found, acknowledge the assumption and ask for clarification
-- Example: "I assumed X based on the comment at normalization_engine.py:117 which states '...'"
-
-## Testing
-
-This project uses **pytest exclusively** (not unittest).
-
-**Core Principles:**
-
-1. **Use pytest markers** - `@pytest.mark.unit`, `@pytest.mark.integration`, `@pytest.mark.slow`
-2. Reference `dev-docs/testing/TESTING_STRATEGY.md` and `dev-docs/testing/TEST_COVERAGE.md` to understand test organization and coverage
-3. When tests fail, determine if the change is a fix (regenerate tests) or a regression (fix the code)
-
-## Common Task Checklists
-
-### Creating New Features
-
-1. Check `dev-docs/design/IMPLEMENTATION.md` for design alignment
-2. **Write tests** (TDD or alongside implementation):
-    - Create fixtures
-    - Unit tests for pure functions
-    - Mark with `@pytest.mark.unit`, `@pytest.mark.integration`, etc.
-3. **Verify tests pass**: `pytest`
-4. **Update documentation**:
-    - `dev-docs/design/IMPLEMENTATION.md` - if changing architecture
-    - `dev-docs/user/EXAMPLES.md` - if adding user-facing features
-    - `dev-docs/testing/TESTING_STRATEGY.md` - if adding new test categories
-
-**Testing is not optional** - All features require tests.
-
-## Project Context for Claude Code
-
-**Development Philosophy:**
-
-- **Testing Required** - All code needs pytest tests
-
-**Project-Specific Critical Rules:**
-
-- **CRITICAL: Implement requirements correctly, don't document violations as limitations!**
-  - When given a requirement (e.g., "keep the most recent value"), implement it correctly
-  - Do NOT implement the opposite behavior and add a TODO noting it should be fixed later
-  - If the requirement needs clarification or would require significant changes, ASK first
-
-- **CRITICAL: Use proper solutions, not workarounds!**
-  - When encountering issues (especially in CI/testing), investigate the root cause
-  - Find the standard/best-practice solution for the problem
-  - Examples of workarounds to AVOID:
-    - Weakening test assertions to pass (e.g., changing "window-size" to "window")
-    - Adding `# type: ignore` comments instead of fixing type issues
-    - Disabling linters/checkers instead of fixing the underlying issue
-  - Examples of proper solutions:
-    - Setting environment variables for consistent behavior (e.g., `COLUMNS` for terminal width)
-    - Using appropriate imports for Python version compatibility (e.g., `Optional` vs `|`)
-    - Configuring tools correctly in config files
-  - If unsure whether a solution is a workaround or proper fix, ASK the user
-
-**Maintenance:**
-
-- Upon confirming new code works correctly, remove outdated code and documentation
-- Add and maintain test cases in @tests corresponding to issues found and fixes applied
+**Never** put implementation details in CLAUDE.md files - link to dev-docs or code instead.
