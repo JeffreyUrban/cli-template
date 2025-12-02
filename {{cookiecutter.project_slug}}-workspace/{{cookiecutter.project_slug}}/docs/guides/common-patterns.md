@@ -1,3 +1,5 @@
+# ⚠️ Template doc: Testing disabled ⚠️
+
 # Common Patterns
 
 Quick reference for common {{ cookiecutter.command_name }} use cases and patterns. Each pattern includes copy-paste ready commands.

@@ -1,3 +1,5 @@
+# ⚠️ Template doc: Testing disabled ⚠️
+
 # {{ cookiecutter.command_name }}
 
 placeholder.

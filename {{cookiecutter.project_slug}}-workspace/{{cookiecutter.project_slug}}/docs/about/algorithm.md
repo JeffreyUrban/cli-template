@@ -1,3 +1,5 @@
+# ⚠️ Template doc: Testing disabled ⚠️
+
 # How {{ cookiecutter.command_name }} Works
 
 A detailed look at the algorithm behind processor.

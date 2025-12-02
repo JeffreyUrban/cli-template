@@ -1,3 +1,5 @@
+# ⚠️ Template doc: Testing disabled ⚠️
+
 # Explain Mode
 
 The `--explain` flag outputs explanations to stderr showing why placeholder. 

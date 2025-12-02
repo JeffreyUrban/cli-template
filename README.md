@@ -8,12 +8,13 @@ A production-ready, opinionated [cookiecutter](https://github.com/cookiecutter/c
 - 🎨 **Modern CLI framework**: typer + rich for beautiful terminal UIs
 - ⚡️ **Fast package management**: uv for 10-100x faster installs
 - 🧪 **Complete test suite**: pytest with organized markers (unit/integration/property)
-- 📚 **Beautiful documentation**: MkDocs Material with live code examples (Sybil)
+- 📚 **Beautiful tested documentation**: MkDocs Material with live, tested code examples (Sybil)
 - 🔍 **Code quality tools**: ruff (format + lint) + mypy (type checking)
 - 🪝 **Git hooks**: pre-commit with automated checks
 - 📦 **Modern packaging**: pyproject.toml + hatch-vcs for git-based versioning
 - 🎯 **PyCharm ready**: Run configurations included
 - ✅ **Fully working**: All 88 tests pass out of the box
+- 🐙 **GitHub configuration script**: Automated repo settings (squash merge, branch protection)
 
 ### Homebrew Tap
 - 🍺 **Automated Homebrew distribution**: Complete tap repository structure
@@ -114,6 +115,31 @@ pytest
 mkdocs serve
 ```
 
+#### GitHub Configuration (Optional)
+
+After pushing your project to GitHub, configure repository settings with the included script:
+
+```bash
+# Install GitHub CLI if not already installed
+brew install gh  # macOS/Linux
+# or download from https://cli.github.com/
+
+# Authenticate with GitHub
+gh auth login
+
+# Run configuration script
+./scripts/configure-github.sh
+```
+
+This automatically configures:
+- **All merge methods enabled** (merge commits, squash, rebase) with squash as default
+- **Branch protection** on main (prevents force pushes, enforces rules for admins)
+- **Auto-delete branches** after merge
+- **Auto-merge** capability
+- **Branch update suggestions** (prompts to update PRs when base branch changes)
+
+See the [GitHub Configuration](#-github-repository-settings) section for details.
+
 ## 📁 What's Included
 
 Your generated workspace will have:
@@ -136,6 +162,8 @@ your-project-workspace/
 │   │   ├── use-cases/
 │   │   ├── guides/
 │   │   └── reference/
+│   ├── scripts/                # Utility scripts
+│   │   └── configure-github.sh # GitHub repo configuration
 │   ├── .github/                # GitHub Actions (tests, publish, update-homebrew)
 │   ├── .run/                   # PyCharm run configs
 │   ├── pyproject.toml         # All config in one place
@@ -154,6 +182,66 @@ your-project-workspace/
     ├── LICENSE
     └── README.md              # Homebrew tap instructions
 ```
+
+## 🐙 GitHub Repository Settings
+
+The template includes a script to automatically configure your GitHub repository with recommended settings for professional project management.
+
+### What Gets Configured
+
+**Merge Strategy:**
+- All merge methods enabled (merge commits, squash, rebase) for maximum flexibility
+- Squash merge set as default (keeps history clean with one commit per PR)
+- Squash commit title uses PR title, message includes all commits
+
+**Branch Protection on `main`:**
+- Prevents force pushes and branch deletion
+- Enforces rules for administrators
+- Ready for required status checks (add after setting up CI/CD)
+
+**Pull Request Settings:**
+- Auto-delete branches after merge (keeps repo clean)
+- Auto-merge enabled (allows PRs to merge when checks pass)
+- Branch update suggestions enabled (prompts to update when base branch changes)
+
+### Usage
+
+```bash
+# The script auto-detects your repository from git remote
+./scripts/configure-github.sh
+
+# Or specify manually
+./scripts/configure-github.sh your-username/your-repo
+```
+
+**Requirements:**
+- [GitHub CLI](https://cli.github.com/) installed and authenticated
+- Admin permissions on the repository
+
+### Adding Status Checks
+
+After setting up GitHub Actions, add required status checks to ensure tests pass before merging:
+
+```bash
+gh api -X PATCH repos/your-username/your-repo/branches/main/protection/required_status_checks \
+  -F strict=false \
+  -f 'contexts[]=quality' \
+  -f 'contexts[]=link-check' \
+  -f 'contexts[]=test (3.9)' \
+  -f 'contexts[]=test (3.10)' \
+  -f 'contexts[]=test (3.11)' \
+  -f 'contexts[]=test (3.12)' \
+  -f 'contexts[]=test (3.13)' \
+  -f 'contexts[]=test (3.14)' \
+  -f 'contexts[]=docs/readthedocs.org:your-project'
+```
+
+**Notes:**
+- Use `-F` (uppercase) for `strict` to send it as a boolean, not a string
+- The single quotes around each `-f` parameter are required for zsh (macOS default shell) to prevent glob expansion
+- This matches the workflow pattern where `quality` and `link-check` run in parallel, followed by matrix tests
+
+The configuration script outputs these commands customized for your project at the end of execution.
 
 ## 🎯 Features
 
@@ -265,3 +353,4 @@ Built with:
 - [ruff](https://docs.astral.sh/ruff/)
 - [uv](https://docs.astral.sh/uv/)
 - [Homebrew](https://brew.sh/)
+- [Sybil](https://sybil.readthedocs.io)

@@ -1,5 +1,16 @@
 # {{ cookiecutter.project_name }}
 
+## ⚠️ Early Development - Not Ready for Use
+
+**This project is under active development and is not ready for production use.**
+
+- APIs may change without notice
+- Documentation is incomplete
+- No releases published yet
+- Not accepting contributions at this time
+
+> - **Star/watch the repo to be notified when the first release is available.**
+
 **{{ cookiecutter.project_short_description }}**
 
 [![PyPI version](https://img.shields.io/pypi/v/{{ cookiecutter.project_slug }}.svg)](https://pypi.org/project/{{ cookiecutter.project_slug }}/)
@@ -113,6 +124,35 @@ pytest
 # Run with coverage
 pytest --cov={{ cookiecutter.command_name }} --cov-report=html
 ```
+
+### GitHub Repository Configuration
+
+After creating your GitHub repository, run the configuration script to set up recommended settings:
+
+```bash
+./scripts/configure-github.sh
+```
+
+This script configures:
+- **Merge strategy:** Squash and merge only (with other methods disabled)
+- **Branch protection on main:**
+  - Prevents force pushes and branch deletion
+  - Enforces rules for administrators
+  - Allows configuration of required status checks
+- **Auto-delete branches** after merge
+- **Auto-merge** capability
+
+**Requirements:**
+- [GitHub CLI](https://cli.github.com/) installed and authenticated (`gh auth login`)
+- Admin permissions on the repository
+
+The script will automatically detect your repository from the git remote, or you can specify it manually:
+
+```bash
+./scripts/configure-github.sh owner/repository-name
+```
+
+**Note:** After setting up GitHub Actions workflows, add required status checks by following the instructions shown at the end of the script output.
 
 ## Performance
 

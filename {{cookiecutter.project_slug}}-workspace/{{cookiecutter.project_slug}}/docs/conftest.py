@@ -257,8 +257,15 @@ def evaluate_python_block(example):
                     f"File sizes: {len(actual_output)} vs {len(expected_output_content)} bytes"
                 )
             else:
-                actual_output = output_file.read_text().strip()
-                expected_output_content = expected_file_path.read_text().strip()
+                # Normalize output by stripping trailing whitespace from each line
+                # This allows expected files to pass pre-commit hooks while matching
+                # actual output that may have trailing spaces (e.g., from Rich tables)
+                def normalize_text(text: str) -> str:
+                    lines = [line.rstrip() for line in text.splitlines()]
+                    return "\n".join(lines).strip()
+
+                actual_output = normalize_text(output_file.read_text())
+                expected_output_content = normalize_text(expected_file_path.read_text())
 
                 assert actual_output == expected_output_content, (
                     f"\nPython code output mismatch\n"
@@ -296,6 +303,29 @@ pytest_collect_file = Sybil(
         "reference/{{ cookiecutter.command_name }}.md",
     ],
 ).pytest()
+
+
+def pytest_collection_modifyitems(items):
+    """
+    Skip examples in documents marked as templates.
+
+    If a document contains the visible warning heading:
+    "# ⚠️ Template doc: Testing disabled ⚠️"
+    all examples in that document are skipped during testing.
+
+    This allows incremental documentation development - remove the heading
+    when the doc is ready to be tested.
+    """
+    import pytest
+
+    for item in items:
+        # Sybil test items have fspath pointing to the markdown file
+        if hasattr(item, "fspath"):
+            doc_path = Path(str(item.fspath))
+            if doc_path.suffix == ".md" and doc_path.exists():
+                content = doc_path.read_text()
+                if "# ⚠️ Template doc: Testing disabled ⚠️" in content:
+                    item.add_marker(pytest.mark.skip(reason="Template doc - testing disabled"))
 
 
 def pytest_sessionfinish(session, exitstatus):

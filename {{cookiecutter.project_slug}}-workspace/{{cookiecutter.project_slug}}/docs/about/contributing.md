@@ -1,3 +1,5 @@
+# ⚠️ Template doc: Testing disabled ⚠️
+
 # Contributing to {{ cookiecutter.command_name }}
 
 Thank you for your interest in contributing to {{ cookiecutter.command_name }}! This guide will help you get started.

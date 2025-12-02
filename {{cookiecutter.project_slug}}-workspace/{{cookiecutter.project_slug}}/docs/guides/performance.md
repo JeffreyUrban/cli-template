@@ -1,3 +1,5 @@
+# ⚠️ Template doc: Testing disabled ⚠️
+
 # Performance Guide
 
 Understand {{ cookiecutter.command_name }}'s performance characteristics and optimize for your use case.

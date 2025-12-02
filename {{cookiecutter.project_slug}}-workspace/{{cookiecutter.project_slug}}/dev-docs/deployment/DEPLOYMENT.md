@@ -10,9 +10,18 @@ This document outlines the deployment strategy for distributing {{ cookiecutter.
 
 {{ cookiecutter.command_name }} is distributed through multiple channels to reach different user communities:
 
-1. **PyPI** - Primary Python package distribution (planned)
-2. **Homebrew** - macOS/Linux CLI tool distribution (planned)
-3. **conda-forge** - Deferred - evaluate based on target audience
+1. **Prerequisites** - Ensure project is ready for release
+2. **PyPI** - Primary Python package distribution (planned)
+3. **Homebrew** - macOS/Linux CLI tool distribution (planned)
+4. **conda-forge** - Deferred - evaluate based on target audience
+
+## Prerequisites
+
+Ensure the following are completed before proceeding with deployment:
+
+- Restore python testing full matrix in test.yml: `["3.9", "3.10", "3.11", "3.12", "3.13", "3.14"]`
+- Add the additional python tests to the required list for branch protection
+- Increase the test coverage requirement `--cov-fail-under`
 
 ## PyPI Package
 
