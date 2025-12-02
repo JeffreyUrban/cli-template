@@ -15,7 +15,7 @@ A production-ready, opinionated [cookiecutter](https://github.com/cookiecutter/c
 - 🎯 **PyCharm ready**: Run configurations included
 - ✅ **Fully working**: All 88 tests pass out of the box
 
-### Homebrew Tap (NEW!)
+### Homebrew Tap
 - 🍺 **Automated Homebrew distribution**: Complete tap repository structure
 - 🔄 **Auto-update workflows**: Formulas update automatically on PyPI release
 - ✅ **CI/CD ready**: Brew test-bot integration for quality checks
