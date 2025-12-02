@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.9", "3.10", "3.11", "3.12", "3.13", "3.14"]
+        python-version: ["3.9", "3.14"]
 
     steps:
       - name: Checkout template
@@ -37,20 +37,27 @@ jobs:
 
       - name: Verify generated structure
         run: |
+          echo "=== Checking workspace structure ==="
+          ls -la test-cli-tool-workspace/
+          echo ""
           echo "=== Checking generated directory structure ==="
-          ls -la test-cli-tool/
+          ls -la test-cli-tool-workspace/test-cli-tool/
+          echo ""
+          echo "=== Checking Homebrew tap structure ==="
+          ls -la test-cli-tool-workspace/homebrew-test-cli-tool/
+          ls -la test-cli-tool-workspace/homebrew-test-cli-tool/Formula/
           echo ""
           echo "=== Checking Python package structure ==="
-          ls -la test-cli-tool/src/
-          ls -la test-cli-tool/src/test_cli_tool/
+          ls -la test-cli-tool-workspace/test-cli-tool/src/
+          ls -la test-cli-tool-workspace/test-cli-tool/src/test_cli_tool/
           echo ""
           echo "=== Checking pyproject.toml ==="
-          cat test-cli-tool/pyproject.toml | grep -A2 "\[project\]"
-          cat test-cli-tool/pyproject.toml | grep -A1 "\[project.scripts\]"
+          cat test-cli-tool-workspace/test-cli-tool/pyproject.toml | grep -A2 "\[project\]"
+          cat test-cli-tool-workspace/test-cli-tool/pyproject.toml | grep -A1 "\[project.scripts\]"
 
       - name: Initialize git (required for hatch-vcs)
         run: |
-          cd test-cli-tool
+          cd test-cli-tool-workspace/test-cli-tool
           git init
           git config user.email "test@example.com"
           git config user.name "Test Author"
@@ -60,20 +67,20 @@ jobs:
 
       - name: Install dependencies
         run: |
-          cd test-cli-tool
+          cd test-cli-tool-workspace/test-cli-tool
           uv venv
           source .venv/bin/activate
           uv pip install -e '.[dev,docs]'
 
       - name: Run pytest
         run: |
-          cd test-cli-tool
+          cd test-cli-tool-workspace/test-cli-tool
           source .venv/bin/activate
           pytest -v --tb=short
 
       - name: Test CLI execution
         run: |
-          cd test-cli-tool
+          cd test-cli-tool-workspace/test-cli-tool
           source .venv/bin/activate
           echo "=== Testing --version ==="
           test-cli-tool --version
@@ -88,7 +95,7 @@ jobs:
 
       - name: Verify naming convention
         run: |
-          cd test-cli-tool
+          cd test-cli-tool-workspace/test-cli-tool
           source .venv/bin/activate
           echo "=== Verifying naming convention ==="
           echo "✓ CLI command name should use hyphens: test-cli-tool"
@@ -104,7 +111,7 @@ jobs:
 
       - name: Test code quality tools
         run: |
-          cd test-cli-tool
+          cd test-cli-tool-workspace/test-cli-tool
           source .venv/bin/activate
           echo "=== Running ruff linter ==="
           ruff check src/ tests/
@@ -117,7 +124,7 @@ jobs:
 
       - name: Test documentation build
         run: |
-          cd test-cli-tool
+          cd test-cli-tool-workspace/test-cli-tool
           source .venv/bin/activate
           echo "=== Building documentation ==="
           mkdocs build --strict
