@@ -26,20 +26,34 @@ When you create a GitHub Release in the main `{{ cookiecutter.project_slug }}` r
 
 ## Setup Required
 
-### GitHub Token
+### 1. Configure Homebrew Repository Settings
 
-You need to create a Personal Access Token (PAT) to allow the main repo to trigger the homebrew repo.
+Enable GitHub Actions to create pull requests:
+
+1. Go to: https://github.com/{{ cookiecutter.github_username }}/homebrew-{{ cookiecutter.project_slug }}/settings/actions
+2. Navigate to **Actions** → **General**
+3. Scroll to **Workflow permissions**
+4. Check ✅ **"Allow GitHub Actions to create and approve pull requests"**
+5. Click **Save**
+
+### 2. Create GitHub Personal Access Token (Fine-Grained)
+
+You need to create a fine-grained Personal Access Token (PAT) to allow the main repo to trigger the homebrew repo.
 
 #### Creating the Token:
 
-1. Go to: https://github.com/settings/tokens/new
-2. **Note**: "Homebrew formula updater"
-3. **Expiration**: No expiration (or set to 1 year and renew annually)
-4. **Scopes**: Select only:
-   - `repo` (Full control of private repositories)
-     - This includes `public_repo` for public repositories
-5. Click **Generate token**
-6. **Copy the token immediately** (you won't see it again)
+1. Go to: https://github.com/settings/personal-access-tokens/new
+2. **Token name**: "Homebrew formula updater"
+3. **Expiration**: 1 year (recommended - set calendar reminder to renew)
+4. **Repository access**: Select "Only select repositories"
+   - Choose: `{{ cookiecutter.github_username }}/homebrew-{{ cookiecutter.project_slug }}`
+5. **Permissions** → **Repository permissions**:
+   - **Contents**: Read and write
+   - **Metadata**: Read-only (automatically selected)
+   - **Pull requests**: Read and write
+   - **Workflows**: Read and write
+6. Click **Generate token**
+7. **Copy the token immediately** (you won't see it again)
 
 #### Adding the Token as a Secret:
 
@@ -101,8 +115,13 @@ This will create a test PR without needing a full release.
 
 The `update-homebrew.yml` workflow references a secret. Make sure:
 1. The secret `HOMEBREW_UPDATE_TOKEN` exists in the main repo
-2. The token has `repo` scope
+2. The token has the correct permissions:
+   - Contents: Read and write
+   - Metadata: Read-only
+   - Pull requests: Read and write
+   - Workflows: Read and write
 3. The token hasn't expired
+4. The token has access to the `homebrew-{{ cookiecutter.project_slug }}` repository
 
 ### "PyPI timeout" error
 
@@ -117,6 +136,11 @@ Check the Actions tab in homebrew-{{ cookiecutter.project_slug }}:
 1. https://github.com/{{ cookiecutter.github_username }}/homebrew-{{ cookiecutter.project_slug }}/actions
 2. Look for failed runs
 3. Check the logs for errors
+
+Common causes:
+- **Missing permission**: Ensure "Allow GitHub Actions to create and approve pull requests" is enabled in the homebrew repo settings (see Setup step 1)
+- **Token permissions**: Verify the token has Pull requests: Read and write permission
+- **Formula syntax error**: Check that the formula file has valid Ruby syntax
 
 ## Manual Fallback
 
