@@ -73,30 +73,6 @@ The main `CLAUDE.md` at the project root provides universal rules and navigation
 - Single-task guidance (put in workflows/)
 - Implementation details (put in dev-docs/)
 
-## For Multiple Claude Instances
-
-If multiple Claude instances work on this project:
-
-1. **Read main CLAUDE.md first** - universal rules apply to all
-2. **Read relevant scope file** - get focused guidance for your task
-3. **Check workflows/** - follow established patterns for common tasks
-4. **Check for handoffs** - look in `.claude/handoffs/` for recent context
-5. **Create handoff when done** - preserve context for next instance
-
-### Handoff Protocol
-
-**When handing off work:**
-1. Create `.claude/handoffs/YYYY-MM-DD-topic.md`
-2. Use template from [handoffs/README.md](./handoffs/README.md)
-3. Document: state, decisions, questions, commands
-4. Reference all modified files and docs
-
-**When receiving handoff:**
-1. Read handoff document thoroughly
-2. Run commands to verify current state
-3. Review referenced files and docs
-4. Update handoff as work progresses
-
 ## Maintenance
 
 **When to update:**

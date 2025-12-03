@@ -44,33 +44,6 @@ env:
 
 ## Debugging Techniques
 
-### Print Debugging
-
-**Temporary debug output:**
-```python
-def problematic_function(data):
-    print(f"DEBUG: data = {data}")  # Remove before commit
-    result = process(data)
-    print(f"DEBUG: result = {result}")
-    return result
-```
-
-**Remove all debug prints before committing.**
-
-### Breakpoint Debugging
-
-```python
-def debug_function(input):
-    breakpoint()  # Opens pdb debugger
-    result = process(input)
-    return result
-```
-
-**Run with pytest:**
-```bash
-pytest tests/test_module.py::test_function -s  # -s shows output
-```
-
 ### Pytest Debugging
 
 **Run single test with verbose output:**
@@ -207,32 +180,6 @@ ruff check path/to/file.py --fix
 ```bash
 mypy src/ --show-error-codes --pretty
 ```
-
----
-
-## Getting Unstuck
-
-When completely stuck:
-
-1. **Simplify** - Create minimal reproduction
-2. **Isolate** - Binary search (comment out code)
-3. **Document** - Write down what you know
-4. **Check assumptions** - Verify preconditions
-5. **Fresh eyes** - Take a break, come back
-6. **Ask for help** - Create detailed issue
-
----
-
-## Debugging Checklist
-
-Before asking for help:
-
-- [ ] Can you reproduce consistently?
-- [ ] Have you created a minimal reproduction?
-- [ ] What have you tried already?
-- [ ] What error messages (exact text)?
-- [ ] What's your environment (Python version, OS)?
-- [ ] Does it work in a fresh environment?
 
 ---
 
