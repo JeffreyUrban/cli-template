@@ -26,23 +26,8 @@ Releases are automated via GitHub Actions when tags are pushed. This workflow do
 
 ### 1. Verify Ready to Release
 
-**Run full test suite:**
 ```bash
-pytest
-pytest docs/
-```
-
-**Check code quality:**
-```bash
-pre-commit run --all-files  # Catch formatting/linting issues
-ruff check .
-ruff format --check .
-mypy src/{{ cookiecutter.project_slug }}
-```
-
-**Verify documentation:**
-```bash
-mkdocs build
+pre-commit run --all-files  # Runs tests, quality checks, doc builds
 ```
 
 ### 2. Update Version
@@ -131,21 +116,6 @@ The `update-homebrew` workflow automatically updates the Homebrew formula when:
 2. Click "Run workflow"
 3. Enter version number
 4. Click "Run workflow"
-
----
-
-## Versioning
-
-**Semantic Versioning (SemVer):**
-- **MAJOR** (X.0.0): Incompatible API changes
-- **MINOR** (0.Y.0): Backwards-compatible new features
-- **PATCH** (0.0.Z): Backwards-compatible bug fixes
-
-**Examples:**
-- `v1.0.0` - Initial stable release
-- `v1.1.0` - Added new feature
-- `v1.1.1` - Fixed bug
-- `v2.0.0` - Breaking changes
 
 ---
 

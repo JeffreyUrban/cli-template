@@ -101,15 +101,6 @@ EOF
 )"
 \`\`\`
 
-**Conventional commit types:**
-- \`feat:\` - New feature (NOT "feat: New! Amazing feature" - avoid marketing language)
-- \`fix:\` - Bug fix
-- \`docs:\` - Documentation changes
-- \`test:\` - Test changes
-- \`refactor:\` - Code refactoring
-- \`chore:\` - Maintenance tasks
-- \`ci:\` - CI/CD changes
-
 **Commit message style:**
 - Use factual, technical language
 - Avoid marketing terms ("New!", "Exciting!", "Amazing!", "Improved!")

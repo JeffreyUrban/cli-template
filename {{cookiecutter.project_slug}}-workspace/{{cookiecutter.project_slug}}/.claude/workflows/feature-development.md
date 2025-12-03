@@ -183,33 +183,8 @@ processed: hello
 ### 7. Run Quality Checks
 
 ```bash
-# Run pre-commit checks (proactively catch issues)
-pre-commit run --all-files
-
-# Run all tests
-pytest
-
-# Run with coverage
-pytest --cov=src/{{ cookiecutter.project_slug }}
-
-# Lint
-ruff check .
-
-# Format
-ruff format .
-
-# Type check
-mypy src/{{ cookiecutter.project_slug }}
-
-# Test documentation
-pytest docs/
+pre-commit run --all-files  # Runs all quality checks, tests, docs
 ```
-
-**Pre-commit enforces:**
-- Trailing whitespace removal
-- End-of-file newlines
-- YAML/file syntax validity
-- Line ending consistency
 
 ### 8. Verify Everything
 
@@ -313,31 +288,6 @@ def process(input: str, config: Config) -> str:
 - Investigating and fixing root causes
 
 **If unsure:** Ask whether a solution is a workaround or proper fix
-
----
-
-## Troubleshooting
-
-### Tests Failing
-
-1. Check if test expectations are correct
-2. Run single test with `-vv` for details
-3. Add debug prints temporarily
-4. Verify fixtures and test data
-
-### Type Checker Errors
-
-1. Add type hints to new code
-2. Import types from `typing` if needed
-3. Use `typing.cast()` for type narrowing
-4. Check for `Any` types and make more specific
-
-### Documentation Not Rendering
-
-1. Check markdown syntax
-2. Verify code block fences
-3. Run `mkdocs serve` to preview
-4. Check for broken links
 
 ---
 

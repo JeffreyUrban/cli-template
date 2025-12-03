@@ -6,14 +6,6 @@ Debugging techniques, common issues, and problem-solving strategies.
 
 ---
 
-## Philosophy
-
-**Fail loudly** - Don't hide when things don't work. Make errors visible and actionable.
-
-**Investigate root causes** - Find proper solutions, not workarounds.
-
----
-
 ## Common Issues & Solutions
 
 ### Rich Output Formatting in Tests

@@ -64,9 +64,8 @@ The main `CLAUDE.md` at the project root provides universal rules and navigation
 ## Updating This Structure
 
 **Add new scope file when:**
-- A scope has >50 lines of guidance
-- Multiple Claude instances work on the scope
-- The scope has distinct patterns/standards
+- A scope has distinct patterns/standards worth separating
+- Mixing the content with existing files would hurt clarity
 
 **Don't add new files for:**
 - Temporary guidance (put in main CLAUDE.md with TODO)

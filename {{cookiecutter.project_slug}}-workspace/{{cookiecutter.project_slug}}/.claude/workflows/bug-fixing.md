@@ -142,54 +142,6 @@ This catches formatting, linting, and other issues before committing.
 
 ---
 
-## Common Bug Patterns
-
-### Off-by-One Errors
-
-```python
-# Bug
-for i in range(len(items) - 1):  # Misses last item
-    process(items[i])
-
-# Fix
-for i in range(len(items)):
-    process(items[i])
-
-# Better: Use iteration
-for item in items:
-    process(item)
-```
-
-### Edge Cases
-
-```python
-# Bug: Doesn't handle empty input
-def process(data: list) -> str:
-    return data[0]  # IndexError if empty
-
-# Fix: Handle edge case
-def process(data: list) -> str:
-    if not data:
-        return ""
-    return data[0]
-```
-
-### Type Errors
-
-```python
-# Bug: Assumes input type
-def process(value):
-    return value.strip()  # AttributeError if not string
-
-# Fix: Validate type
-def process(value: str) -> str:
-    if not isinstance(value, str):
-        raise TypeError(f"Expected str, got {type(value)}")
-    return value.strip()
-```
-
----
-
 ## Debugging Techniques
 
 ### Test-Driven Debugging
