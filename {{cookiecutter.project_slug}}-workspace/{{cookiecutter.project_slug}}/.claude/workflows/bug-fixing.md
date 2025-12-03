@@ -62,12 +62,33 @@ pytest tests/test_module.py::test_bug_description -s
 4. Check state/side effects
 5. Review recent changes
 
+**Use evidence-based debugging:**
+- Distinguish **observed facts** from **inferred causes**
+- Document what was tried and what was observed
+- Use precise language: "observed", "measured" vs "causes", "due to"
+- If stating a cause, cite the evidence or mark as hypothesis
+
 ### 4. Fix the Bug
 
 **Implement fix:**
 - Make minimal changes
 - Fix root cause, not symptoms
 - Maintain existing behavior for other cases
+- **Use proper solutions, not workarounds**
+
+**Avoid workarounds:**
+- Weakening test assertions
+- Adding `# type: ignore` comments
+- Disabling quality checks
+- Quick fixes that hide root cause
+
+**Use proper solutions:**
+- Fix underlying issue
+- Configure tools correctly
+- Set appropriate environment variables
+- Refactor if needed for correctness
+
+**If fix requires significant changes:** Discuss with user before implementing.
 
 **Example:**
 ```python
@@ -97,6 +118,13 @@ pytest tests/test_module.py
 pytest
 ```
 
+**Run pre-commit checks:**
+```bash
+pre-commit run --all-files
+```
+
+This catches formatting, linting, and other issues before committing.
+
 ### 6. Clean Up
 
 **Remove debug code:**
@@ -115,11 +143,14 @@ pytest
 - Edge case handling changed
 - Fix affects public API
 
-**Add to CHANGELOG:**
+**Add to CHANGELOG (if maintained):**
 ```markdown
 ### Fixed
 - Fixed bug where X caused Y (#issue-number)
+- List affected files if significant (src/module.py, tests/test_module.py)
 ```
+
+**Use CHANGELOG.md as template** for format and detail level.
 
 ---
 
@@ -199,6 +230,36 @@ def debug_function(input):
 3. Fix code
 4. Run test to verify
 5. Repeat until passing
+
+### Evidence-Based Debugging
+
+**Distinguish facts from assumptions:**
+
+**DON'T:**
+- "X causes Y" (without evidence)
+- "Performance issues due to algorithm" (assumed cause)
+- "Bug happens because of Z" (unverified)
+
+**DO:**
+- "Observed: X happens, Y occurs" (facts)
+- "Measured: Performance degrades when..." (measured)
+- "Hypothesis: May be caused by Z" (marked as theory)
+
+**When documenting bugs:**
+- State what was observed
+- State what was tried
+- State what was measured
+- Separate observations from conclusions
+- Cite evidence when claiming causes
+
+**Example:**
+```markdown
+Observed: Function returns None when input contains newlines
+Tried: Tested with various inputs
+Measured: Fails on 100% of inputs with \n
+Evidence: Line 45 strips all whitespace including newlines (see strip_input())
+Conclusion: Bug is in strip_input() function
+```
 
 ---
 

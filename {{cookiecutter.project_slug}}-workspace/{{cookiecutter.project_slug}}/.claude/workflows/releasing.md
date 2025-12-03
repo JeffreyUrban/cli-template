@@ -34,6 +34,7 @@ pytest docs/
 
 **Check code quality:**
 ```bash
+pre-commit run --all-files  # Catch formatting/linting issues
 ruff check .
 ruff format --check .
 mypy src/{{ cookiecutter.project_slug }}
@@ -57,7 +58,7 @@ Version is determined by git tags, not manual version files.
 ## [X.Y.Z] - YYYY-MM-DD
 
 ### Added
-- New feature description
+- New feature description (NOT "New! Feature X" - avoid marketing language)
 
 ### Changed
 - Changed behavior description
@@ -68,6 +69,12 @@ Version is determined by git tags, not manual version files.
 ### Removed
 - Removed feature description
 ```
+
+**Style guidelines:**
+- Use factual, technical language
+- Avoid marketing terms ("New!", "Exciting!", "Amazing!")
+- State what changed, not why it's great
+- Be concise and specific
 
 ### 4. Commit Changes (if any)
 

@@ -23,6 +23,43 @@ This file is the **entry point** for Claude guidance. Detailed guidance is organ
 - Planning documents
 - Unless the user has explicitly specified and approved a versioning scheme and specific versions
 
+**Safe rm -rf usage:**
+- Never `rm -rf` with `*` or `~` in the target
+- Never `rm -rf` outside of the project or /tmp
+- Always specify specific targets within the project for `rm -rf`
+
+## Project-Specific Critical Rules
+
+**CRITICAL: Implement requirements correctly, don't document violations as limitations!**
+- When given a requirement (e.g., "keep the most recent value"), implement it correctly
+- Do NOT implement the opposite behavior and add a TODO noting it should be fixed later
+- If the requirement needs clarification or would require significant changes, ASK first
+
+**CRITICAL: Use proper solutions, not workarounds!**
+- When encountering issues (especially in CI/testing), investigate the root cause
+- Find the standard/best-practice solution for the problem
+- Examples of workarounds to AVOID:
+  - Weakening test assertions to pass (e.g., changing "window-size" to "window")
+  - Adding `# type: ignore` comments instead of fixing type issues
+  - Disabling linters/checkers instead of fixing the underlying issue
+- Examples of proper solutions:
+  - Setting environment variables for consistent behavior (e.g., `COLUMNS` for terminal width)
+  - Using appropriate imports for Python version compatibility (e.g., `Optional` vs `|`)
+  - Configuring tools correctly in config files
+- If unsure whether a solution is a workaround or proper fix, ASK the user
+
+**Evidence-Based Documentation:**
+- Distinguish between **observed facts** and **inferred causes**
+- Use precise language: "observed", "measured", "specified by user" vs "causes", "due to", "because"
+- When debugging, document what was tried and what was observed, not assumed root causes
+- If stating a cause, cite the evidence or mark as hypothesis
+
+**When Asked to Justify Decisions:**
+- If the user asks why you made a decision or assumption, search documentation and code comments for supporting evidence
+- Present the evidence with specific references (file paths and line numbers where applicable)
+- If no supporting evidence is found, acknowledge the assumption and ask for clarification
+- Example: "I assumed X based on the comment at normalization_engine.py:117 which states '...'"
+
 ## Navigation
 
 ### Scope-Specific Guidance
@@ -73,9 +110,24 @@ Key documentation by purpose:
 - `dev-docs/` - Design and planning documentation
 - `.claude/` - Claude guidance files (this system)
 
+**Current Date & Version Awareness:**
+- **IMPORTANT:** Always check the current date in the system `<env>` tag
+- When searching or making decisions based on versions/dates, use the current date from `<env>`, NOT historical information
+- Python 3.13 was released in October 2024
+- Python 3.14 was released in October 2025 (per devguide.python.org/versions/)
+
 ## Universal Workflows
 
 ### Git & Commits
+
+**Session Start:**
+- Always `git pull` when starting work on a project with a git repository
+- Ensures you're working with the latest code, especially when multiple people or Claude instances work on the project
+
+**Remote Configuration:**
+- Use SSH for GitHub remotes, not HTTPS
+- Check: `git remote -v`
+- Switch if needed: `git remote set-url origin git@github.com:username/repo.git`
 
 **Only create commits when requested by the user.** If unclear, ask first.
 
@@ -102,6 +154,7 @@ When creating commits:
 - **Use markdown** - GitHub-flavored markdown for formatting
 - **Avoid emojis** unless explicitly requested
 - **Output text directly** - never use bash echo or comments to communicate
+- **Don't be markety** - Avoid promotional language, "New!" callouts, or marketing-style announcements
 
 ## Handoffs Between Claude Instances
 

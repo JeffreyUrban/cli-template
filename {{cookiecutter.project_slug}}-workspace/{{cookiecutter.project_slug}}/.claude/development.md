@@ -7,9 +7,41 @@ Coding standards, patterns, tools, and modern practices for this project.
 ## Quick Reference
 
 **Language:** Python {{ cookiecutter.python_version }}+
-**Code Quality:** ruff (lint + format) + mypy
+**Code Quality:** ruff (lint + format) + pyright (type checking)
 **Style:** Type hints required, docstrings for public APIs
 **Philosophy:** Modern, mature tools over legacy approaches
+
+---
+
+## Technical Standards
+
+### Python Version
+
+- Use Python {{ cookiecutter.python_version }}+ syntax
+- Target backwards compatibility when practical for CLI distribution
+- Prefer `pathlib.Path` over `os.path` for path operations
+
+### Dependency Management
+
+- Use `uv` for dependency management: `uv pip install` (not `pip install`)
+- Always check for virtual environment (`.venv` or `venv`) when running Python
+- Run scripts via `uv run` or `.venv/bin/python`, not system Python
+- **Never use shebangs** (`#!/usr/bin/env python3`) - template projects use uv/venv, not system Python
+
+### Code Quality Tools
+
+Run these before committing:
+```bash
+ruff format .       # Format code
+ruff check --fix .  # Lint and auto-fix
+pyright            # Type checking
+```
+
+**Pre-commit hooks** automate this - install once:
+```bash
+pre-commit install
+pre-commit run --all-files  # Manual run
+```
 
 ---
 
@@ -20,14 +52,77 @@ Coding standards, patterns, tools, and modern practices for this project.
 **Required** for all function signatures:
 
 ```python
+from typing import Optional
+
 def process_data(input: str, count: int = 10) -> list[str]:
     """Process input data and return results."""
     ...
+
+def find_user(user_id: str) -> Optional[dict[str, str]]:
+    """Find user by ID, returns None if not found."""
+    ...
 ```
 
-**Not required** for:
+**Use `Optional[Type]` for nullable values** (backwards compatible to Python 3.7+):
+```python
+# ✅ Good - works Python 3.7+
+from typing import Optional
+def get_value() -> Optional[str]:
+    ...
+
+# ❌ Avoid - only works Python 3.10+
+def get_value() -> str | None:
+    ...
+```
+
+**Never use `Any` type** - be specific:
+```python
+# ❌ Wrong
+from typing import Any
+def handle(obj: Any) -> None:
+    ...
+
+# ✅ Right
+def handle(obj: dict[str, str]) -> None:
+    ...
+```
+
+**Not required for:**
 - Private helper functions (internal use only)
 - Simple lambdas where types are obvious from context
+
+### Advanced Type Patterns
+
+**TYPE_CHECKING for forward references:**
+```python
+from typing import TYPE_CHECKING, Optional
+
+if TYPE_CHECKING:
+    from myapp.models import User  # Import only for type checking
+
+def get_user(user_id: str) -> Optional["User"]:
+    """Get user by ID."""
+    ...
+```
+
+**TypedDict for complex return dictionaries:**
+```python
+from typing import TypedDict
+
+class UserData(TypedDict):
+    name: str
+    email: str
+    age: int
+
+def get_user_data(user_id: str) -> UserData:
+    """Returns user data as a typed dictionary."""
+    return {"name": "Alice", "email": "alice@example.com", "age": 30}
+```
+
+Use TypedDict when:
+- Returning dictionaries with known structure
+- Need IDE autocomplete for dictionary keys
+- Want type safety without full class overhead
 
 ### Docstrings
 
@@ -56,20 +151,105 @@ def example(param1: str, param2: int) -> bool:
     """
 ```
 
+### Code Style
+
+**Follow PEP8 and Ruff's formatting:**
+- Let `ruff format` handle formatting - don't fight the formatter
+- Line length: **100 characters for code**, **80 characters for documentation examples**
+- Use implicit line continuation in parentheses for long lines
+
+**Guard clauses with early returns** (not nested code):
+```python
+# ✅ Good - guard clauses
+def process(data: str) -> str:
+    if not data:
+        return ""
+    if len(data) < 3:
+        return data
+
+    # Main logic here
+    return data.upper()
+
+# ❌ Avoid - nested logic
+def process(data: str) -> str:
+    if data:
+        if len(data) >= 3:
+            return data.upper()
+        else:
+            return data
+    return ""
+```
+
+**Keep components small and focused:**
+- Functions should do one thing well
+- Modules should have clear, single responsibility
+- Prefer functions over OOP when appropriate (classes when state needed)
+
 ### Constants and Magic Numbers
 
 **Avoid magic numbers** - use named constants:
 
 ```python
-# Bad
+# ❌ Bad
 if value > 0.85:
     ...
 
-# Good
+# ✅ Good
 CONFIDENCE_THRESHOLD = 0.85
 if value > CONFIDENCE_THRESHOLD:
     ...
 ```
+
+### Import Organization
+
+**Standard order** (ruff enforces this):
+1. Standard library imports
+2. Third-party imports
+3. Local imports
+
+```python
+# ✅ Right
+import sys
+from pathlib import Path
+
+import typer
+from rich.console import Console
+
+from .module import function
+```
+
+**Import pattern guideline** (namespace for clarity):
+
+For internal project imports:
+- **Functions:** Namespace imports for clarity
+- **Classes/Exceptions:** Direct imports
+
+```python
+# ✅ Functions - namespace imports
+from myapp.services import user_service
+result = user_service.get_user(user_id)
+
+# ✅ Classes/Exceptions - direct imports
+from myapp.services.models import User, UserNotFoundError
+user = User(name="Alice")
+raise UserNotFoundError("User not found")
+
+# ❌ Less clear - function direct import
+from myapp.services.user_service import get_user
+result = get_user(user_id)  # Where is this from?
+```
+
+**Benefits of namespace imports for functions:**
+- Clearer origin of function calls
+- Reduces naming conflicts
+- Easier to track dependencies
+
+**When to use direct imports:**
+- Very frequently used utilities (case-by-case decision)
+- Classes and exceptions (clearer in usage)
+- User explicitly prefers direct imports
+
+This is a **guideline, not a strict rule** - use judgment based on readability.
 
 ---
 
@@ -82,12 +262,12 @@ if value > CONFIDENCE_THRESHOLD:
 **Project standards:**
 - **CLI tools:** `typer` (type-based, modern) over `argparse`/`click`
 - **Terminal output:** `rich` for beautiful CLI output, progress bars, tables
-- **HTTP client:** `httpx` over `requests` (if needed)
+- **Paths:** `pathlib.Path` over `os.path`
 - **Date/time:** `datetime` standard library (avoid `arrow`/`pendulum` unless needed)
 
 **Consider when relevant:**
 - **Validation:** `pydantic` for data validation
-- **Async:** `asyncio` + `httpx` for concurrent operations
+- **Async:** `asyncio` for concurrent operations
 - **Serialization:** `pydantic` or `dataclasses` with type hints
 
 ### Code Quality Tools
@@ -98,9 +278,17 @@ ruff check .        # Lint
 ruff format .       # Format
 ```
 
-**mypy** - Type checker:
+Use rules in `ruff.toml` if present - project-specific configuration.
+
+**pyright** - Type checker (better than mypy for modern Python):
 ```bash
-mypy src/{{ cookiecutter.project_slug }}
+pyright            # Type check entire project
+```
+
+Configure in `pyproject.toml`:
+```toml
+[tool.pyright]
+typeCheckingMode = "basic"  # or "strict" for maximum safety
 ```
 
 **Pre-commit** - Runs checks before commit:
@@ -108,6 +296,13 @@ mypy src/{{ cookiecutter.project_slug }}
 pre-commit install  # One-time setup
 pre-commit run --all-files  # Manual run
 ```
+
+Pre-commit hooks catch issues immediately (faster feedback than CI):
+- Trailing whitespace removal
+- End-of-file newlines
+- YAML syntax validation
+- Ruff format and check
+- Pyright type checking
 
 ---
 
@@ -127,6 +322,8 @@ src/{{ cookiecutter.project_slug }}/
 - Keep `cli.py` focused on CLI interface only
 - Put business logic in separate modules
 - Use clear module names that describe their purpose
+- Keep components small and focused
+- Prefer functions in modules over OOP (use classes when state is needed)
 
 ### Error Handling
 
@@ -144,7 +341,77 @@ if error_condition:
     raise ValueError("Descriptive error message")
 ```
 
-**Never silently fail** - always raise or log errors.
+**Never silently fail** - always raise or log errors. Fail loudly, don't hide issues.
+
+**Async/await for asynchronous operations:**
+```python
+import asyncio
+
+async def fetch_data():
+    """Asynchronous data fetching."""
+    await asyncio.sleep(1)
+    return "data"
+```
+
+---
+
+## Critical Development Principles
+
+### Proper Solutions, Not Workarounds
+
+**When encountering issues (especially in CI/testing), investigate the root cause** and find the standard/best-practice solution.
+
+**Examples of workarounds to AVOID:**
+- Weakening test assertions to pass (e.g., changing "window-size" to "window")
+- Adding `# type: ignore` comments instead of fixing type issues
+- Disabling linters/checkers instead of fixing the underlying issue
+
+**Examples of proper solutions:**
+- Setting environment variables for consistent behavior (e.g., `COLUMNS` for terminal width)
+- Using appropriate imports for Python version compatibility (e.g., `Optional` vs `|`)
+- Configuring tools correctly in config files
+
+**If unsure whether a solution is a workaround or proper fix, ASK the user.**
+
+### Implement Requirements Correctly
+
+**When given a requirement (e.g., "keep the most recent value"), implement it correctly.**
+
+**Do NOT:**
+- Implement the opposite behavior and add a TODO noting it should be fixed later
+- Document violations as limitations instead of fixing them
+
+**If the requirement needs clarification or would require significant changes, ASK first.**
+
+This prevents technical debt accumulation.
+
+### Project Rigor Applies Universally
+
+**Never assume a project doesn't need best practices because it seems "simple":**
+
+- **CLI applications can be as complex as any other software** - command-line tools often handle critical workflows
+- **Small projects need the same rigor as large ones** - technical debt accumulates faster in projects assumed to be "simple"
+- **Template projects establish patterns** - if guidance exists in this project, it's required regardless of project size
+- **Scope is not an excuse to cut corners** - all projects deserve quality engineering
+
+**"Simple" is not justification to skip:**
+- Testing requirements
+- Documentation standards
+- Type checking
+- Code quality tools
+- Architectural patterns
+- Security practices
+
+**If a practice is documented in this project, it's required** - regardless of perceived project size, complexity, or application type.
+
+The assumption that "simple" projects don't need rigor leads to:
+- Skipped tests that would catch bugs
+- Missing documentation that wastes future time
+- Type errors that could be prevented
+- Security issues that go unnoticed
+- Technical debt that compounds
+
+**Treat every project with professional engineering standards.**
 
 ---
 
@@ -249,6 +516,7 @@ if error_condition:
 
 ```python
 import typer
+from pathlib import Path
 from rich.console import Console
 
 app = typer.Typer()
@@ -266,29 +534,77 @@ def main(
     # Logic here
 ```
 
-### Rich Output
+### Rich Terminal UI
 
+Use `rich` for informative CLI output with styled text, tables, and progress bars.
+
+**Basic styled output:**
 ```python
 from rich.console import Console
-from rich.table import Table
-from rich.progress import track
 
 console = Console()
 
-# Simple output
-console.print("[green]Success![/green]")
+# Styled text
+console.print("[bold cyan]Processing...[/bold cyan]")
+console.print("[bold red]ERROR:[/bold red] Something failed")
+console.print("[green]✓[/green] Success!")
+```
 
-# Tables
+**Tables for structured data:**
+```python
+from rich.table import Table
+
 table = Table(title="Results")
-table.add_column("Name")
-table.add_column("Value")
-table.add_row("Item", "123")
+table.add_column("Name", style="cyan")
+table.add_column("Value", justify="right", style="green")
+table.add_row("Item 1", "123")
+table.add_row("Item 2", "456")
 console.print(table)
+```
 
-# Progress bars
+**Progress tracking:**
+```python
+from rich.progress import track
+
 for item in track(items, description="Processing..."):
     process(item)
+
+# Or with more control:
+from rich.progress import (
+    Progress,
+    SpinnerColumn,
+    TextColumn,
+    BarColumn,
+    TaskProgressColumn,
+)
+
+with Progress(
+    SpinnerColumn(),
+    TextColumn("[bold blue]{task.description}"),
+    BarColumn(),
+    TaskProgressColumn(),
+) as progress:
+    task = progress.add_task("[cyan]Processing...", total=len(items))
+    for item in items:
+        process(item)
+        progress.update(task, advance=1)
 ```
+
+**Panels for grouped information:**
+```python
+from rich.panel import Panel
+
+console.print(
+    Panel("Processing complete", title="Status", border_style="green")
+)
+```
+
+**Best practices:**
+- Use `console.print()` instead of `print()` for user-facing output
+- Use consistent colors (cyan=info, yellow=warnings, red=errors, green=success)
+- Use Tables for structured data display
+- Use Progress for long-running operations
+- Use Panels to group related information
 
 ---
 
@@ -301,14 +617,14 @@ for item in track(items, description="Processing..."):
 
 **VS Code:**
 - Settings pre-configured in `.vscode/settings.json`
-- Includes pytest, ruff, mypy configuration
+- Includes pytest, ruff, pyright configuration
 
 ---
 
 ## Next Steps
 
 **Related guidance:**
-- [Testing](.//testing.md) - Test standards and patterns
+- [Testing](./testing.md) - Test standards and patterns
 - [Documentation](./documentation.md) - Documentation standards
 - [Workflows](./workflows/) - Common task workflows
 

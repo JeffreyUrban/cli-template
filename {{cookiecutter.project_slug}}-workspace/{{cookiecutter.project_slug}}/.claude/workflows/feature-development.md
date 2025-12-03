@@ -8,6 +8,13 @@ Step-by-step workflow for developing new features.
 
 ## Before You Start
 
+**Understand the template-based project approach:**
+- This project uses a template designed to be release-ready from day one
+- **Fill in** template content, don't delete and recreate
+- **Keep** all infrastructure (badges, CI, docs) even if not yet functional
+- **Adapt** existing examples rather than starting from scratch
+- See CLAUDE.md for full template philosophy
+
 **Read relevant guidance:**
 - [Development](../development.md) - Code standards
 - [Testing](../testing.md) - Test requirements
@@ -17,6 +24,12 @@ Step-by-step workflow for developing new features.
 1. Clarify scope with user
 2. Review related design docs
 3. Check for existing patterns
+
+**CRITICAL: Implement requirements correctly**
+- When given a requirement, implement it as specified
+- Do NOT implement opposite behavior with a TODO to fix later
+- If requirement needs clarification, ASK before implementing
+- If requirement conflicts with architecture, DISCUSS before implementing
 
 ---
 
@@ -121,6 +134,27 @@ def new_feature(
 - Add example to `docs/examples/`
 - Update `docs/reference/cli.md` if CLI changed
 
+**CRITICAL: Documentation examples must be executable:**
+- All code examples are tested via Sybil
+- Create fixture files for examples that reference files
+- Use `<!-- verify-file: output.txt expected: expected.txt -->` for testable output
+- Examples run from fixtures directory (conftest.py handles this)
+
+**Example with verification:**
+````markdown
+<!-- verify-file: output.txt expected: expected-output.txt -->
+\```python
+from {{ cookiecutter.project_slug }} import process
+from pathlib import Path
+
+with open("input.txt") as f:  # Must exist in fixtures/
+    with open("output.txt", "w") as out:
+        process(f, out)
+\```
+````
+
+**Documentation is code:** Treat examples with same rigor as production code.
+
 **Example:**
 ````markdown
 ## New Feature
@@ -149,6 +183,9 @@ processed: hello
 ### 7. Run Quality Checks
 
 ```bash
+# Run pre-commit checks (proactively catch issues)
+pre-commit run --all-files
+
 # Run all tests
 pytest
 
@@ -168,6 +205,12 @@ mypy src/{{ cookiecutter.project_slug }}
 pytest docs/
 ```
 
+**Pre-commit enforces:**
+- Trailing whitespace removal
+- End-of-file newlines
+- YAML/file syntax validity
+- Line ending consistency
+
 ### 8. Verify Everything
 
 **Checklist:**
@@ -178,6 +221,20 @@ pytest docs/
 - [ ] Documentation updated
 - [ ] Doc examples tested
 - [ ] Feature works end-to-end
+
+### 8.5. Update CHANGELOG (if maintained)
+
+**If project has CHANGELOG.md:**
+- Add concise summary of the change
+- List files involved (summarize if many files changed)
+- Follow existing format in CHANGELOG.md
+- Document **major** features and changes
+
+**Example entry:**
+```markdown
+### Added
+- New feature X providing Y capability (src/module.py, tests/test_module.py)
+```
 
 ### 9. Commit (if user requests)
 
@@ -228,6 +285,8 @@ def process(input: str, config: Config) -> str:
 - Add features not requested
 - Break existing functionality
 - Skip documentation
+- **Make unsubstantiated causal claims** - distinguish observed facts from inferred causes
+- **Document assumptions as facts** - cite evidence or mark as hypothesis
 
 **Do:**
 - Clarify requirements first
@@ -236,6 +295,24 @@ def process(input: str, config: Config) -> str:
 - Implement only what's requested
 - Run regression tests
 - Document as you go
+- **Use precise language** - "observed", "measured" vs "causes", "due to"
+- **Cite evidence** when explaining decisions (file paths, line numbers)
+
+**Critical: Use proper solutions, not workarounds:**
+
+**Workarounds to AVOID:**
+- Weakening test assertions to make tests pass
+- Adding `# type: ignore` instead of fixing type issues
+- Disabling linters/checkers instead of fixing issues
+- Quick fixes that hide problems
+
+**Proper solutions to USE:**
+- Setting environment variables for consistent behavior
+- Using appropriate imports for compatibility
+- Configuring tools correctly in config files
+- Investigating and fixing root causes
+
+**If unsure:** Ask whether a solution is a workaround or proper fix
 
 ---
 
