@@ -113,7 +113,7 @@ ignore = [
 quote-style = "double"
 
 [tool.pyright]
-pythonVersion = "3.9"
+pythonVersion = "PYTHON_VERSION_MIN_KICKOFF"
 typeCheckingMode = "strict"
 reportUnusedImport = true
 reportUnusedVariable = true

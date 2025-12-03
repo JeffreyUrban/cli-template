@@ -55,7 +55,7 @@ cd {{ cookiecutter.command_name }}
 pip install -e ".[dev]"
 ```
 
-**Requirements:** Python 3.9+
+**Requirements:** Python PYTHON_VERSION_MIN_KICKOFF+
 
 **IDE Configuration:**
 - **PyCharm**: Project settings are pre-configured in `.idea/` (source roots automatically set)

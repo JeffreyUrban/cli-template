@@ -6,7 +6,7 @@
 
 ## Requirements
 
-- **Python 3.9 or higher** (for pip/pipx installations)
+- **Python PYTHON_VERSION_MIN_KICKOFF or higher** (for pip/pipx installations)
 - **Homebrew** (for macOS/Linux Homebrew installation)
 
 `{{ cookiecutter.command_name }}` works on Linux, macOS, and Windows.

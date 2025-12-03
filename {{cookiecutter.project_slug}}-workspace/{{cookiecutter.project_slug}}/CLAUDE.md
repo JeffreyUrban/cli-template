@@ -143,15 +143,11 @@ Check the status of Python versions from https://devguide.python.org/versions/
 ```
 
 Replace the `PYTHON_VERSION_*_KICKOFF` placeholders with actual version numbers:
-- [ ] `pyproject.toml` - Replace `PYTHON_VERSION_MIN_KICKOFF` in `requires-python` and all version placeholders in classifiers
-  - Some intermediate placeholders may be unused if the range is smaller - delete unused classifier lines
-  - If more versions needed than placeholders available, add additional classifier lines
-- [ ] `.github/workflows/test.yml` - Replace `PYTHON_VERSION_MIN_KICKOFF` and `PYTHON_VERSION_MAX_KICKOFF` in test matrix
-  - Also update the commented-out full version list if you want to enable testing all intermediate versions later
-  - Update the `if: matrix.python-version == 'PYTHON_VERSION_MAX_KICKOFF'` condition for codecov upload
-  - Update the quality job's Python version (currently uses MAX for latest features)
-- [ ] `README.md` - Update Python version badge and requirements text
-- [ ] `.claude/development.md` - Update Python version references if they mention specific versions
+- "PYTHON_VERSION_MIN_KICKOFF"
+- "PYTHON_VERSION_INTERMEDIATE_<integer>_KICKOFF"
+- PYTHON_VERSION_MAX_KICKOFF
+
+Search throughout the project and ensure all instances are replaced.
 
 ### 2. Configure Project Metadata
 
