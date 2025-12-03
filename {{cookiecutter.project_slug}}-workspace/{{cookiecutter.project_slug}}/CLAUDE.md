@@ -30,6 +30,13 @@ This file is the **entry point** for Claude guidance. Detailed guidance is organ
 
 ## Project-Specific Critical Rules
 
+**CRITICAL: NEVER assume content is not applicable without explicit user confirmation!**
+- If the user asks you to integrate or verify content coverage, ALL content is relevant unless the user explicitly says otherwise
+- NEVER mark content as "low priority" or "not applicable" based on your own judgment
+- NEVER skip content because you think it's "too advanced" or "project-specific"
+- If you think something might not be needed, ASK the user - do NOT decide on your own
+- When asked to verify coverage, you must verify EVERY piece of content, not just what you think is important
+
 **CRITICAL: Implement requirements correctly, don't document violations as limitations!**
 - When given a requirement (e.g., "keep the most recent value"), implement it correctly
 - Do NOT implement the opposite behavior and add a TODO noting it should be fixed later

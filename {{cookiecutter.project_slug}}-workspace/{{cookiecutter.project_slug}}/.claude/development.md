@@ -357,6 +357,26 @@ async def fetch_data():
 
 ## Critical Development Principles
 
+### NEVER Make Assumptions About Applicability
+
+**CRITICAL: Do not assume content is irrelevant based on your judgment!**
+
+- **NEVER** decide that guidance is "not applicable" because you think the project is "too simple"
+- **NEVER** skip implementing patterns because you think they're "too advanced"
+- **NEVER** mark content as "low priority" without explicit user direction
+- The user decides what's applicable to their template, not you
+- If you think something might not be needed, **ASK the user** - do NOT decide on your own
+
+**Examples of WRONG assumptions:**
+- ❌ "Git worktree workflow is too advanced for this project"
+- ❌ "This project doesn't need X because it's not a web service"
+- ❌ "This is project-specific and not applicable"
+
+**The RIGHT approach:**
+- ✅ Ask the user: "Should I include the worktree workflow guidance?"
+- ✅ Trust the user's judgment about what belongs in their project
+- ✅ Implement ALL guidance unless explicitly told to skip it
+
 ### Proper Solutions, Not Workarounds
 
 **When encountering issues (especially in CI/testing), investigate the root cause** and find the standard/best-practice solution.
