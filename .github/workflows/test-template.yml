@@ -55,6 +55,18 @@ jobs:
           cat test-cli-tool-workspace/test-cli-tool/pyproject.toml | grep -A2 "\[project\]"
           cat test-cli-tool-workspace/test-cli-tool/pyproject.toml | grep -A1 "\[project.scripts\]"
 
+      - name: Replace kickoff placeholders
+        run: |
+          cd test-cli-tool-workspace/test-cli-tool
+          # Replace Python version placeholders with actual versions for testing
+          sed -i 's/PYTHON_VERSION_MIN_KICKOFF/3.9/g' pyproject.toml .github/workflows/test.yml README.md
+          sed -i 's/PYTHON_VERSION_MAX_KICKOFF/3.14/g' pyproject.toml .github/workflows/test.yml
+          # Replace intermediate version placeholders
+          sed -i 's/PYTHON_VERSION_INTERMEDIATE_1_KICKOFF/3.10/g' pyproject.toml
+          sed -i 's/PYTHON_VERSION_INTERMEDIATE_2_KICKOFF/3.11/g' pyproject.toml
+          sed -i 's/PYTHON_VERSION_INTERMEDIATE_3_KICKOFF/3.12/g' pyproject.toml
+          sed -i 's/PYTHON_VERSION_INTERMEDIATE_4_KICKOFF/3.13/g' pyproject.toml
+
       - name: Initialize git (required for hatch-vcs)
         run: |
           cd test-cli-tool-workspace/test-cli-tool
