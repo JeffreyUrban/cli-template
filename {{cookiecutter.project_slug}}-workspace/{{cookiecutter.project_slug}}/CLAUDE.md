@@ -165,7 +165,7 @@ Review and update if needed:
 Check that cookiecutter variables were properly substituted:
 ```bash
 # Look for any remaining template syntax
-grep -r "{{cookiecutter\." . --exclude-dir=.git
+{% raw %}grep -r "{{cookiecutter\." . --exclude-dir=.git{% endraw %}
 grep -r "TEMPLATE_PLACEHOLDER" . --exclude-dir=.git
 ```
 
