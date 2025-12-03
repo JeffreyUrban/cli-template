@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["PYTHON_VERSION_MIN_KICKOFF", "PYTHON_VERSION_MAX_KICKOFF"]
+        python-version: ["3.9", "3.14"]
 
     steps:
       - name: Checkout template
