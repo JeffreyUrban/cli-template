@@ -41,9 +41,9 @@ jobs:
         run: |
           ruff format --check .
 
-      - name: Run mypy
+      - name: Run pyright
         run: |
-          mypy src/{{ cookiecutter.project_slug }}
+          pyright
 
   link-check:
     runs-on: ubuntu-latest

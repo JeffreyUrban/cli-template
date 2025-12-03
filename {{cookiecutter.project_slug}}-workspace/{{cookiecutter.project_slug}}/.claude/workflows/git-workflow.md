@@ -178,7 +178,7 @@ EOF
 **Before creating PR:**
 - [ ] All tests pass locally
 - [ ] Code formatted (ruff)
-- [ ] Type checks pass (mypy)
+- [ ] Type checks pass (pyright)
 - [ ] Documentation updated
 - [ ] Commit messages clear
 

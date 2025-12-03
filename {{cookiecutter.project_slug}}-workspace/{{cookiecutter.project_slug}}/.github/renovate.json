@@ -22,7 +22,7 @@
         "pytest",
         "pytest-cov",
         "ruff",
-        "mypy",
+        "pyright",
         "pre-commit",
         "mkdocs-material",
         "mkdocstrings",

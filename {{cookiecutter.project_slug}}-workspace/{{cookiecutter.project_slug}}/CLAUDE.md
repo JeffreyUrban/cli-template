@@ -106,7 +106,7 @@ Key documentation by purpose:
 - **CLI Framework:** typer + rich
 - **Testing:** pytest with organized markers
 - **Documentation:** MkDocs Material with Sybil (tested code examples)
-- **Code Quality:** ruff (lint + format) + mypy (type checking)
+- **Code Quality:** ruff (lint + format) + pyright (type checking)
 - **Package Management:** uv for fast installs
 - **Version Control:** Git with conventional commits
 

@@ -150,7 +150,7 @@ pytest --cov=src --cov-report=html
 5. **Type checking**:
    ```bash
    # Run type checker
-   mypy src/
+   pyright
    ```
 
 #### Testing Requirements
@@ -287,7 +287,7 @@ ruff format .
 ruff check .
 
 # Type check
-mypy src/
+pyright
 
 # Run tests
 pytest
