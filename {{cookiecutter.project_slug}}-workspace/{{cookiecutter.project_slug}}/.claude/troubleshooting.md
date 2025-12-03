@@ -42,94 +42,9 @@ env:
 
 ---
 
-## Debugging Techniques
-
-### Pytest Debugging
-
-**Run single test with verbose output:**
-```bash
-pytest tests/test_module.py::test_function -vv
-```
-
-**Stop at first failure:**
-```bash
-pytest -x
-```
-
-**Run only last failed tests:**
-```bash
-pytest --lf
-```
-
-**Show local variables on failure:**
-```bash
-pytest -l
-```
-
----
-
-## Error Investigation
-
-### Stack Trace Analysis
-
-**Read from bottom to top:**
-1. Bottom: Where error occurred
-2. Middle: Call stack
-3. Top: Entry point
-
-**Focus on your code first** - Framework/library traces often point to your code's misuse
-
-### Common Error Patterns
+## Common Error Patterns
 
 *Add project-specific error patterns here as they're discovered*
-
----
-
-## Performance Issues
-
-**Profile before optimizing:**
-```bash
-python -m cProfile -o profile.stats script.py
-python -m pstats profile.stats
-```
-
-**Or use py-spy for live profiling:**
-```bash
-py-spy top -- python script.py
-```
-
----
-
-## Environment Issues
-
-### Virtual Environment
-
-**Check active venv:**
-```bash
-which python
-python --version
-```
-
-**Recreate if needed:**
-```bash
-rm -rf .venv
-uv venv
-source .venv/bin/activate
-uv pip install -e ".[dev,docs]"
-```
-
-### Dependency Conflicts
-
-**Check installed versions:**
-```bash
-uv pip list
-```
-
-**Regenerate lock file:**
-```bash
-rm uv.lock
-uv pip install -e ".[dev,docs]"
-```
 
 ---
 
@@ -143,15 +58,14 @@ uv pip install -e ".[dev,docs]"
 3. File permissions
 4. Timing/ordering issues
 
-**Investigation:**
+**Investigation steps:**
 1. Check CI logs carefully
-2. Reproduce CI environment locally (same Python version)
-3. Add debug output temporarily
-4. Check for environment-specific behavior
+2. Check for environment-specific behavior
+3. Add debug output to workflow temporarily
 
 ### GitHub Actions Debugging
 
-**Add debug output:**
+**Add debug output to workflow:**
 ```yaml
 - name: Debug info
   run: |
@@ -162,24 +76,9 @@ uv pip install -e ".[dev,docs]"
 
 ---
 
-## Tool-Specific Issues
+## Project-Specific Issues
 
-*Add tool-specific debugging guidance as patterns emerge*
-
-### ruff
-
-**Check specific file:**
-```bash
-ruff check path/to/file.py
-ruff check path/to/file.py --fix
-```
-
-### mypy
-
-**Check with verbose output:**
-```bash
-mypy src/ --show-error-codes --pretty
-```
+*Add tool-specific debugging guidance and error patterns as they emerge*
 
 ---
 

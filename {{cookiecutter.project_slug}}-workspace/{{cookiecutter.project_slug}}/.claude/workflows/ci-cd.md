@@ -128,53 +128,13 @@ gh api -X PATCH repos/owner/repo/branches/main/protection/required_status_checks
 
 ---
 
-## Caching Strategies
-
-*Add caching patterns if needed*
-
-### Example: Cache Dependencies
-
-\`\`\`yaml
-- name: Cache dependencies
-  uses: actions/cache@v4
-  with:
-    path: ~/.cache/pip
-    key: \${{ runner.os }}-pip-\${{ hashFiles('**/pyproject.toml') }}
-\`\`\`
-
----
-
-## Debugging Workflows
-
-**Add debug output:**
-\`\`\`yaml
-- name: Debug environment
-  run: |
-    echo "Python: $(python --version)"
-    echo "Working directory: $(pwd)"
-    pip list
-\`\`\`
-
-**View full logs:**
-- Click on failed job in Actions tab
-- Expand failed step
-- Look for error messages
-
----
-
 ## Workflow Best Practices
 
-*Add best practices as they're discovered*
-
-**Quality checks:**
-- Set explicit timeouts
-- Cancel old runs on new commits (concurrency)
-- Use matrix testing for multiple Python versions
-- Run fast checks first (fail fast)
-- Cache dependencies
-- Schedule at odd times (see Scheduling Guidelines)
-- **Include pre-commit checks in CI** - ensures consistency
-- **Validate YAML syntax** - prevents broken workflows
+**Fail fast:**
+- Run fast checks first (linting, formatting) before slow tests
+- Don't wait for all tests to complete if early failures block further work
+- Continue investigating and fixing issues while tests run in background
+- Use `pytest -x` to stop at first failure when debugging locally
 
 **Pre-commit integration:**
 \`\`\`yaml
@@ -183,11 +143,6 @@ gh api -X PATCH repos/owner/repo/branches/main/protection/required_status_checks
     pip install pre-commit
     pre-commit run --all-files
 \`\`\`
-
-**Workflow file validation:**
-- Test workflow changes in fork/branch first
-- Use `actionlint` for workflow validation
-- Check for syntax errors before pushing
 
 ---
 

@@ -226,35 +226,7 @@ See `HOMEBREW_AUTOMATION_SETUP.md` for details
 
 ---
 
-## Post-Release
-
-### Announce Release
-
-**Update project README** if needed for new features
-
-**Consider announcement channels:**
-- GitHub Discussions
-- Project website
-- Social media
-- Email list
-
-### Monitor
-
-**Watch for:**
-- Bug reports
-- Installation issues
-- Documentation gaps
-- Feature requests
-
----
-
 ## Next Steps
-
-**After successful release:**
-- Monitor issue tracker
-- Respond to feedback
-- Plan next version
-- Update roadmap
 
 **Related workflows:**
 - [Feature Development](./feature-development.md) - Adding features

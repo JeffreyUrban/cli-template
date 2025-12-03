@@ -43,18 +43,6 @@ pytest tests/test_module.py::test_bug_description -v
 
 ### 3. Investigate Root Cause
 
-**Use debugging tools:**
-```python
-# Add temporary debug output
-print(f"DEBUG: variable = {variable}")
-
-# Or use breakpoint
-breakpoint()
-
-# Run test
-pytest tests/test_module.py::test_bug_description -s
-```
-
 **Common investigation steps:**
 1. Check input validation
 2. Verify algorithm logic
@@ -204,25 +192,6 @@ def process(value: str) -> str:
 
 ## Debugging Techniques
 
-### Print Debugging
-
-```python
-def debug_function(input):
-    print(f"DEBUG: input = {input}")
-    result = process(input)
-    print(f"DEBUG: result = {result}")
-    return result
-```
-
-### Breakpoint Debugging
-
-```python
-def debug_function(input):
-    breakpoint()  # Opens pdb debugger
-    result = process(input)
-    return result
-```
-
 ### Test-Driven Debugging
 
 1. Write test that fails
@@ -273,29 +242,6 @@ Conclusion: Bug is in strip_input() function
 4. **Document edge cases** - Update design docs if needed
 
 ---
-
-## Troubleshooting
-
-### Can't Reproduce
-
-- Try different environments
-- Check version dependencies
-- Verify input data exactly matches
-- Look for timing/state issues
-
-### Fix Breaks Other Tests
-
-- Regression - fix broke existing functionality
-- Analyze what changed
-- May need different approach
-- Consider if original tests are correct
-
-### Can't Find Root Cause
-
-- Simplify reproduction
-- Binary search (comment out code)
-- Check assumptions
-- Ask for help (create detailed issue)
 
 ---
 
