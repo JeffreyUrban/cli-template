@@ -9,7 +9,7 @@ A production-ready, opinionated [cookiecutter](https://github.com/cookiecutter/c
 - ⚡️ **Fast package management**: uv for 10-100x faster installs
 - 🧪 **Complete test suite**: pytest with organized markers (unit/integration/property)
 - 📚 **Beautiful tested documentation**: MkDocs Material with live, tested code examples (Sybil)
-- 🔍 **Code quality tools**: ruff (format + lint) + mypy (type checking)
+- 🔍 **Code quality tools**: ruff (format + lint) + pyright (type checking)
 - 🪝 **Git hooks**: pre-commit with automated checks
 - 📦 **Modern packaging**: pyproject.toml + hatch-vcs for git-based versioning
 - 🎯 **PyCharm ready**: Run configurations included
@@ -251,7 +251,7 @@ The configuration script outputs these commands customized for your project at t
 - **rich**: Beautiful terminal output (tables, progress bars, colors)
 - **pytest**: Modern testing with fixtures and markers
 - **ruff**: All-in-one linter/formatter (replaces black, flake8, isort, etc.)
-- **mypy**: Static type checking
+- **pyright**: Static type checking
 - **uv**: Lightning-fast package installer
 
 ### Production-Ready Testing

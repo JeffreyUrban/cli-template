@@ -45,7 +45,7 @@ dev = [
     "pytest>=7.4.0",
     "pytest-cov>=4.1.0",
     "ruff>=0.1.9",
-    "mypy>=1.8.0",
+    "pyright>=1.1.0",
     "pre-commit>=3.6.0",
 ]
 docs = [
@@ -112,12 +112,12 @@ ignore = [
 [tool.ruff.format]
 quote-style = "double"
 
-[tool.mypy]
-python_version = "3.9"
-strict = true
-warn_return_any = true
-warn_unused_configs = true
-disallow_untyped_defs = true
+[tool.pyright]
+pythonVersion = "3.9"
+typeCheckingMode = "strict"
+reportUnusedImport = true
+reportUnusedVariable = true
+reportDuplicateImport = true
 
 [tool.coverage.run]
 source = ["src/{{ cookiecutter.package_name }}"]

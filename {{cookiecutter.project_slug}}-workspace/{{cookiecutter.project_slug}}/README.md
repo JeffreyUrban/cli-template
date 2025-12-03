@@ -59,7 +59,7 @@ pip install -e ".[dev]"
 
 **IDE Configuration:**
 - **PyCharm**: Project settings are pre-configured in `.idea/` (source roots automatically set)
-- **VS Code**: Settings are pre-configured in `.vscode/settings.json` (includes pytest, ruff, mypy configuration)
+- **VS Code**: Settings are pre-configured in `.vscode/settings.json` (includes pytest, ruff, pyright configuration)
 
 ## Quick Start
 

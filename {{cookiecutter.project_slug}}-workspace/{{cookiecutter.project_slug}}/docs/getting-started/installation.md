@@ -66,7 +66,7 @@ Development dependencies include:
 - **pytest** - Test framework
 - **pytest-cov** - Code coverage
 - **ruff** - Linting and formatting
-- **mypy** - Type checking
+- **pyright** - Type checking
 - **pre-commit** - Git hooks for code quality
 
 ## Platform-Specific Notes

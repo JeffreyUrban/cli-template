@@ -136,8 +136,8 @@ jobs:
       #     echo "=== Running ruff formatter check ==="
       #     ruff format --check src/ tests/ --exclude '*/_version.py'
       #     echo ""
-      #     echo "=== Running mypy ==="
-      #     mypy src/test_cli_tool
+      #     echo "=== Running pyright ==="
+      #     pyright
 
       # Skip documentation build test - template has placeholders that need to be replaced
       # Users should run 'mkdocs build' after completing the project kickoff
