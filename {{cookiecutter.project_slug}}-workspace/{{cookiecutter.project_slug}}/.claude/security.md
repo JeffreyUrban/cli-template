@@ -6,27 +6,6 @@ Security considerations and best practices for CLI applications.
 
 ---
 
-## Philosophy
-
-**Check for vulnerabilities** - Always review code for common security issues.
-
-**Fix immediately** - If you notice insecure code, fix it immediately and document in commit.
-
----
-
-## Security Checklist
-
-Before committing code, check for:
-
-- [ ] Command injection vulnerabilities
-- [ ] SQL injection (use parameterized queries)
-- [ ] XSS vulnerabilities
-- [ ] Path traversal issues
-- [ ] Secrets in code or version control
-- [ ] OWASP Top 10 vulnerabilities
-
----
-
 ## Project-Specific Security Patterns
 
 *Document security patterns and vulnerabilities discovered in this project as they emerge*
