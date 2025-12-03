@@ -227,12 +227,9 @@ gh api -X PATCH repos/your-username/your-repo/branches/main/protection/required_
   -F strict=false \
   -f 'contexts[]=quality' \
   -f 'contexts[]=link-check' \
-  -f 'contexts[]=test (3.9)' \
-  -f 'contexts[]=test (3.10)' \
-  -f 'contexts[]=test (3.11)' \
-  -f 'contexts[]=test (3.12)' \
-  -f 'contexts[]=test (3.13)' \
-  -f 'contexts[]=test (3.14)' \
+  -f 'contexts[]=test (<python-min-version>)' \
+  -f 'contexts[]=test (<python-intermediate-versions>)' \
+  -f 'contexts[]=test (<python-max-version>)' \
   -f 'contexts[]=docs/readthedocs.org:your-project'
 ```
 
