@@ -8,12 +8,14 @@ Step-by-step workflow for developing new features.
 
 ## Before You Start
 
+<!-- TEMPLATE-SPECIFIC: Remove when project has real implementation (check: no "placeholder" or "TODO" in code/docs) -->
 **Understand the template-based project approach:**
 - This project uses a template designed to be release-ready from day one
 - **Fill in** template content, don't delete and recreate
 - **Keep** all infrastructure (badges, CI, docs) even if not yet functional
 - **Adapt** existing examples rather than starting from scratch
 - See CLAUDE.md for full template philosophy
+<!-- END TEMPLATE-SPECIFIC -->
 
 **Read relevant guidance:**
 - [Development](../development.md) - Code standards

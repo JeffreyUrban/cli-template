@@ -26,7 +26,9 @@ Coding standards, patterns, tools, and modern practices for this project.
 - Use `uv` for dependency management: `uv pip install` (not `pip install`)
 - Always check for virtual environment (`.venv` or `venv`) when running Python
 - Run scripts via `uv run` or `.venv/bin/python`, not system Python
+<!-- TEMPLATE-SPECIFIC: Remove when project has real implementation (check: no "placeholder" or "TODO" in code/docs) -->
 - **Never use shebangs** (`#!/usr/bin/env python3`) - template projects use uv/venv, not system Python
+<!-- END TEMPLATE-SPECIFIC -->
 
 ### Code Quality Tools
 

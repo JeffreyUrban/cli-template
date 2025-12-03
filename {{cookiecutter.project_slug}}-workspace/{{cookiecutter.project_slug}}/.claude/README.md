@@ -84,3 +84,29 @@ The main `CLAUDE.md` at the project root provides universal rules and navigation
 - Commit guidance changes with related code
 - PRs should update guidance if they change patterns
 - Review guidance during code review
+
+## Maturing Your Project
+
+As your project develops real implementation, remove template-specific guidance:
+
+**Find template-specific sections:**
+```bash
+grep -r "TEMPLATE-SPECIFIC" .claude/
+```
+
+**Check for remaining placeholders:**
+```bash
+grep -r "placeholder\|TODO\|FIXME\|example\|template doc" src/ docs/ tests/
+```
+
+**Remove template-specific guidance when:**
+- [ ] All `placeholder` instances replaced with real content
+- [ ] Example/template code replaced with actual implementation
+- [ ] "TODO" and "FIXME" in implementation resolved
+- [ ] Documentation examples test real features (not template examples)
+- [ ] Infrastructure fully working (badges show real status, CI tests real code)
+
+**Don't remove just because project is starting:**
+- Keep infrastructure scaffolding even if not yet relevant
+- Keep documentation structure even if sections are minimal
+- Keep testing patterns even if few tests exist yet

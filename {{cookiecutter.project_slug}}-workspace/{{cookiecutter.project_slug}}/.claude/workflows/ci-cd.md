@@ -12,11 +12,13 @@ GitHub Actions patterns, workflow configuration, and automation strategies.
 
 ### Current Workflows
 
+<!-- TEMPLATE-SPECIFIC: Remove when project has real implementation (check: no "placeholder" or "TODO" in code/docs) -->
 This template includes:
 - \`test.yml\` - Quality checks, link checks, and tests
 - \`release.yml\` - Automated releases to PyPI
 - \`update-homebrew.yml\` - Homebrew formula updates
 - \`claude.yml\` - Claude-specific automation (if present)
+<!-- END TEMPLATE-SPECIFIC -->
 
 ---
 
