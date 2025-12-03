@@ -101,7 +101,7 @@ git push origin vX.Y.Z
 
 **Test installation:**
 ```bash
-pip install {{ cookiecutter.project_slug }}=={{version}}
+pip install {{ cookiecutter.project_slug }}=={% raw %}{{version}}{% endraw %}
 {{ cookiecutter.command_name }} --version
 ```
 
