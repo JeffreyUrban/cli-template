@@ -6,6 +6,9 @@
 
 set -euo pipefail
 
+# Disable pager for gh commands (prevents interactive prompts)
+export GH_PAGER=""
+
 # Colors for output
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -18,8 +21,9 @@ if [ -z "$REPO_NAME" ]; then
     # Try to detect from git remote
     if git remote get-url origin &>/dev/null; then
         REPO_URL=$(git remote get-url origin)
-        # Extract owner/repo from various GitHub URL formats
-        REPO_NAME=$(echo "$REPO_URL" | sed -E 's|.*github\.com[:/]||' | sed 's|\.git$||')
+        # Extract owner/repo from various GitHub URL formats (including SSH config aliases)
+        # Handles: git@github.com:owner/repo.git, git@github.com-alias:owner/repo.git, https://github.com/owner/repo.git
+        REPO_NAME=$(echo "$REPO_URL" | sed -E 's|.*github\.com[^:]*:||' | sed -E 's|.*/github\.com/||' | sed 's|\.git$||')
     else
         echo -e "${RED}Error: Could not detect repository name${NC}"
         echo "Usage: $0 [OWNER/REPO]"
@@ -87,6 +91,21 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 echo "Branch Protection for 'main'"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
+# Check if main branch exists on remote
+if ! gh api "repos/$REPO_NAME/branches/main" &>/dev/null; then
+    echo -e "${YELLOW}Note: 'main' branch does not exist on remote yet${NC}"
+    echo -e "${YELLOW}Creating empty commit and pushing to initialize branch...${NC}\n"
+
+    # Create empty commit if no commits exist
+    if ! git rev-parse HEAD &>/dev/null; then
+        git commit --allow-empty -m "Initial commit"
+    fi
+
+    # Push to create the branch on remote
+    git push -u origin main
+    echo -e "${GREEN}✓${NC} Branch 'main' created on remote\n"
+fi
+
 # Check if branch protection already exists
 if gh api "repos/$REPO_NAME/branches/main/protection" &>/dev/null; then
     echo -e "${YELLOW}Note: Branch protection already exists. Updating...${NC}\n"
@@ -94,19 +113,30 @@ fi
 
 # Configure branch protection for main branch
 # Note: required_status_checks can be added after CI workflows are set up
-run_gh_command "Configuring branch protection rules" \
-    gh api -X PUT "repos/$REPO_NAME/branches/main/protection" \
-    -f required_status_checks='{"strict":false,"contexts":[]}' \
-    -f enforce_admins=true \
-    -f required_pull_request_reviews='{"dismiss_stale_reviews":false,"require_code_owner_reviews":false,"required_approving_review_count":0}' \
-    -f restrictions=null \
-    -f required_linear_history=false \
-    -f allow_force_pushes=false \
-    -f allow_deletions=false \
-    -f block_creations=false \
-    -f required_conversation_resolution=false \
-    -f lock_branch=false \
-    -f allow_fork_syncing=false
+echo -e "${YELLOW}→${NC} Configuring branch protection rules"
+if gh api -X PUT "repos/$REPO_NAME/branches/main/protection" --silent --input - <<EOF
+{
+  "required_status_checks": {
+    "strict": false,
+    "contexts": []
+  },
+  "enforce_admins": true,
+  "required_pull_request_reviews": null,
+  "restrictions": null,
+  "required_linear_history": false,
+  "allow_force_pushes": false,
+  "allow_deletions": false,
+  "block_creations": false,
+  "required_conversation_resolution": false,
+  "lock_branch": false,
+  "allow_fork_syncing": false
+}
+EOF
+then
+    echo -e "${GREEN}✓${NC} Success\n"
+else
+    echo -e "${RED}✗${NC} Failed\n"
+fi
 
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
@@ -130,11 +160,13 @@ echo "    -F strict=false \\"
 echo "    -f 'contexts[]=quality' \\"
 echo "    -f 'contexts[]=link-check' \\"
 echo "    -f 'contexts[]=test (PYTHON_VERSION_MIN_KICKOFF)' \\"
-echo "    -f 'contexts[]=test (PYTHON_VERSION_INTERMEDIATE_1_KICKOFF)' \\"
-echo "    -f 'contexts[]=test (PYTHON_VERSION_INTERMEDIATE_2_KICKOFF)' \\"
-echo "    -f 'contexts[]=test (PYTHON_VERSION_INTERMEDIATE_3_KICKOFF)' \\"
-echo "    -f 'contexts[]=test (PYTHON_VERSION_INTERMEDIATE_4_KICKOFF)' \\"
 echo "    -f 'contexts[]=test (PYTHON_VERSION_MAX_KICKOFF)' \\"
 echo "    -f 'contexts[]=docs/readthedocs.org:{{cookiecutter.project_slug}}'"
+echo ""
+echo "# When full Python version matrix is enabled in test.yml, add:"
+echo "#   -f 'contexts[]=test (PYTHON_VERSION_INTERMEDIATE_1_KICKOFF)' \\"
+echo "#   -f 'contexts[]=test (PYTHON_VERSION_INTERMEDIATE_2_KICKOFF)' \\"
+echo "#   -f 'contexts[]=test (PYTHON_VERSION_INTERMEDIATE_3_KICKOFF)' \\"
+echo "#   -f 'contexts[]=test (PYTHON_VERSION_INTERMEDIATE_4_KICKOFF)' \\"
 echo ""
 echo -e "${GREEN}Configuration complete!${NC}"
