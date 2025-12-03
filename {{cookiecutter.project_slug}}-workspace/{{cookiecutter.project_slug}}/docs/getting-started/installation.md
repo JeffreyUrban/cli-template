@@ -116,12 +116,12 @@ After installation, verify `{{ cookiecutter.command_name }}` is working:
 Try a quick test:
 
 ```bash
-echo -e "placeholder" | {{ cookiecutter.command_name }} --placeholder
+echo -e "TEMPLATE_PLACEHOLDER" | {{ cookiecutter.command_name }} --TEMPLATE_PLACEHOLDER
 ```
 
 Expected output:
 ```
-placeholder
+TEMPLATE_PLACEHOLDER
 ```
 
 ## Upgrading

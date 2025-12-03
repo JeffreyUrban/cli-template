@@ -12,24 +12,24 @@ Use this flowchart to identify your issue:
 graph TD
     A[Having issues?] --> B{What's wrong?}
 
-    B -->|placeholder| C[Section: placeholder]
+    B -->|TEMPLATE_PLACEHOLDER| C[Section: TEMPLATE_PLACEHOLDER]
 ```
 
-## Section 1: placeholder
+## Section 1: TEMPLATE_PLACEHOLDER
 
-### Problem: placeholder
+### Problem: TEMPLATE_PLACEHOLDER
 
-**Symptom**: {{ cookiecutter.command_name }} placeholder
+**Symptom**: {{ cookiecutter.command_name }} TEMPLATE_PLACEHOLDER
 
 **Common causes**:
 
-#### Cause 1: placeholder
+#### Cause 1: TEMPLATE_PLACEHOLDER
 
 **Diagnosis**:
 ```bash
-placeholder
+TEMPLATE_PLACEHOLDER
 ```
-**Solution**: placeholder
+**Solution**: TEMPLATE_PLACEHOLDER
 
 ## Getting Help
 
@@ -45,7 +45,7 @@ Gather this information:
 2. **Command used**:
    ```bash
    # Include full command with all options
-   {{ cookiecutter.command_name }} --placeholder
+   {{ cookiecutter.command_name }} --TEMPLATE_PLACEHOLDER
    ```
 
 3. **Sample input** (first 20 lines):
@@ -70,14 +70,14 @@ Gather this information:
 
 ## Common Error Messages
 
-### Error: "placeholder"
+### Error: "TEMPLATE_PLACEHOLDER"
 
-**Cause**: placeholder
+**Cause**: TEMPLATE_PLACEHOLDER
 
-**Solution**: Use placeholder
+**Solution**: Use TEMPLATE_PLACEHOLDER
 
 ```bash
-{{ cookiecutter.command_name }} --placeholder
+{{ cookiecutter.command_name }} --TEMPLATE_PLACEHOLDER
 ```
 
 ## See Also

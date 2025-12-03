@@ -1,21 +1,21 @@
 [
   {
-    "name": "placeholder",
-    "description": "placeholder",
+    "name": "TEMPLATE_PLACEHOLDER",
+    "description": "TEMPLATE_PLACEHOLDER",
     "generator": {
       "type": "handcrafted"
       }
   },
   {
-    "name": "placeholder",
-    "description": "placeholder",
+    "name": "TEMPLATE_PLACEHOLDER",
+    "description": "TEMPLATE_PLACEHOLDER",
     "generator": {
       "type": "edge_case"
       }
   },
   {
-    "name": "placeholder",
-    "description": "placeholder",
+    "name": "TEMPLATE_PLACEHOLDER",
+    "description": "TEMPLATE_PLACEHOLDER",
     "generator": {
       "type": "random"
       }

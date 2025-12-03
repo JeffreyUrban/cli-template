@@ -8,34 +8,34 @@ Quick reference for common {{ cookiecutter.command_name }} use cases and pattern
 
 | Pattern  | Command               | Use Case |
 |----------|-----------------------|----------|
-| **placeholder** | `{{ cookiecutter.command_name }} --placeholder` | placeholder     |
+| **TEMPLATE_PLACEHOLDER** | `{{ cookiecutter.command_name }} --TEMPLATE_PLACEHOLDER` | TEMPLATE_PLACEHOLDER     |
 
-## placeholder Patterns
+## TEMPLATE_PLACEHOLDER Patterns
 
-### Pattern 1: placeholder
+### Pattern 1: TEMPLATE_PLACEHOLDER
 
-**Scenario**: placeholder
+**Scenario**: TEMPLATE_PLACEHOLDER
 
 ```bash
 # Input
-placeholder
+TEMPLATE_PLACEHOLDER
 
 # Command
-{{ cookiecutter.command_name }} --placeholder
+{{ cookiecutter.command_name }} --TEMPLATE_PLACEHOLDER
 
-# Output (placeholder)
-placeholder
+# Output (TEMPLATE_PLACEHOLDER)
+TEMPLATE_PLACEHOLDER
 ```
 
-**When to use**: placeholder
+**When to use**: TEMPLATE_PLACEHOLDER
 
 ## Pattern Selection Guide
 
-**Choose based on placeholder**:
+**Choose based on TEMPLATE_PLACEHOLDER**:
 
 ## Real-World Workflow Examples
 
-### placeholder
+### TEMPLATE_PLACEHOLDER
 
 ## See Also
 

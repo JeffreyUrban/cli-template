@@ -3,46 +3,46 @@ class {{ cookiecutter.class_name }} < Formula
 
   desc "{{ cookiecutter.project_short_description }}"
   homepage "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}"
-  url "https://files.pythonhosted.org/packages/PLACEHOLDER/{{ cookiecutter.package_name }}-0.1.0.tar.gz"
-  sha256 "PLACEHOLDER_SHA256"
+  url "https://files.pythonhosted.org/packages/TEMPLATE_PLACEHOLDER/{{ cookiecutter.package_name }}-0.1.0.tar.gz"
+  sha256 "TEMPLATE_PLACEHOLDER_SHA256"
   license "{{ cookiecutter.license }}"
 
   depends_on "python@{{ cookiecutter.python_version }}"
 
   # Standard dependencies from cli-template
   resource "typer" do
-    url "https://files.pythonhosted.org/packages/PLACEHOLDER/typer-VERSION.tar.gz"
-    sha256 "PLACEHOLDER_SHA256_TYPER"
+    url "https://files.pythonhosted.org/packages/TEMPLATE_PLACEHOLDER/typer-VERSION.tar.gz"
+    sha256 "TEMPLATE_PLACEHOLDER_SHA256_TYPER"
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/PLACEHOLDER/rich-VERSION.tar.gz"
-    sha256 "PLACEHOLDER_SHA256_RICH"
+    url "https://files.pythonhosted.org/packages/TEMPLATE_PLACEHOLDER/rich-VERSION.tar.gz"
+    sha256 "TEMPLATE_PLACEHOLDER_SHA256_RICH"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/PLACEHOLDER/click-VERSION.tar.gz"
-    sha256 "PLACEHOLDER_SHA256_CLICK"
+    url "https://files.pythonhosted.org/packages/TEMPLATE_PLACEHOLDER/click-VERSION.tar.gz"
+    sha256 "TEMPLATE_PLACEHOLDER_SHA256_CLICK"
   end
 
   resource "markdown-it-py" do
-    url "https://files.pythonhosted.org/packages/PLACEHOLDER/markdown_it_py-VERSION.tar.gz"
-    sha256 "PLACEHOLDER_SHA256_MARKDOWN_IT_PY"
+    url "https://files.pythonhosted.org/packages/TEMPLATE_PLACEHOLDER/markdown_it_py-VERSION.tar.gz"
+    sha256 "TEMPLATE_PLACEHOLDER_SHA256_MARKDOWN_IT_PY"
   end
 
   resource "mdurl" do
-    url "https://files.pythonhosted.org/packages/PLACEHOLDER/mdurl-VERSION.tar.gz"
-    sha256 "PLACEHOLDER_SHA256_MDURL"
+    url "https://files.pythonhosted.org/packages/TEMPLATE_PLACEHOLDER/mdurl-VERSION.tar.gz"
+    sha256 "TEMPLATE_PLACEHOLDER_SHA256_MDURL"
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/PLACEHOLDER/pygments-VERSION.tar.gz"
-    sha256 "PLACEHOLDER_SHA256_PYGMENTS"
+    url "https://files.pythonhosted.org/packages/TEMPLATE_PLACEHOLDER/pygments-VERSION.tar.gz"
+    sha256 "TEMPLATE_PLACEHOLDER_SHA256_PYGMENTS"
   end
 
   resource "shellingham" do
-    url "https://files.pythonhosted.org/packages/PLACEHOLDER/shellingham-VERSION.tar.gz"
-    sha256 "PLACEHOLDER_SHA256_SHELLINGHAM"
+    url "https://files.pythonhosted.org/packages/TEMPLATE_PLACEHOLDER/shellingham-VERSION.tar.gz"
+    sha256 "TEMPLATE_PLACEHOLDER_SHA256_SHELLINGHAM"
   end
 
   # Add additional project-specific dependencies here after first release

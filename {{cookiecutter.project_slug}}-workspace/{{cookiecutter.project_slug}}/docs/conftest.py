@@ -332,9 +332,9 @@ def pytest_sessionfinish(session, exitstatus):
     """Clean up test artifacts after test session completes.
 
     This pytest hook runs after all tests finish and removes:
-    - placeholder
+    - TEMPLATE_PLACEHOLDER
     - Transient output files (output.txt, output.log, test-output*.txt, etc.)
-    - Generated placeholder files (*.output in placeholder/ directories)
+    - Generated TEMPLATE_PLACEHOLDER files (*.output in TEMPLATE_PLACEHOLDER/ directories)
     - Generated stats files (job-stats.json, etc.)
     """
     # Find docs directory (parent of this conftest.py)
@@ -357,8 +357,8 @@ def pytest_sessionfinish(session, exitstatus):
                     pass  # Ignore errors during cleanup
 
     # Clean up directories and their .output files
-    for placeholder_dirs in docs_dir.rglob("placeholder"):
-        if placeholder_dirs.is_dir() and placeholder_dirs.parent.name in [
+    for TEMPLATE_PLACEHOLDER_dirs in docs_dir.rglob("TEMPLATE_PLACEHOLDER"):
+        if TEMPLATE_PLACEHOLDER_dirs.is_dir() and TEMPLATE_PLACEHOLDER_dirs.parent.name in [
             "library",
             "prod-patterns",
             "production-patterns",
@@ -368,7 +368,7 @@ def pytest_sessionfinish(session, exitstatus):
             "patterns",
         ]:
             # Remove all .output files (these are regenerated during tests)
-            for seq_file in placeholder_dirs.glob("*.output"):
+            for seq_file in TEMPLATE_PLACEHOLDER_dirs.glob("*.output"):
                 try:
                     seq_file.unlink()
                 except OSError:

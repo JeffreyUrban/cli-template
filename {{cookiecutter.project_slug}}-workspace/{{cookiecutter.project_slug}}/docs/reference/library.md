@@ -15,61 +15,61 @@ pip install {{ cookiecutter.package_name }}
 ### Basic Usage
 
 ```python
-placeholder
+TEMPLATE_PLACEHOLDER
 ```
 
-### placeholder
+### TEMPLATE_PLACEHOLDER
 
 ```python
-placeholder
+TEMPLATE_PLACEHOLDER
 ```
 
 ## Core API
 
 ### {{ cookiecutter.class_name }}
 
-The main placeholder class. See [{{ cookiecutter.class_name }} API]({{ cookiecutter.command_name }}.md) for complete reference.
+The main TEMPLATE_PLACEHOLDER class. See [{{ cookiecutter.class_name }} API]({{ cookiecutter.command_name }}.md) for complete reference.
 
 ```python
-placeholder
+TEMPLATE_PLACEHOLDER
 ```
 
 ### Complete Library Workflow
 
 ```python
-placeholder
+TEMPLATE_PLACEHOLDER
 ```
 
 ## Advanced Features
 
-### placeholder
+### TEMPLATE_PLACEHOLDER
 
 ```python
-placeholder
+TEMPLATE_PLACEHOLDER
 ```
 
 ## Integration Examples
 
-### placeholder Application
+### TEMPLATE_PLACEHOLDER Application
 
 ```python
-placeholder
+TEMPLATE_PLACEHOLDER
 ```
 
-### placeholder Integration
+### TEMPLATE_PLACEHOLDER Integration
 
 ```python
-placeholder
+TEMPLATE_PLACEHOLDER
 ```
 
 ## Library Functions Reference
 
-### placeholder()
+### TEMPLATE_PLACEHOLDER()
 
-placeholder:
+TEMPLATE_PLACEHOLDER:
 
 ```python
-placeholder
+TEMPLATE_PLACEHOLDER
 ```
 
 ## See Also

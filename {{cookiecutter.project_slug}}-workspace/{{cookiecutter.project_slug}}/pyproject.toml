@@ -12,7 +12,7 @@ license = {file = "LICENSE"}
 authors = [
     {name = "{{ cookiecutter.author_name }}"{% if cookiecutter.author_email and cookiecutter.author_email != "(optional)" %}, email = "{{ cookiecutter.author_email }}"{% endif %}}
 ]
-requires-python = ">={{ cookiecutter.python_version }}"
+requires-python = ">=PYTHON_VERSION_MIN_KICKOFF"
 keywords = [
     "terminal",
 ]
@@ -28,12 +28,12 @@ classifiers = [
     "Operating System :: OS Independent",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
-    "Programming Language :: Python :: 3.13",
-    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: PYTHON_VERSION_MIN_KICKOFF",
+    "Programming Language :: Python :: PYTHON_VERSION_INTERMEDIATE_1_KICKOFF",
+    "Programming Language :: Python :: PYTHON_VERSION_INTERMEDIATE_2_KICKOFF",
+    "Programming Language :: Python :: PYTHON_VERSION_INTERMEDIATE_3_KICKOFF",
+    "Programming Language :: Python :: PYTHON_VERSION_INTERMEDIATE_4_KICKOFF",
+    "Programming Language :: Python :: PYTHON_VERSION_MAX_KICKOFF",
 ]
 dependencies = [
     "typer>=0.9.0",

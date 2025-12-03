@@ -24,7 +24,7 @@ from .{{ cookiecutter.package_name }} import (
 
 app = typer.Typer(
     name="{{ cookiecutter.command_name }}",
-    help="placeholder",
+    help="TEMPLATE_PLACEHOLDER",
     context_settings={"help_option_names": ["-h", "--help"]},
     add_completion=False,
 )
@@ -39,17 +39,17 @@ def version_callback(value: bool) -> None:
         raise typer.Exit()
 
 
-def placeholder(stream: TextIO) -> Iterator[str]:
-    """Read placeholder from stream
+def TEMPLATE_PLACEHOLDER(stream: TextIO) -> Iterator[str]:
+    """Read TEMPLATE_PLACEHOLDER from stream
 
     Args:
         stream: Input stream (file or stdin)
 
     Yields:
-        placeholder
+        TEMPLATE_PLACEHOLDER
     """
     for _line in stream:
-        yield "placeholder"
+        yield "TEMPLATE_PLACEHOLDER"
 
 
 def validate_arguments(
@@ -89,12 +89,12 @@ def main(
         help="Show version and exit",
     ),
     # Input Format
-    placeholder: bool = typer.Option(
+    TEMPLATE_PLACEHOLDER: bool = typer.Option(
         False,
-        "--placeholder",
+        "--TEMPLATE_PLACEHOLDER",
         "-b",
-        help="placeholder",
-        rich_help_panel="placeholder",
+        help="TEMPLATE_PLACEHOLDER",
+        rich_help_panel="TEMPLATE_PLACEHOLDER",
     ),
     # StdErr Control
     quiet: bool = typer.Option(
@@ -126,18 +126,18 @@ def main(
     ),
 ) -> None:
     """
-    placeholder from streaming input.
+    TEMPLATE_PLACEHOLDER from streaming input.
 
-    This tool placeholder.
+    This tool TEMPLATE_PLACEHOLDER.
 
     \b
     Quick Start:
-        {{ cookiecutter.command_name }} input.log > output.log              # placeholder a file
-        cat placeholder | {{ cookiecutter.command_name }}                          # Use in pipeline
+        {{ cookiecutter.command_name }} input.log > output.log              # TEMPLATE_PLACEHOLDER a file
+        cat TEMPLATE_PLACEHOLDER | {{ cookiecutter.command_name }}                          # Use in pipeline
 
     \b
     More Examples:
-        {{ cookiecutter.command_name }} --placeholder
+        {{ cookiecutter.command_name }} --TEMPLATE_PLACEHOLDER
         {{ cookiecutter.command_name }} --quiet input.log > output.log      # No statistics
 
     \b
@@ -154,7 +154,7 @@ def main(
         console.print("\n[bold]Usage:[/bold] {{ cookiecutter.command_name }} [FILE] or pipe data via stdin")
         console.print("\n[bold]Examples:[/bold]")
         console.print("  {{ cookiecutter.command_name }} input.log > output.log")
-        console.print("  cat placeholder | {{ cookiecutter.command_name }}")
+        console.print("  cat TEMPLATE_PLACEHOLDER | {{ cookiecutter.command_name }}")
         console.print("\n[dim]For full help: {{ cookiecutter.command_name }} --help[/dim]")
         raise typer.Exit(0)
 
@@ -170,14 +170,14 @@ def main(
         # File mode
         if not quiet:
             console.print(
-                "[dim]Auto-detected file input: using placeholder "
-                "(override with --placeholder)[/dim]"
+                "[dim]Auto-detected file input: using TEMPLATE_PLACEHOLDER "
+                "(override with --TEMPLATE_PLACEHOLDER)[/dim]"
             )
     else:
         # Streaming mode
         pass
 
-    if placeholder:
+    if TEMPLATE_PLACEHOLDER:
         pass
     else:
         pass
@@ -199,7 +199,7 @@ def main(
                 transient=True,
             ) as progress_bar:
                 task = progress_bar.add_task(
-                    "Processing placeholder...",
+                    "Processing TEMPLATE_PLACEHOLDER...",
                     total=None,
                     skipped=0,
                 )
@@ -235,7 +235,7 @@ def main(
     except KeyboardInterrupt:
         console.print("\n[yellow]Interrupted by user[/yellow]")
         # Flush what we have
-        if placeholder:
+        if TEMPLATE_PLACEHOLDER:
             processor.flush(sys.stdout.buffer)
         else:
             processor.flush(sys.stdout)
@@ -252,19 +252,19 @@ def main(
 
 
 def print_stats(processor: {{ cookiecutter.class_name }}) -> None:
-    """Print placeholder statistics using rich."""
+    """Print TEMPLATE_PLACEHOLDER statistics using rich."""
     stats = processor.get_stats()
 
-    if stats["placeholder"] == 0:
-        console.print("[yellow]placeholder[/yellow]")
+    if stats["TEMPLATE_PLACEHOLDER"] == 0:
+        console.print("[yellow]TEMPLATE_PLACEHOLDER[/yellow]")
         return
 
     # Create stats table
-    table = Table(title="placeholder Statistics", show_header=True, header_style="bold cyan")
+    table = Table(title="TEMPLATE_PLACEHOLDER Statistics", show_header=True, header_style="bold cyan")
     table.add_column("Metric", style="cyan", no_wrap=True)
     table.add_column("Value", justify="right", style="green")
 
-    table.add_row("placeholder", f"{stats['placeholder']:,}")
+    table.add_row("TEMPLATE_PLACEHOLDER", f"{stats['TEMPLATE_PLACEHOLDER']:,}")
 
     console.print()
     console.print(table)
@@ -272,13 +272,13 @@ def print_stats(processor: {{ cookiecutter.class_name }}) -> None:
 
 
 def print_stats_json(processor: {{ cookiecutter.class_name }}) -> None:
-    """Print placeholder statistics as JSON to stderr."""
+    """Print TEMPLATE_PLACEHOLDER statistics as JSON to stderr."""
     stats = processor.get_stats()
 
     output = {
         "statistics": stats,
         "configuration": {
-            "placeholder": processor.placeholder,
+            "TEMPLATE_PLACEHOLDER": processor.TEMPLATE_PLACEHOLDER,
         },
     }
 

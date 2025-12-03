@@ -40,50 +40,50 @@
 
 ### 3. Core Competency Focus
 
-**Principle**: Focus on placeholder, not placeholder.
+**Principle**: Focus on TEMPLATE_PLACEHOLDER, not TEMPLATE_PLACEHOLDER.
 
 **Rationale**:
-- placeholder
+- TEMPLATE_PLACEHOLDER
 
 **Application**:
-- ✅ Features that enhance placeholder
-- ❌ Features better served by placeholder
+- ✅ Features that enhance TEMPLATE_PLACEHOLDER
+- ❌ Features better served by TEMPLATE_PLACEHOLDER
 
 ---
 
 ## Feature Inclusion Decisions
 
-### ✅ Kept: placeholder
+### ✅ Kept: TEMPLATE_PLACEHOLDER
 
 ---
 
 ## Feature Exclusion Decisions
 
-### ❌ Cut: placeholder
+### ❌ Cut: TEMPLATE_PLACEHOLDER
 
 ---
 
 ## Implementation Trade-offs
 
-### placeholder
+### TEMPLATE_PLACEHOLDER
 
 ---
 
 ## Tool Comparisons
 
-### vs. placeholder
+### vs. TEMPLATE_PLACEHOLDER
 
 ---
 
 ## Removed Features and Rationale
 
-### placeholder
+### TEMPLATE_PLACEHOLDER
 
 ---
 
 ### Features Clarified During Planning
 
-**1. placeholder**
+**1. TEMPLATE_PLACEHOLDER**
 
 ---
 

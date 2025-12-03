@@ -5,7 +5,7 @@
 The {{ cookiecutter.command_name }} does something...
 
 **Core capabilities** :
-1. **placeholder**: placeholder
+1. **TEMPLATE_PLACEHOLDER**: TEMPLATE_PLACEHOLDER
 
 All functionality is supported both as an imported module and as a CLI tool.
 
@@ -15,19 +15,19 @@ All functionality is supported both as an imported module and as a CLI tool.
 
 ### Key Design Principles
 
-1. **placeholder**: placeholder
+1. **TEMPLATE_PLACEHOLDER**: TEMPLATE_PLACEHOLDER
 
 ---
 
 ## Data Structures
 
-### 1. placeholder
+### 1. TEMPLATE_PLACEHOLDER
 
 ---
 
 ## Memory Management
 
-### placeholder
+### TEMPLATE_PLACEHOLDER
 
 ---
 
@@ -35,20 +35,20 @@ All functionality is supported both as an imported module and as a CLI tool.
 
 ### Time Complexity
 
-**placeholder**: placeholder
+**TEMPLATE_PLACEHOLDER**: TEMPLATE_PLACEHOLDER
 
 ### Space Complexity
 
-**placeholder**: placeholder
+**TEMPLATE_PLACEHOLDER**: TEMPLATE_PLACEHOLDER
 
 ---
 
 ## Design Rationale Summary
 
-### placeholder
+### TEMPLATE_PLACEHOLDER
 
 ---
 
 ## References
 
-**placeholder**:
+**TEMPLATE_PLACEHOLDER**:

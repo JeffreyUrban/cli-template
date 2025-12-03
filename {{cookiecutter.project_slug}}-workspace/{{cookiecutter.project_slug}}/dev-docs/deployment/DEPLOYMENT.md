@@ -139,7 +139,7 @@ File: `Formula/{{ cookiecutter.command_name }}.rb`
 class Uniqseq < Formula
   include Language::Python::Virtualenv
 
-  desc "placeholder"
+  desc "TEMPLATE_PLACEHOLDER"
   homepage "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.command_name }}"
   url "https://files.pythonhosted.org/packages/.../{{ cookiecutter.command_name }}-0.1.1.tar.gz"
   sha256 "..."  # SHA256 hash of the PyPI tarball (get from PyPI)

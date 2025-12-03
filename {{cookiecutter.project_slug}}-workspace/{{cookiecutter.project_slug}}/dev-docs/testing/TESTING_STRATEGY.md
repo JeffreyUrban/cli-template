@@ -2,17 +2,17 @@
 
 ## Test Data Philosophy
 
-**All tests use synthetic data** - no real placeholder
+**All tests use synthetic data** - no real TEMPLATE_PLACEHOLDER
 
 **Rationale**:
 - **Reproducibility**: Synthetic patterns are deterministic
 - **Clarity**: Test intent is obvious from data generation
 - **Compactness**: Minimal test data for specific scenarios
-- **Privacy**: No risk of exposing placeholder
+- **Privacy**: No risk of exposing TEMPLATE_PLACEHOLDER
 
 **Example pattern**
 ```python
-placeholder
+TEMPLATE_PLACEHOLDER
 ```
 
 ### tests/test_{{ cookiecutter.project_slug }}.py

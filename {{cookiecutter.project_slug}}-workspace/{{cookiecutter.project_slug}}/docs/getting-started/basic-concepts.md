@@ -4,29 +4,29 @@
 
 Understand the core concepts behind `{{ cookiecutter.project_slug }}`.
 
-## What is a placeholder?
+## What is a TEMPLATE_PLACEHOLDER?
 
-## How placeholder Works
+## How TEMPLATE_PLACEHOLDER Works
 
-### 1. placeholder
+### 1. TEMPLATE_PLACEHOLDER
 
 ## Key Parameters
 
-### placeholder
+### TEMPLATE_PLACEHOLDER
 
 ## Memory Efficiency
 
-{{ cookiecutter.command_name }} is designed for **placeholder** - placeholder.
+{{ cookiecutter.command_name }} is designed for **TEMPLATE_PLACEHOLDER** - TEMPLATE_PLACEHOLDER.
 
 **Memory usage depends only on**:
 
-- placeholder
+- TEMPLATE_PLACEHOLDER
 
-This means you can placeholder with placeholder memory.
+This means you can TEMPLATE_PLACEHOLDER with TEMPLATE_PLACEHOLDER memory.
 
 ## Next Steps
 
 - **[Quick Start](quick-start.md)** - Try {{ cookiecutter.command_name }} with simple examples
 - **[Common Patterns](../guides/common-patterns.md)** - Copy-paste ready examples
-- **[Use Cases](../use-cases/placeholder/placeholder.md)** - See real-world applications
+- **[Use Cases](../use-cases/TEMPLATE_PLACEHOLDER/TEMPLATE_PLACEHOLDER.md)** - See real-world applications
 - **[Algorithm Details](../about/algorithm.md)** - Deep dive into how it works

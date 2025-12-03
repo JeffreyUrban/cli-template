@@ -2,23 +2,23 @@
 
 # Statistics Output
 
-After processing, {{ cookiecutter.command_name }} automatically displays statistics showing placeholder.
+After processing, {{ cookiecutter.command_name }} automatically displays statistics showing TEMPLATE_PLACEHOLDER.
 
 ## What It Does
 
-Statistics provide insight into placeholder:
+Statistics provide insight into TEMPLATE_PLACEHOLDER:
 
 - **Default**: Table format displayed after processing
 - **JSON format**: Machine-readable with `--stats-format json`
 - **Quiet mode**: Suppress with `--quiet`
-- **Use case**: Understand placeholder effectiveness, tune parameters
+- **Use case**: Understand TEMPLATE_PLACEHOLDER effectiveness, tune parameters
 
-**Key insight**: Statistics help you verify placeholder worked and measure
-placeholder.
+**Key insight**: Statistics help you verify TEMPLATE_PLACEHOLDER worked and measure
+TEMPLATE_PLACEHOLDER.
 
-## Example: Understanding placeholder Results
+## Example: Understanding TEMPLATE_PLACEHOLDER Results
 
-This example shows placeholder. Statistics reveal placeholder.
+This example shows TEMPLATE_PLACEHOLDER. Statistics reveal TEMPLATE_PLACEHOLDER.
 
 ### Default: Statistics Table
 
@@ -26,7 +26,7 @@ By default, statistics are displayed to stderr after processing:
 
 <!-- verify-file: stats-table.txt expected: expected-stats-table.txt -->
 ```console
-$ {{ cookiecutter.command_name }} input.txt --placeholder > output.txt 2> stats-table.txt
+$ {{ cookiecutter.command_name }} input.txt --TEMPLATE_PLACEHOLDER > output.txt 2> stats-table.txt
 ```
 
 Statistics are written to stderr (`stats-table.txt`):
@@ -36,7 +36,7 @@ without capturing statistics.
 
 **Statistics explained**:
 
-- **placeholder**: placeholder
+- **TEMPLATE_PLACEHOLDER**: TEMPLATE_PLACEHOLDER
 
 ### JSON Format: Machine-Readable
 
@@ -44,7 +44,7 @@ Use `--stats-format json` for programmatic processing:
 
 <!-- verify-file: stats-json.txt expected: expected-stats-json.txt -->
 ```console
-$ {{ cookiecutter.command_name }} input.txt --placeholder --stats-format json \
+$ {{ cookiecutter.command_name }} input.txt --TEMPLATE_PLACEHOLDER --stats-format json \
     > output.txt 2> stats-json.txt
 ```
 
@@ -53,7 +53,7 @@ Statistics in JSON format (`stats-json.txt`):
 ```json
 {
   "statistics": {
-    "placeholder": placeholder
+    "TEMPLATE_PLACEHOLDER": TEMPLATE_PLACEHOLDER
   }
 }
 ```
@@ -61,7 +61,7 @@ Statistics in JSON format (`stats-json.txt`):
 **Benefits**:
 - Parse with `jq`, Python, or other tools
 - Integrate into monitoring systems
-- Track placeholder metrics over time
+- Track TEMPLATE_PLACEHOLDER metrics over time
 - Compare configurations programmatically
 
 ### Quiet Mode: Suppress Statistics
@@ -70,19 +70,19 @@ Use `--quiet` to suppress all statistics and progress output:
 
 === "CLI"
 
-    <!-- verify-file: output.txt expected: expected-placeholder.txt -->
+    <!-- verify-file: output.txt expected: expected-TEMPLATE_PLACEHOLDER.txt -->
     <!-- termynal -->
     ```console
-    $ {{ cookiecutter.command_name }} input.txt --placeholder --quiet > output.txt
+    $ {{ cookiecutter.command_name }} input.txt --TEMPLATE_PLACEHOLDER --quiet > output.txt
     ```
 
 === "Python"
 
-    <!-- verify-file: output.txt expected: expected-placeholder.txt -->
+    <!-- verify-file: output.txt expected: expected-TEMPLATE_PLACEHOLDER.txt -->
     ```python
     from {{ cookiecutter.package_name }} import {{ cookiecutter.class_name }}
 
-    processor = {{ cookiecutter.class_name }}(placeholder=True)
+    processor = {{ cookiecutter.class_name }}(TEMPLATE_PLACEHOLDER=True)
 
     with open("input.txt") as f:
         with open("output.txt", "w") as out:
@@ -91,58 +91,58 @@ Use `--quiet` to suppress all statistics and progress output:
 
     # Get statistics programmatically
     stats = processor.get_stats()  # (1)!
-    print(f"placeholder: {stats['placeholder']}")
+    print(f"TEMPLATE_PLACEHOLDER: {stats['TEMPLATE_PLACEHOLDER']}")
     ```
 
     1. Access statistics from {{ cookiecutter.command_name }} object
 
-???+ success "Output: placeholder"
+???+ success "Output: TEMPLATE_PLACEHOLDER"
     ```text
-    --8<-- "features/stats/fixtures/expected-placeholder.txt"
+    --8<-- "features/stats/fixtures/expected-TEMPLATE_PLACEHOLDER.txt"
     ```
 
-    **Result**: placeholder. No statistics printed to stderr.
+    **Result**: TEMPLATE_PLACEHOLDER. No statistics printed to stderr.
 
 ## Statistics Fields
 
-### placeholder
+### TEMPLATE_PLACEHOLDER
 
 ### Configuration Echo
 
 | Field  | Description | Purpose |
 |--------|-------------|---------|
-| `placeholder` | placeholder        | placeholder    |
+| `TEMPLATE_PLACEHOLDER` | TEMPLATE_PLACEHOLDER        | TEMPLATE_PLACEHOLDER    |
 
 ## Common Use Cases
 
-### placeholder
+### TEMPLATE_PLACEHOLDER
 
 ## Statistics with Other Features
 
-### With placeholder
+### With TEMPLATE_PLACEHOLDER
 
 ## Performance Note
 
 Statistics collection has minimal overhead:
-- placeholder
+- TEMPLATE_PLACEHOLDER
 - JSON formatting slightly slower than table (still negligible)
 
 ## Rule of Thumb
 
 **Use statistics to:**
-- Verify placeholder is working
-- Measure placeholder
-- Tune placeholder
-- Monitor placeholder effectiveness over time
+- Verify TEMPLATE_PLACEHOLDER is working
+- Measure TEMPLATE_PLACEHOLDER
+- Tune TEMPLATE_PLACEHOLDER
+- Monitor TEMPLATE_PLACEHOLDER effectiveness over time
 
 **Use JSON format when:**
 - Integrating with monitoring systems
 - Batch processing
-- Building automation around placeholder
+- Building automation around TEMPLATE_PLACEHOLDER
 - Generating reports programmatically
 
 **Use quiet mode when:**
-- You only need the placeholder output
+- You only need the TEMPLATE_PLACEHOLDER output
 - Piping to another command
 - Running in cron jobs where stderr is logged
 - Performance testing (avoid terminal I/O)

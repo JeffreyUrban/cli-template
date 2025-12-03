@@ -1,24 +1,24 @@
 # ⚠️ Template doc: Testing disabled ⚠️
 
-# placeholder
+# TEMPLATE_PLACEHOLDER
 
-placeholder.
+TEMPLATE_PLACEHOLDER.
 
 ## Input Data
 
 ???+ note "app.log"
-    --8<-- "use-cases/placeholder/fixtures/app.log"
+    --8<-- "use-cases/TEMPLATE_PLACEHOLDER/fixtures/app.log"
     ```
 
-    placeholder.
+    TEMPLATE_PLACEHOLDER.
 
 ## Output Data
 
 ???+ success "output.log"
-    --8<-- "use-cases/placeholder/fixtures/expected-output.log"
+    --8<-- "use-cases/TEMPLATE_PLACEHOLDER/fixtures/expected-output.log"
     ```
 
-    **Result**: placeholder
+    **Result**: TEMPLATE_PLACEHOLDER
 
 ## Solution
 
@@ -28,7 +28,7 @@ placeholder.
     <!-- termynal -->
     ```console
     $ {{ cookiecutter.command_name }} app.log \
-        --placeholder \
+        --TEMPLATE_PLACEHOLDER \
         --quiet > output.log
     ```
 
@@ -45,7 +45,7 @@ placeholder.
     from {{ cookiecutter.package_name }} import {{ cookiecutter.class_name }}
 
     processor = {{ cookiecutter.class_name }}(
-        placeholder=True,  # (1)!
+        TEMPLATE_PLACEHOLDER=True,  # (1)!
     )
 
     with open("app.log") as f:
@@ -54,20 +54,20 @@ placeholder.
             processor.flush(out)
     ```
 
-    1. placeholder
+    1. TEMPLATE_PLACEHOLDER
 
 ## How It Works
 
-placeholder
+TEMPLATE_PLACEHOLDER
 
 ## Benefits
 
-**placeholder**: placeholder
+**TEMPLATE_PLACEHOLDER**: TEMPLATE_PLACEHOLDER
 
 ## Real-World Usage
 
 ```bash
-placeholder
+TEMPLATE_PLACEHOLDER
 ```
 
 ## See Also

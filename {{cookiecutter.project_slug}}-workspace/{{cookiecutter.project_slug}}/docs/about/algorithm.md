@@ -6,29 +6,29 @@ A detailed look at the algorithm behind processor.
 
 ## Core Algorithm
 
-{{ cookiecutter.command_name }} uses placeholder.
+{{ cookiecutter.command_name }} uses TEMPLATE_PLACEHOLDER.
 
 ### The Process
 
-1. **placeholder** placeholder
+1. **TEMPLATE_PLACEHOLDER** TEMPLATE_PLACEHOLDER
 
 ## Key Concepts
 
-### placeholder
+### TEMPLATE_PLACEHOLDER
 
 ## Memory Efficiency
 
-### placeholder
+### TEMPLATE_PLACEHOLDER
 
 ## Performance Characteristics
 
 ### Time Complexity
 
-- **placeholder**: O(placeholder)
+- **TEMPLATE_PLACEHOLDER**: O(TEMPLATE_PLACEHOLDER)
 
 ### Space Complexity
 
-- **placeholder**: O(placeholder)
+- **TEMPLATE_PLACEHOLDER**: O(TEMPLATE_PLACEHOLDER)
 
 ## Oracle Compatibility
 

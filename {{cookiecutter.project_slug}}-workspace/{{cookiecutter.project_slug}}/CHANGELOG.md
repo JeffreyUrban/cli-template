@@ -13,7 +13,7 @@ No unreleased changes yet.
 
 ## [0.0.0] - 1970-01-01
 
-### Placeholder
+### TEMPLATE_PLACEHOLDER
 
 Special thanks to the Python community and the developers of the excellent tools that made this project possible.
 

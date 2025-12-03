@@ -64,14 +64,14 @@ nav:
       - Quick Start: getting-started/quick-start.md
       - Basic Concepts: getting-started/basic-concepts.md
   - Use Cases:
-      - placeholder:
-          - placeholder: use-cases/placeholder/placeholder.md
+      - TEMPLATE_PLACEHOLDER:
+          - TEMPLATE_PLACEHOLDER: use-cases/TEMPLATE_PLACEHOLDER/TEMPLATE_PLACEHOLDER.md
   - Features:
-      - placeholder: features/placeholder/placeholder.md
+      - TEMPLATE_PLACEHOLDER: features/TEMPLATE_PLACEHOLDER/TEMPLATE_PLACEHOLDER.md
       - Explain Mode: features/explain/explain.md
       - Statistics Output: features/stats/stats.md
   - Guides:
-      - placeholder: guides/placeholder.md
+      - TEMPLATE_PLACEHOLDER: guides/TEMPLATE_PLACEHOLDER.md
       - Performance: guides/performance.md
       - Common Patterns: guides/common-patterns.md
       - Troubleshooting: guides/troubleshooting.md

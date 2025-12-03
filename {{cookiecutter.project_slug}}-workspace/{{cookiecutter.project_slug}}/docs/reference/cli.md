@@ -13,22 +13,22 @@ Complete reference for the `{{ cookiecutter.project_slug }}` command-line interf
 ## Basic Usage
 
 ```bash
-# placeholder
-{{ cookiecutter.command_name }} placeholder
+# TEMPLATE_PLACEHOLDER
+{{ cookiecutter.command_name }} TEMPLATE_PLACEHOLDER
 ```
 
 ## Options Reference
 
 ### Core Options
 
-#### `--placeholder, -b`
-**Type**: placeholder
-**Default**: placeholder
+#### `--TEMPLATE_PLACEHOLDER, -b`
+**Type**: TEMPLATE_PLACEHOLDER
+**Default**: TEMPLATE_PLACEHOLDER
 
-placeholder.
+TEMPLATE_PLACEHOLDER.
 
 ```bash
-{{ cookiecutter.command_name }} --placeholder
+{{ cookiecutter.command_name }} --TEMPLATE_PLACEHOLDER
 ```
 
 ### Display Options
@@ -67,26 +67,26 @@ Statistics output format: 'table' (Rich table) or 'json' (machine-readable).
 **Type**: Boolean
 **Default**: False
 
-Show explanations to stderr for why placeholder.
+Show explanations to stderr for why TEMPLATE_PLACEHOLDER.
 
-Outputs diagnostic messages showing placeholder decisions:
-- When placeholder
-- Which placeholder
+Outputs diagnostic messages showing TEMPLATE_PLACEHOLDER decisions:
+- When TEMPLATE_PLACEHOLDER
+- Which TEMPLATE_PLACEHOLDER
 
 ```bash
-# See all placeholder decisions
+# See all TEMPLATE_PLACEHOLDER decisions
 {{ cookiecutter.command_name }} --explain input.log 2> explain.log
 
 # Debug with quiet mode (only explanations, no stats)
 {{ cookiecutter.command_name }} --explain --quiet input.log
 
-# Validate placeholder
-{{ cookiecutter.command_name }} --explain --placeholder input.log 2>&1 | grep EXPLAIN
+# Validate TEMPLATE_PLACEHOLDER
+{{ cookiecutter.command_name }} --explain --TEMPLATE_PLACEHOLDER input.log 2>&1 | grep EXPLAIN
 ```
 
 Example output:
 ```
-EXPLAIN: placeholder
+EXPLAIN: TEMPLATE_PLACEHOLDER
 ```
 
 See [Explain Mode](../features/explain/explain.md) for detailed usage.
@@ -112,16 +112,16 @@ Example output:
 
 ### Mutually Exclusive Options
 
-- `--placeholder` and `--placeholder`: Use one or the other
-- `--placeholder` requires `--placeholder`
+- `--TEMPLATE_PLACEHOLDER` and `--TEMPLATE_PLACEHOLDER`: Use one or the other
+- `--TEMPLATE_PLACEHOLDER` requires `--TEMPLATE_PLACEHOLDER`
 
 ## Examples
 
-### placeholder
+### TEMPLATE_PLACEHOLDER
 
 ```bash
-# placeholder
-{{ cookiecutter.command_name }} placeholder.log > output.log
+# TEMPLATE_PLACEHOLDER
+{{ cookiecutter.command_name }} TEMPLATE_PLACEHOLDER.log > output.log
 ```
 
 ## Statistics Output
@@ -132,7 +132,7 @@ Example output:
 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
 ┃ Metric                   ┃  Value ┃
 ┡━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
-│ placeholder                     │   placeholder │
+│ TEMPLATE_PLACEHOLDER                     │   TEMPLATE_PLACEHOLDER │
 └──────────────────────────┴────────┘
 ```
 
@@ -141,7 +141,7 @@ Example output:
 ```json
 {
   "statistics": {
-    "placeholder": placeholder
+    "TEMPLATE_PLACEHOLDER": TEMPLATE_PLACEHOLDER
   }
 }
 ```
@@ -153,5 +153,5 @@ Example output:
 
 ## See Also
 
-- [{{ cookiecutter.class_name }} API]({{ cookiecutter.command_name }}.md) - Core placeholder class
+- [{{ cookiecutter.class_name }} API]({{ cookiecutter.command_name }}.md) - Core TEMPLATE_PLACEHOLDER class
 - [Basic Concepts](../getting-started/basic-concepts.md) - Understanding how {{ cookiecutter.command_name }} works

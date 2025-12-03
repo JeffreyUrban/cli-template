@@ -1,9 +1,9 @@
-placeholder
+TEMPLATE_PLACEHOLDER
 Processing: input.txt
 
-        placeholder Statistics
+        TEMPLATE_PLACEHOLDER Statistics
 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━┓
 ┃ Metric                   ┃     Value ┃
 ┡━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━┩
-│ placeholder                     │      placeholder │
+│ TEMPLATE_PLACEHOLDER                     │      TEMPLATE_PLACEHOLDER │
 └──────────────────────────┴───────────┘
