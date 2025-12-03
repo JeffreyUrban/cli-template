@@ -21,7 +21,7 @@ Found a bug or have a feature request?
 
 **Command used**:
 ```bash
-{{ cookiecutter.command_name }} --placeholder
+{{ cookiecutter.command_name }} --TEMPLATE_PLACEHOLDER
 ```
 
 **Sample input** (first 20 lines):
@@ -108,22 +108,22 @@ pytest --cov=src --cov-report=html
 
 1. **Type hints** for all function signatures:
    ```python
-   def placeholder(self, placeholder, output: TextIO) -> None:
-       """Process placeholder."""
+   def TEMPLATE_PLACEHOLDER(self, TEMPLATE_PLACEHOLDER, output: TextIO) -> None:
+       """Process TEMPLATE_PLACEHOLDER."""
        pass
    ```
 
 2. **Docstrings** for public functions/classes:
    ```python
-   def placeholder(placeholder) -> placeholder:
+   def TEMPLATE_PLACEHOLDER(TEMPLATE_PLACEHOLDER) -> TEMPLATE_PLACEHOLDER:
        """
-       placeholder.
+       TEMPLATE_PLACEHOLDER.
 
        Args:
-           placeholder: placeholder
+           TEMPLATE_PLACEHOLDER: TEMPLATE_PLACEHOLDER
 
        Returns:
-           placeholder
+           TEMPLATE_PLACEHOLDER
        """
        pass
    ```
@@ -167,27 +167,27 @@ pytest --cov=src --cov-report=html
 import pytest
 from {{ cookiecutter.package_name }} import {{ cookiecutter.class_name }}
 
-def test_placeholder():
-    """Test that placeholder."""
-    placeholder = {{ cookiecutter.class_name }}(placeholder)
+def test_TEMPLATE_PLACEHOLDER():
+    """Test that TEMPLATE_PLACEHOLDER."""
+    TEMPLATE_PLACEHOLDER = {{ cookiecutter.class_name }}(TEMPLATE_PLACEHOLDER)
 
     # Test input
-    placeholder
+    TEMPLATE_PLACEHOLDER
 
     # Process and collect output
-    output = placeholder
+    output = TEMPLATE_PLACEHOLDER
 
     # Verify
-    assert output == placeholder
+    assert output == TEMPLATE_PLACEHOLDER
 ```
 
 **Running specific tests**:
 ```bash
 # Run by name pattern
-pytest -k "test_placeholder"
+pytest -k "test_TEMPLATE_PLACEHOLDER"
 
 # Run specific file
-pytest tests/test_placeholder.py
+pytest tests/test_TEMPLATE_PLACEHOLDER.py
 
 # Run with verbose output
 pytest -v
@@ -224,11 +224,11 @@ pytest -x
 
    **Examples**:
    ```
-   Add support for placeholder
+   Add support for TEMPLATE_PLACEHOLDER
 
-   - Add --placeholder option to CLI
-   - Support placeholder
-   - Add tests for placeholder
+   - Add --TEMPLATE_PLACEHOLDER option to CLI
+   - Support TEMPLATE_PLACEHOLDER
+   - Add tests for TEMPLATE_PLACEHOLDER
    - Update documentation with examples
    ```
 
@@ -265,7 +265,7 @@ pytest -x
 │   ├── processor.py   # Core logic
 │   └── ...
 ├── tests/                # Test files
-│   ├── test_placeholder.py
+│   ├── test_TEMPLATE_PLACEHOLDER.py
 │   ├── test_cli.py
 │   └── fixtures/         # Test data files
 ├── docs/                 # Documentation (MkDocs)
@@ -372,7 +372,7 @@ python -m cProfile -s cumulative -m {{ cookiecutter.command_name }} large-file.l
        # Implementation
    ```
 
-2. **Add to core** (`src/{{ cookiecutter.command_name }}/placeholder.py`):
+2. **Add to core** (`src/{{ cookiecutter.command_name }}/TEMPLATE_PLACEHOLDER.py`):
    ```python
    def __init__(self, my_option: int = 42):
        self.my_option = my_option
@@ -421,7 +421,7 @@ from {{ cookiecutter.package_name }} import {{ cookiecutter.class_name }}
 
 def test_new_feature():
     """Test the new feature."""
-    placeholder = {{ cookiecutter.class_name }}(new_option=True)
+    TEMPLATE_PLACEHOLDER = {{ cookiecutter.class_name }}(new_option=True)
     # Test code
 EOF
 

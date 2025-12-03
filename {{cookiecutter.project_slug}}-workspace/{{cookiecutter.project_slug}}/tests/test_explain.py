@@ -1,7 +1,7 @@
 """Tests for explain functionality.
 
 Tests the --explain feature which shows diagnostic messages to stderr
-explaining why placeholder.
+explaining why TEMPLATE_PLACEHOLDER.
 """
 
 from io import StringIO

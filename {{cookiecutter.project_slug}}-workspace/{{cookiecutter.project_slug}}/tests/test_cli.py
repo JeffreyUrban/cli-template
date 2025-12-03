@@ -35,7 +35,7 @@ def test_cli_help():
     assert result.exit_code == 0
     # Strip ANSI codes for reliable string matching across environments
     output = strip_ansi(result.stdout.lower())
-    assert "placeholder" in output
+    assert "TEMPLATE_PLACEHOLDER" in output
 
 
 @pytest.mark.unit

@@ -6,24 +6,24 @@ from typing import BinaryIO, Callable, Optional, TextIO, Union
 
 class {{ cookiecutter.class_name }}:
     """
-    placeholder processor
+    TEMPLATE_PLACEHOLDER processor
     """
 
     def __init__(
         self,
-        placeholder: bool = False,
+        TEMPLATE_PLACEHOLDER: bool = False,
         explain: bool = False,
     ):
         """
         Initialize processor.
 
         Args:
-            placeholder: If True, placeholder: placeholder
+            TEMPLATE_PLACEHOLDER: If True, TEMPLATE_PLACEHOLDER: TEMPLATE_PLACEHOLDER
                        (default: False)
-            explain: If True, output explanations to stderr showing why placeholder
+            explain: If True, output explanations to stderr showing why TEMPLATE_PLACEHOLDER
                     (default: False)
         """
-        self.placeholder = placeholder  # Inverse mode: keep duplicates, remove unique
+        self.TEMPLATE_PLACEHOLDER = TEMPLATE_PLACEHOLDER  # Inverse mode: keep duplicates, remove unique
         self.explain = explain  # Show explanations to stderr
 
     def _print_explain(self, message: str) -> None:
@@ -56,9 +56,9 @@ class {{ cookiecutter.class_name }}:
             output.write(line)  # type: ignore[arg-type]
             line_num += 1
 
-            # Template placeholder - show explain messages
+            # Template TEMPLATE_PLACEHOLDER - show explain messages
             if line_num == 1:
-                self._print_explain(f"Lines {line_num} skipped (placeholder)")
+                self._print_explain(f"Lines {line_num} skipped (TEMPLATE_PLACEHOLDER)")
 
             if progress_callback:
                 progress_callback(line_num, skipped)
@@ -75,11 +75,11 @@ class {{ cookiecutter.class_name }}:
 
     def get_stats(self) -> dict[str, Union[int, float]]:
         """
-        Get placeholder statistics.
+        Get TEMPLATE_PLACEHOLDER statistics.
 
         Returns:
-            Dictionary with keys: placeholder
+            Dictionary with keys: TEMPLATE_PLACEHOLDER
         """
         return {
-            "placeholder": 0,
+            "TEMPLATE_PLACEHOLDER": 0,
         }

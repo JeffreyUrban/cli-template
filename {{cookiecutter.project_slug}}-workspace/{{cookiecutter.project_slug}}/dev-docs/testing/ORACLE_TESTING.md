@@ -18,10 +18,10 @@ The oracle provides:
 
 ### Data Structures
 
-#### placeholder
+#### TEMPLATE_PLACEHOLDER
 
 #### `OracleResult`
-Complete analysis of placeholder:
+Complete analysis of TEMPLATE_PLACEHOLDER:
 - `input_lines`: Original input
 - `output_lines`: Expected output
 
@@ -30,11 +30,11 @@ Complete analysis of placeholder:
 The oracle uses a simple brute-force approach:
 
 ```python
-placeholder
+TEMPLATE_PLACEHOLDER
 ```
 
 **Key properties**:
-- placeholder
+- TEMPLATE_PLACEHOLDER
 
 ## Test Fixtures
 
@@ -42,7 +42,7 @@ placeholder
 
 Fixtures stored in `tests/fixtures/`:
 
-- `handcrafted_cases.json` - test cases with known placeholder
+- `handcrafted_cases.json` - test cases with known TEMPLATE_PLACEHOLDER
 - `edge_cases.json` - boundary condition tests
 - `random_cases.json` - randomly generated with various properties
 - `all_cases.json` - Combined fixture set
@@ -57,8 +57,8 @@ python generate_fixtures.py
 ```
 
 This:
-1. Generates random placeholder
-2. Creates handcrafted test cases for known placeholder
+1. Generates random TEMPLATE_PLACEHOLDER
+2. Creates handcrafted test cases for known TEMPLATE_PLACEHOLDER
 3. Runs oracle analysis on all cases
 4. Saves comprehensive JSON fixtures with all analysis data
 
@@ -77,13 +77,13 @@ Each fixture contains:
   "name": "test_case_name",
   "description": "Human-readable description",
   "generator": {"type": "random|handcrafted|edge_case", ...},
-  "placeholder": placeholder,
+  "TEMPLATE_PLACEHOLDER": TEMPLATE_PLACEHOLDER,
 }
 ```
 
 ### Fixture Coverage
 
-**placeholder**: placeholder
+**TEMPLATE_PLACEHOLDER**: TEMPLATE_PLACEHOLDER
 
 ## Test Suite
 
@@ -93,19 +93,19 @@ Each fixture contains:
 ### Test Classes
 
 #### `TestHandcraftedCases`
-- Tests known placeholder with predictable behavior
+- Tests known TEMPLATE_PLACEHOLDER with predictable behavior
 - Verifies output
-- Validates placeholder
+- Validates TEMPLATE_PLACEHOLDER
 
 #### `TestEdgeCases`
 - Empty input, boundary conditions
-- placeholder
+- TEMPLATE_PLACEHOLDER
 
 #### `TestRandomCases`
-- Random placeholder with precomputed oracle results
+- Random TEMPLATE_PLACEHOLDER with precomputed oracle results
 
 #### `TestInvariantsWithOracle`
-- placeholder
+- TEMPLATE_PLACEHOLDER
 
 #### `TestFixtureQuality`
 - Verifies all fixtures loaded correctly
@@ -122,7 +122,7 @@ pytest tests/test_comprehensive.py -v
 pytest tests/test_comprehensive.py::TestHandcraftedCases -v
 
 # Specific fixture
-pytest tests/test_comprehensive.py -k "placeholder" -v
+pytest tests/test_comprehensive.py -k "TEMPLATE_PLACEHOLDER" -v
 
 # With coverage
 pytest tests/test_comprehensive.py --cov={{ cookiecutter.project_slug }} --cov-report=html
@@ -139,18 +139,18 @@ pytest tests/test_comprehensive.py --cov={{ cookiecutter.project_slug }} --cov-r
 - Precomputed test cases cover wide range of scenarios
 - Each case includes detailed expected results at multiple levels:
   - Final output (end-to-end validation)
-  - Per-placeholder processing (detailed behavior validation)
-  - Placeholder (algorithm internals validation)
+  - Per-TEMPLATE_PLACEHOLDER processing (detailed behavior validation)
+  - TEMPLATE_PLACEHOLDER (algorithm internals validation)
 
 ### 3. Fast Test Execution
-- Oracle runs once during fixture generation (slow O(placeholder) acceptable)
+- Oracle runs once during fixture generation (slow O(TEMPLATE_PLACEHOLDER) acceptable)
 - Tests run against precomputed results (fast)
 - No need to re-run oracle during development
 
 ### 4. Debugging Support
 - Line-by-line processing info helps debug failures
-- Sequence occurrence tracking shows placeholder
-- Clear reason codes explain placeholder
+- Sequence occurrence tracking shows TEMPLATE_PLACEHOLDER
+- Clear reason codes explain TEMPLATE_PLACEHOLDER
 
 ### 5. Regression Prevention
 - Fixtures capture current correct behavior
@@ -162,16 +162,16 @@ pytest tests/test_comprehensive.py --cov={{ cookiecutter.project_slug }} --cov-r
 ### What Oracle Tracks (but implementation doesn't need to)
 
 The oracle tracks comprehensive metadata for testing purposes:
-- placeholder
+- TEMPLATE_PLACEHOLDER
 
 The actual implementation only needs:
-- placeholder
+- TEMPLATE_PLACEHOLDER
 
 ### Overlap Rule
 
 Both oracle and implementation enforce the same rule:
 
-**placeholder**
+**TEMPLATE_PLACEHOLDER**
 
 ## Maintenance
 
@@ -196,7 +196,7 @@ Both oracle and implementation enforce the same rule:
 
 If oracle algorithm changes:
 
-1. Update `placeholder()` in `tests/oracle.py`
+1. Update `TEMPLATE_PLACEHOLDER()` in `tests/oracle.py`
 2. Regenerate all fixtures: `python tests/generate_fixtures.py`
 3. Review changes to fixture outputs (git diff)
 4. Verify changes are correct
@@ -206,17 +206,17 @@ If oracle algorithm changes:
 
 The oracle itself should be simple enough to verify by inspection. Key invariants:
 
-- ✓ placeholder
+- ✓ TEMPLATE_PLACEHOLDER
 
 ## Statistics
 
 Current test coverage (from fixture generation):
 
 ```
-Total fixtures: placeholder
-  Handcrafted: placeholder
-  Edge cases: placeholder
-  Random: placeholder
+Total fixtures: TEMPLATE_PLACEHOLDER
+  Handcrafted: TEMPLATE_PLACEHOLDER
+  Edge cases: TEMPLATE_PLACEHOLDER
+  Random: TEMPLATE_PLACEHOLDER
 ```
 
 This comprehensive test suite provides high confidence in algorithm correctness across a wide variety of inputs and conditions.

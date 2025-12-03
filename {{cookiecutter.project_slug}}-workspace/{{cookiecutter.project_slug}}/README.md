@@ -75,28 +75,28 @@ pip install -e ".[dev]"
 from {{ cookiecutter.project_slug }} import {{ cookiecutter.class_name }}
 
 # Initialize with configuration
-placeholder = {{ cookiecutter.class_name }}(
-    placeholder=placeholder
+TEMPLATE_PLACEHOLDER = {{ cookiecutter.class_name }}(
+    TEMPLATE_PLACEHOLDER=TEMPLATE_PLACEHOLDER
 )
 
 # Process stream
 with open("app.log") as infile, open("clean.log", "w") as outfile:
     for line in infile:
-        placeholder.placeholder(placeholder, outfile)
-    placeholder.flush(outfile)
+        TEMPLATE_PLACEHOLDER.TEMPLATE_PLACEHOLDER(TEMPLATE_PLACEHOLDER, outfile)
+    TEMPLATE_PLACEHOLDER.flush(outfile)
 ```
 
 ## Use Cases
 
-- **placeholder** - placeholder
+- **TEMPLATE_PLACEHOLDER** - TEMPLATE_PLACEHOLDER
 
 ## How It Works
 
-`{{ cookiecutter.command_name }}` uses placeholder:
+`{{ cookiecutter.command_name }}` uses TEMPLATE_PLACEHOLDER:
 
-1. **placeholder** - placeholder
+1. **TEMPLATE_PLACEHOLDER** - TEMPLATE_PLACEHOLDER
 
-placeholder.
+TEMPLATE_PLACEHOLDER.
 
 ## Documentation
 
@@ -105,7 +105,7 @@ placeholder.
 Key sections:
 - **Getting Started** - Installation and quick start guide
 - **Use Cases** - Real-world examples across different domains
-- **Guides** - placeholder selection, performance tips, common patterns
+- **Guides** - TEMPLATE_PLACEHOLDER selection, performance tips, common patterns
 - **Reference** - Complete CLI and Python API documentation
 
 ## Development
@@ -156,10 +156,10 @@ The script will automatically detect your repository from the git remote, or you
 
 ## Performance
 
-- **Time complexity:** O(placeholder)
-- **Space complexity:** O(placeholder)
-- **Throughput:** placeholder
-- **Memory:** placeholder
+- **Time complexity:** O(TEMPLATE_PLACEHOLDER)
+- **Space complexity:** O(TEMPLATE_PLACEHOLDER)
+- **Throughput:** TEMPLATE_PLACEHOLDER
+- **Memory:** TEMPLATE_PLACEHOLDER
 
 ## License
 

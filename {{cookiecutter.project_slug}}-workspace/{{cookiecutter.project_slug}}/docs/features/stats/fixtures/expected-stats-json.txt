@@ -1,7 +1,7 @@
-placeholder
+TEMPLATE_PLACEHOLDER
 Processing: input.txt
 {
   "statistics": {
-    "placeholder": placeholder
+    "TEMPLATE_PLACEHOLDER": TEMPLATE_PLACEHOLDER
   }
 }

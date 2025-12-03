@@ -14,7 +14,7 @@ Technical architecture and design decisions:
   - Key implementation details
 
 - **[ALGORITHM_DESIGN.md](design/ALGORITHM_DESIGN.md)** - Detailed algorithm design
-  - placeholder
+  - TEMPLATE_PLACEHOLDER
   - Memory management and data structures
   - Performance characteristics
 

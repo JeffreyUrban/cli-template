@@ -8,109 +8,109 @@ Understand {{ cookiecutter.command_name }}'s performance characteristics and opt
 
 | Characteristic       | Description |
 |----------------------|-------------|
-| **Throughput**       | placeholder        |
-| **Total time**       | placeholder        |
-| **Memory**           | placeholder        |
-| **Disk I/O**         | placeholder        |
-| **Space complexity** | placeholder        |
+| **Throughput**       | TEMPLATE_PLACEHOLDER        |
+| **Total time**       | TEMPLATE_PLACEHOLDER        |
+| **Memory**           | TEMPLATE_PLACEHOLDER        |
+| **Disk I/O**         | TEMPLATE_PLACEHOLDER        |
+| **Space complexity** | TEMPLATE_PLACEHOLDER        |
 
 ## Performance Characteristics
 
 ### Throughput
 
-**Throughput is placeholder** - placeholder.
+**Throughput is TEMPLATE_PLACEHOLDER** - TEMPLATE_PLACEHOLDER.
 
 **Factors affecting speed** (relative impact):
 
-1. **placeholder**: placeholder
+1. **TEMPLATE_PLACEHOLDER**: TEMPLATE_PLACEHOLDER
 
 **Measure your throughput**:
 ```bash
 # Generate test data
-placeholder > test.log
+TEMPLATE_PLACEHOLDER > test.log
 
 # Benchmark
-time {{ cookiecutter.command_name }} test.log --placeholder > /dev/null
+time {{ cookiecutter.command_name }} test.log --TEMPLATE_PLACEHOLDER > /dev/null
 ```
 
 Use the `time` command to measure actual performance on your hardware and data.
 
 ### Memory Usage
 
-{{ cookiecutter.command_name }} uses placeholder memory regardless of placeholder:
+{{ cookiecutter.command_name }} uses TEMPLATE_PLACEHOLDER memory regardless of TEMPLATE_PLACEHOLDER:
 
 ```
-Total memory = placeholder
+Total memory = TEMPLATE_PLACEHOLDER
 
-placeholder:         placeholder
+TEMPLATE_PLACEHOLDER:         TEMPLATE_PLACEHOLDER
 ```
 
 ### CPU Usage
 
-**Algorithm complexity**: O(placeholder)
-- placeholder = placeholder
+**Algorithm complexity**: O(TEMPLATE_PLACEHOLDER)
+- TEMPLATE_PLACEHOLDER = TEMPLATE_PLACEHOLDER
 
-**Amortized**: O(placeholder) for most real-world inputs
+**Amortized**: O(TEMPLATE_PLACEHOLDER) for most real-world inputs
 
 **CPU-intensive operations** (ordered by typical impact):
-1. **placeholder**: placeholder
+1. **TEMPLATE_PLACEHOLDER**: TEMPLATE_PLACEHOLDER
 
 ## Optimization Strategies
 
-### 1. Choose the Right placeholder
+### 1. Choose the Right TEMPLATE_PLACEHOLDER
 
-**Problem**: placeholder
+**Problem**: TEMPLATE_PLACEHOLDER
 
-**Solution**: placeholder
+**Solution**: TEMPLATE_PLACEHOLDER
 
 ```bash
-placeholder
+TEMPLATE_PLACEHOLDER
 ```
 
 **When to use each**:
 
-| Use Case | placeholder     | Why  |
+| Use Case | TEMPLATE_PLACEHOLDER     | Why  |
 |----------|----------|------|
-| placeholder     | `--placeholder` | placeholder |
+| TEMPLATE_PLACEHOLDER     | `--TEMPLATE_PLACEHOLDER` | TEMPLATE_PLACEHOLDER |
 
-### 2. Optimize placeholder
+### 2. Optimize TEMPLATE_PLACEHOLDER
 
-**Problem**: placeholder
+**Problem**: TEMPLATE_PLACEHOLDER
 
-**Solution**: placeholder
+**Solution**: TEMPLATE_PLACEHOLDER
 
 ```bash
-placeholder
+TEMPLATE_PLACEHOLDER
 ```
 
 **Performance impact**:
 ```bash
-# Benchmark placeholder
-placeholder
+# Benchmark TEMPLATE_PLACEHOLDER
+TEMPLATE_PLACEHOLDER
 ```
 
-placeholder are placeholder. Benchmark on your data to find the optimal placeholder.
+TEMPLATE_PLACEHOLDER are TEMPLATE_PLACEHOLDER. Benchmark on your data to find the optimal TEMPLATE_PLACEHOLDER.
 
-**Rule of thumb**: placeholder
+**Rule of thumb**: TEMPLATE_PLACEHOLDER
 
 ## Real-World Optimization Examples
 
-### Scenario 1: placeholder
+### Scenario 1: TEMPLATE_PLACEHOLDER
 
-**Problem**: placeholder
+**Problem**: TEMPLATE_PLACEHOLDER
 
 **Approach**:
 ```bash
-placeholder
+TEMPLATE_PLACEHOLDER
 ```
 
 **Why**:
-- `--placeholder`: placeholder
+- `--TEMPLATE_PLACEHOLDER`: TEMPLATE_PLACEHOLDER
 
 **Characteristics**:
-- Memory: placeholder
-- Processing: placeholder
-- Throughput: placeholder
+- Memory: TEMPLATE_PLACEHOLDER
+- Processing: TEMPLATE_PLACEHOLDER
+- Throughput: TEMPLATE_PLACEHOLDER
 
 ## Performance Monitoring
 
@@ -127,18 +127,18 @@ Use `--stats-format json` to monitor performance metrics:
 Output:
 ```json
 {
-  "placeholder": placeholder
+  "TEMPLATE_PLACEHOLDER": TEMPLATE_PLACEHOLDER
 }
 ```
 
 **Key metrics**:
-- `placeholder`: placeholder
+- `TEMPLATE_PLACEHOLDER`: TEMPLATE_PLACEHOLDER
 
 ### Benchmark Your Data
 
 **Create a baseline**:
 ```bash
-placeholder
+TEMPLATE_PLACEHOLDER
 ```
 
 Usage:
@@ -151,31 +151,31 @@ chmod +x benchmark.sh
 
 **Test multiple configurations**:
 ```bash
-placeholder
+TEMPLATE_PLACEHOLDER
 ```
 
 ## Troubleshooting Performance Issues
 
-### placeholder
+### TEMPLATE_PLACEHOLDER
 
 **Diagnosis**:
-1. Check placeholder
+1. Check TEMPLATE_PLACEHOLDER
 
 **Solutions**:
-- placeholder
+- TEMPLATE_PLACEHOLDER
 
 ## Best Practices
 
-1. **Start simple**: Use placeholder first, optimize only if needed
+1. **Start simple**: Use TEMPLATE_PLACEHOLDER first, optimize only if needed
 2. **Measure first**: Benchmark before optimizing
-3. **Right-size placeholder**: Use placeholder that works
-4. **Avoid placeholder**: Use placeholder when possible
-5. **Bounded placeholder**: Use limited placeholder for placeholder
-7. **Preprocess once**: Don't repeat expensive placeholder per placeholder
+3. **Right-size TEMPLATE_PLACEHOLDER**: Use TEMPLATE_PLACEHOLDER that works
+4. **Avoid TEMPLATE_PLACEHOLDER**: Use TEMPLATE_PLACEHOLDER when possible
+5. **Bounded TEMPLATE_PLACEHOLDER**: Use limited TEMPLATE_PLACEHOLDER for TEMPLATE_PLACEHOLDER
+7. **Preprocess once**: Don't repeat expensive TEMPLATE_PLACEHOLDER per TEMPLATE_PLACEHOLDER
 
 ## Performance Checklist
 
-Before processing large placeholder:
+Before processing large TEMPLATE_PLACEHOLDER:
 
 - [ ] Tested on sample to verify configuration
 - [ ] Benchmarked configuration on representative sample

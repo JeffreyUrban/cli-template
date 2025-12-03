@@ -1,50 +1,50 @@
 # ⚠️ Template doc: Testing disabled ⚠️
 
-# placeholder
+# TEMPLATE_PLACEHOLDER
 
-placeholder.
+TEMPLATE_PLACEHOLDER.
 
 ## Quick Reference
 
-| Scenario | placeholder | Rationale |
+| Scenario | TEMPLATE_PLACEHOLDER | Rationale |
 |----------|------|-----------|
-| placeholder     | placeholder | placeholder      |
+| TEMPLATE_PLACEHOLDER     | TEMPLATE_PLACEHOLDER | TEMPLATE_PLACEHOLDER      |
 
-## Understanding placeholder
+## Understanding TEMPLATE_PLACEHOLDER
 
-**placeholder**
+**TEMPLATE_PLACEHOLDER**
 
-**placeholder**:
+**TEMPLATE_PLACEHOLDER**:
 
 ## Decision Process
 
-### Step 1: placeholder
+### Step 1: TEMPLATE_PLACEHOLDER
 
 ## Common Scenarios
 
-### placeholder
+### TEMPLATE_PLACEHOLDER
 
-**Use case**: placeholder
+**Use case**: TEMPLATE_PLACEHOLDER
 
 ## Advanced Tuning
 
-### placeholder
+### TEMPLATE_PLACEHOLDER
 
 ## Real-World Examples
 
-### placeholder
+### TEMPLATE_PLACEHOLDER
 
 ## Troubleshooting
 
-### placeholder
+### TEMPLATE_PLACEHOLDER
 
 ## Best Practices
 
-1. **placeholder**: placeholder
+1. **TEMPLATE_PLACEHOLDER**: TEMPLATE_PLACEHOLDER
 2. **Use statistics**: Let the data guide your decision
-3. **Test on a sample**: Try on placeholder before processing placeholder
-4. **Document your choice**: Record why you chose placeholder
-5. **Re-evaluate periodically**: placeholder may change over time
+3. **Test on a sample**: Try on TEMPLATE_PLACEHOLDER before processing TEMPLATE_PLACEHOLDER
+4. **Document your choice**: Record why you chose TEMPLATE_PLACEHOLDER
+5. **Re-evaluate periodically**: TEMPLATE_PLACEHOLDER may change over time
 
 ## See Also
 

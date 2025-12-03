@@ -6,68 +6,68 @@ Why {{ cookiecutter.command_name }} works the way it does.
 
 ## Core Principles
 
-### 1. placeholder
+### 1. TEMPLATE_PLACEHOLDER
 
-**Decision**: placeholder.
+**Decision**: TEMPLATE_PLACEHOLDER.
 
-**Why**: placeholder
+**Why**: TEMPLATE_PLACEHOLDER
 
 **Impact**:
-- ✅ placeholder
-- ⚠️ placeholder
+- ✅ TEMPLATE_PLACEHOLDER
+- ⚠️ TEMPLATE_PLACEHOLDER
 
 ### 2. Unix Philosophy
 
-**Decision**: Do one thing well - placeholder.
+**Decision**: Do one thing well - TEMPLATE_PLACEHOLDER.
 
 **Why**: There are already excellent tools for:
-- placeholder
+- TEMPLATE_PLACEHOLDER
 
-{{ cookiecutter.command_name }} focuses on what they don't do: placeholder.
+{{ cookiecutter.command_name }} focuses on what they don't do: TEMPLATE_PLACEHOLDER.
 
 **Impact**:
-- ✅ placeholder
+- ✅ TEMPLATE_PLACEHOLDER
 - ✅ Composes well with existing Unix tools
 - ✅ Easier to understand and maintain
 - ❌ Won't add features better served by other tools
 
 ## Feature Decisions
 
-### ✅ Included: placeholder
+### ✅ Included: TEMPLATE_PLACEHOLDER
 
-**Feature**: placeholder
+**Feature**: TEMPLATE_PLACEHOLDER
 
-**Why**: placeholder
+**Why**: TEMPLATE_PLACEHOLDER
 
 
 **Alternatives considered**:
-- placeholder
-- **Problem**: placeholder
+- TEMPLATE_PLACEHOLDER
+- **Problem**: TEMPLATE_PLACEHOLDER
 
-**Decision**: placeholder.
+**Decision**: TEMPLATE_PLACEHOLDER.
 
-### ❌ Excluded: placeholder
+### ❌ Excluded: TEMPLATE_PLACEHOLDER
 
-**Feature**: placeholder.
+**Feature**: TEMPLATE_PLACEHOLDER.
 
-**Why excluded**: placeholder.
+**Why excluded**: TEMPLATE_PLACEHOLDER.
 
 **Alternative**:
 ```bash
-placeholder
+TEMPLATE_PLACEHOLDER
 ```
 
-**Decision**: placeholder
+**Decision**: TEMPLATE_PLACEHOLDER
 
 ## Memory Management
 
-### placeholder
+### TEMPLATE_PLACEHOLDER
 
 ## CLI Design
 
 ### Why Flags Over Positional Args?
 
-**Decision**: All options are flags (`--placeholder`), not positional.
+**Decision**: All options are flags (`--TEMPLATE_PLACEHOLDER`), not positional.
 
 **Why**:
 - Clearer what each parameter does
@@ -83,7 +83,7 @@ placeholder
 - Tool used in one-off commands and pipelines
 - Shell aliases work fine for common patterns:
   ```bash
-  alias {{ cookiecutter.command_name }}-logs='{{ cookiecutter.command_name }} --placeholder'
+  alias {{ cookiecutter.command_name }}-logs='{{ cookiecutter.command_name }} --TEMPLATE_PLACEHOLDER'
   ```
 - Avoids "spooky action at a distance"
 

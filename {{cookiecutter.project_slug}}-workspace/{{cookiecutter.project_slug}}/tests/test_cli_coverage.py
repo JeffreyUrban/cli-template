@@ -90,7 +90,7 @@ def test_quiet_mode():
 
         assert exit_code == 0
         # No statistics table should be in stderr
-        assert "placeholder" not in stderr
+        assert "TEMPLATE_PLACEHOLDER" not in stderr
 
 
 @pytest.mark.integration

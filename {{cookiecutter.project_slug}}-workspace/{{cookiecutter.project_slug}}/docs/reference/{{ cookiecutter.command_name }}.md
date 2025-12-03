@@ -2,15 +2,15 @@
 
 # {{ cookiecutter.class_name }} API
 
-API reference for the `{{ cookiecutter.class_name }}` class - the core placeholder.
+API reference for the `{{ cookiecutter.class_name }}` class - the core TEMPLATE_PLACEHOLDER.
 
 ## Overview
 
-The `{{ cookiecutter.class_name }}` class provides the core placeholder.
+The `{{ cookiecutter.class_name }}` class provides the core TEMPLATE_PLACEHOLDER.
 
 ## Key Features
 
-- **placeholder**: placeholder
+- **TEMPLATE_PLACEHOLDER**: TEMPLATE_PLACEHOLDER
 
 ## Class Reference
 
@@ -22,47 +22,47 @@ The `{{ cookiecutter.class_name }}` class provides the core placeholder.
 
 ## Basic Usage
 
-### placeholder
+### TEMPLATE_PLACEHOLDER
 
 ```python
-placeholder
+TEMPLATE_PLACEHOLDER
 ```
 
 ## Advanced Features
 
-### placeholder
+### TEMPLATE_PLACEHOLDER
 
 ```python
-placeholder
+TEMPLATE_PLACEHOLDER
 ```
 
 ## Statistics
 
 ### get_stats()
 
-Returns placeholder statistics:
+Returns TEMPLATE_PLACEHOLDER statistics:
 
 ```python
 stats = processor.get_stats()
 
-print(f"placeholder: {stats['placeholder']}")
+print(f"TEMPLATE_PLACEHOLDER: {stats['TEMPLATE_PLACEHOLDER']}")
 ```
 
 **Return value**:
 ```python
 {
-    'placeholder': placeholder,            # placeholder
+    'TEMPLATE_PLACEHOLDER': TEMPLATE_PLACEHOLDER,            # TEMPLATE_PLACEHOLDER
 }
 ```
 
 ## Performance Considerations
 
-### placeholder
+### TEMPLATE_PLACEHOLDER
 
-- **placeholder** placeholder
-- **Rule of thumb**: placeholder
+- **TEMPLATE_PLACEHOLDER** TEMPLATE_PLACEHOLDER
+- **Rule of thumb**: TEMPLATE_PLACEHOLDER
 
-**Note**: Do not placeholder.
+**Note**: Do not TEMPLATE_PLACEHOLDER.
 
 ## See Also
 

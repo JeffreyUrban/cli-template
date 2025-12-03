@@ -2,79 +2,79 @@
 
 # Annotations
 
-The `--placeholder` flag placeholder.
+The `--TEMPLATE_PLACEHOLDER` flag TEMPLATE_PLACEHOLDER.
 
 ## What It Does
 
-placeholder
+TEMPLATE_PLACEHOLDER
 
-**Key insight**: placeholder.
+**Key insight**: TEMPLATE_PLACEHOLDER.
 
-## Example: placeholder
+## Example: TEMPLATE_PLACEHOLDER
 
-This example shows placeholder.
+This example shows TEMPLATE_PLACEHOLDER.
 
-???+ note "Input: placeholder"
+???+ note "Input: TEMPLATE_PLACEHOLDER"
     ```text hl_lines="1-2"
-    --8<-- "features/placeholder/fixtures/input.txt"
+    --8<-- "features/TEMPLATE_PLACEHOLDER/fixtures/input.txt"
     ```
 
-    **First occurrence** (lines 1-2): Line placeholder
-    **placeholder** (line 3): placeholder
+    **First occurrence** (lines 1-2): Line TEMPLATE_PLACEHOLDER
+    **TEMPLATE_PLACEHOLDER** (line 3): TEMPLATE_PLACEHOLDER
 
-### With placeholder: placeholder
+### With TEMPLATE_PLACEHOLDER: TEMPLATE_PLACEHOLDER
 
-With `--placeholder`, placeholder.
+With `--TEMPLATE_PLACEHOLDER`, TEMPLATE_PLACEHOLDER.
 
 === "CLI"
 
-    <!-- verify-file: output-placeholder.txt expected: expected-placeholder.txt -->
+    <!-- verify-file: output-TEMPLATE_PLACEHOLDER.txt expected: expected-TEMPLATE_PLACEHOLDER.txt -->
     <!-- termynal -->
     ```console
-    $ {{ cookiecutter.command_name }} input.txt --placeholder \
-        > output-placeholder.txt
+    $ {{ cookiecutter.command_name }} input.txt --TEMPLATE_PLACEHOLDER \
+        > output-TEMPLATE_PLACEHOLDER.txt
     ```
 
 === "Python"
 
-    <!-- verify-file: output-placeholder.txt expected: expected-placeholder.txt -->
+    <!-- verify-file: output-TEMPLATE_PLACEHOLDER.txt expected: expected-TEMPLATE_PLACEHOLDER.txt -->
     ```python
     from {{ cookiecutter.package_name }} import {{ cookiecutter.class_name }}
 
     processor = {{ cookiecutter.class_name }}(
-        placeholder=True  # (1)!
+        TEMPLATE_PLACEHOLDER=True  # (1)!
     )
 
     with open("input.txt") as f:
-        with open("output-placeholder.txt", "w") as out:
+        with open("output-TEMPLATE_PLACEHOLDER.txt", "w") as out:
             processor.process(f, out)
             processor.flush(out)
     ```
 
 ## How It Works
 
-### placeholder
+### TEMPLATE_PLACEHOLDER
 
 
 ### Available Variables
 
-placeholder
+TEMPLATE_PLACEHOLDER
 
 ## Common Use Cases
 
-### placeholder
+### TEMPLATE_PLACEHOLDER
 
 ## Combining with Other Features
 
-### placeholder
+### TEMPLATE_PLACEHOLDER
 
 ## Performance Note
 
-placeholder
+TEMPLATE_PLACEHOLDER
 
 ## Rule of Thumb
 
-**placeholder**
+**TEMPLATE_PLACEHOLDER**
 
 ## See Also
 

@@ -12,27 +12,27 @@ pip install {{ cookiecutter.command_name }}
 
 ## Basic Usage
 
-### placeholder
+### TEMPLATE_PLACEHOLDER
 
-The simplest use case - placeholder:
+The simplest use case - TEMPLATE_PLACEHOLDER:
 
 ```bash
-$ echo -e "placeholder" | {{ cookiecutter.command_name }}
-placeholder
+$ echo -e "TEMPLATE_PLACEHOLDER" | {{ cookiecutter.command_name }}
+TEMPLATE_PLACEHOLDER
 ```
 
-Unlike `placeholder`, {{ cookiecutter.command_name }} placeholder.
+Unlike `TEMPLATE_PLACEHOLDER`, {{ cookiecutter.command_name }} TEMPLATE_PLACEHOLDER.
 
-### placeholder
+### TEMPLATE_PLACEHOLDER
 
 ## Common Patterns
 
-### placeholder
+### TEMPLATE_PLACEHOLDER
 
 ## Next Steps
 
 - **[Basic Concepts](basic-concepts.md)** - Understand how {{ cookiecutter.command_name }} works
 - **[Common Patterns](../guides/common-patterns.md)** - Copy-paste ready examples
 - **[Troubleshooting](../guides/troubleshooting.md)** - Solutions to common problems
-- **[Use Cases](../use-cases/placeholder/placeholder.md)** - Real-world examples
+- **[Use Cases](../use-cases/TEMPLATE_PLACEHOLDER/TEMPLATE_PLACEHOLDER.md)** - Real-world examples
 - **[CLI Reference](../reference/cli.md)** - Complete command-line options

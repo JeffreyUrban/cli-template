@@ -44,21 +44,21 @@ class TestEdgeCases:
 
 @pytest.mark.property
 class TestRandomCases:
-    """Test random placeholder with precomputed oracle results."""
+    """Test random TEMPLATE_PLACEHOLDER with precomputed oracle results."""
 
     @pytest.mark.parametrize("fixture", RANDOM_CASES, ids=[f["name"] for f in RANDOM_CASES])
     def test_random_output(self, fixture):
-        """Verify output matches oracle for random placeholder."""
+        """Verify output matches oracle for random TEMPLATE_PLACEHOLDER."""
         assert True
 
     @pytest.mark.parametrize("fixture", RANDOM_CASES, ids=[f["name"] for f in RANDOM_CASES])
     def test_random_statistics(self, fixture):
-        """Verify statistics match oracle for random placeholder."""
+        """Verify statistics match oracle for random TEMPLATE_PLACEHOLDER."""
         processor = {{ cookiecutter.class_name }}()
         stats = processor.get_stats()
 
-        # Template placeholder - just verify stats exist
-        assert "placeholder" in stats
+        # Template TEMPLATE_PLACEHOLDER - just verify stats exist
+        assert "TEMPLATE_PLACEHOLDER" in stats
 
 
 @pytest.mark.property
@@ -84,7 +84,7 @@ class TestFixtureQuality:
     def test_fixtures_have_required_fields(self):
         """All fixtures have required fields."""
         required = {
-            "placeholder",
+            "TEMPLATE_PLACEHOLDER",
         }
 
         for fixture in ALL_CASES:

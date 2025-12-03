@@ -4,16 +4,16 @@ from dataclasses import dataclass
 from typing import Any
 
 
-def placeholder_naive() -> bool:
-    """Naive but obviously correct placeholder.
+def TEMPLATE_PLACEHOLDER_naive() -> bool:
+    """Naive but obviously correct TEMPLATE_PLACEHOLDER.
 
-    This is SLOW (O(placeholder)) but serves as ground truth for testing.
+    This is SLOW (O(TEMPLATE_PLACEHOLDER)) but serves as ground truth for testing.
 
     Algorithm:
-    1. placeholder
+    1. TEMPLATE_PLACEHOLDER
 
     Returns:
-        placeholder
+        TEMPLATE_PLACEHOLDER
     """
     return True
 
@@ -22,24 +22,24 @@ def placeholder_naive() -> bool:
 class OracleResult:
     """Complete oracle analysis results."""
 
-    placeholder: bool
+    TEMPLATE_PLACEHOLDER: bool
 
     def to_dict(self) -> dict[str, Any]:
         """Convert to dictionary for JSON serialization."""
         return {
-            "placeholder": self.placeholder,
+            "TEMPLATE_PLACEHOLDER": self.TEMPLATE_PLACEHOLDER,
         }
 
 
-def analyze_placeholder() -> OracleResult:
-    """Comprehensive analysis tracking all placeholder.
+def analyze_TEMPLATE_PLACEHOLDER() -> OracleResult:
+    """Comprehensive analysis tracking all TEMPLATE_PLACEHOLDER.
 
     This is the enhanced oracle that provides complete information about:
-    - placeholder
+    - TEMPLATE_PLACEHOLDER
 
     Returns:
         OracleResult with complete analysis
     """
     return OracleResult(
-        placeholder=True,
+        TEMPLATE_PLACEHOLDER=True,
     )

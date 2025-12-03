@@ -2,8 +2,8 @@
 """Generate test fixtures with precomputed oracle results.
 
 This script generates comprehensive test fixtures that include:
-- placeholder
-- Complete oracle analysis (placeholder)
+- TEMPLATE_PLACEHOLDER
+- Complete oracle analysis (TEMPLATE_PLACEHOLDER)
 - Expected output for validation
 
 Run this script to regenerate fixtures when the oracle or test requirements change.
@@ -19,13 +19,13 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 
 def generate_random_fixtures() -> list[dict[str, Any]]:
-    """Generate fixtures from random placeholder with various characteristics."""
+    """Generate fixtures from random TEMPLATE_PLACEHOLDER with various characteristics."""
     fixtures = []
     return fixtures
 
 
 def generate_handcrafted_fixtures() -> list[dict[str, Any]]:
-    """Generate fixtures from handcrafted test cases with known placeholder."""
+    """Generate fixtures from handcrafted test cases with known TEMPLATE_PLACEHOLDER."""
     fixtures = []
     return fixtures
 
@@ -86,13 +86,13 @@ def main():
     print("Summary Statistics")
     print("=" * 70)
 
-    placeholder = sum(len(f["placeholder"]) for f in all_fixtures)
+    TEMPLATE_PLACEHOLDER = sum(len(f["TEMPLATE_PLACEHOLDER"]) for f in all_fixtures)
 
     print(f"Total fixtures generated: {len(all_fixtures)}")
     print(f"  Handcrafted: {len(handcrafted)}")
     print(f"  Edge cases: {len(edge_cases)}")
     print(f"  Random: {len(random_fixtures)}")
-    print(f"\nTotal placeholder: {placeholder}")
+    print(f"\nTotal TEMPLATE_PLACEHOLDER: {TEMPLATE_PLACEHOLDER}")
 
     print("\n" + "=" * 70)
     print("Fixture generation complete!")

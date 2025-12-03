@@ -2,33 +2,33 @@
 
 # Explain Mode
 
-The `--explain` flag outputs explanations to stderr showing why placeholder. 
-This helps you understand the placeholder decisions being made in real-time.
+The `--explain` flag outputs explanations to stderr showing why TEMPLATE_PLACEHOLDER. 
+This helps you understand the TEMPLATE_PLACEHOLDER decisions being made in real-time.
 
 ## What It Does
 
 Explain mode adds diagnostic messages to stderr:
 
 - **Normal mode**: Deduplication happens silently
-- **With explain**: Messages show why placeholder
-- **Use case**: Debugging placeholder, understanding placeholder, troubleshooting unexpected behavior
+- **With explain**: Messages show why TEMPLATE_PLACEHOLDER
+- **Use case**: Debugging TEMPLATE_PLACEHOLDER, understanding TEMPLATE_PLACEHOLDER, troubleshooting unexpected behavior
 
-**Key insight**: Explanations go to stderr, so stdout remains clean for placeholder.
+**Key insight**: Explanations go to stderr, so stdout remains clean for TEMPLATE_PLACEHOLDER.
 
-## Example: placeholder
+## Example: TEMPLATE_PLACEHOLDER
 
-placeholder
+TEMPLATE_PLACEHOLDER
 
-### Without Explain: placeholder
+### Without Explain: TEMPLATE_PLACEHOLDER
 
-Without `--explain`, placeholder happens without feedback.
+Without `--explain`, TEMPLATE_PLACEHOLDER happens without feedback.
 
 === "CLI"
 
     <!-- verify-file: output.txt expected: expected-output.txt -->
     <!-- termynal -->
     ```console
-    $ {{ cookiecutter.command_name }} input.txt --placeholder > output.txt
+    $ {{ cookiecutter.command_name }} input.txt --TEMPLATE_PLACEHOLDER > output.txt
     ```
 
 === "Python"
@@ -38,7 +38,7 @@ Without `--explain`, placeholder happens without feedback.
     from {{ cookiecutter.package_name }} import {{ cookiecutter.class_name }}
 
     processor = {{ cookiecutter.class_name }}(
-        placeholder=False  # (1)!
+        TEMPLATE_PLACEHOLDER=False  # (1)!
     )
 
     with open("input.txt") as f:
@@ -49,23 +49,23 @@ Without `--explain`, placeholder happens without feedback.
 
     1. Default: no explanations
 
-???+ success "Output: placeholder"
+???+ success "Output: TEMPLATE_PLACEHOLDER"
     ```text
     --8<-- "features/explain/fixtures/expected-output.txt"
     ```
 
-    **Result**: placeholder.
+    **Result**: TEMPLATE_PLACEHOLDER.
 
 ### With Explain: Documented Decisions
 
-With `--explain`, stderr shows why placeholder.
+With `--explain`, stderr shows why TEMPLATE_PLACEHOLDER.
 
 === "CLI"
 
     <!-- verify-file: output.txt expected: expected-output.txt -->
     <!-- termynal -->
     ```console
-    $ {{ cookiecutter.command_name }} input.txt --placeholder \
+    $ {{ cookiecutter.command_name }} input.txt --TEMPLATE_PLACEHOLDER \
         > output.txt 2> explain.txt
     ```
 
@@ -77,7 +77,7 @@ With `--explain`, stderr shows why placeholder.
     import sys
 
     processor = {{ cookiecutter.class_name }}(
-        placeholder=False,
+        TEMPLATE_PLACEHOLDER=False,
         explain=True  # (1)!
     )
 
@@ -99,7 +99,7 @@ With `--explain`, stderr shows why placeholder.
     --8<-- "features/explain/fixtures/expected-explain.txt"
     ```
 
-    **Result**: Stdout has placeholder, stderr shows placeholder.
+    **Result**: Stdout has TEMPLATE_PLACEHOLDER, stderr shows TEMPLATE_PLACEHOLDER.
 
 ## How It Works
 
@@ -107,15 +107,15 @@ With `--explain`, stderr shows why placeholder.
 
 Explain messages provide actionable information:
 
-**placeholder**:
+**TEMPLATE_PLACEHOLDER**:
 
 ## Common Use Cases
 
-### Debugging Why placeholder
+### Debugging Why TEMPLATE_PLACEHOLDER
 
-### Validating placeholder
+### Validating TEMPLATE_PLACEHOLDER
 
-### Understanding placeholder
+### Understanding TEMPLATE_PLACEHOLDER
 
 ### Troubleshooting Unexpected Behavior
 
@@ -133,14 +133,14 @@ Explain messages provide actionable information:
 ### Extract Specific Information
 
 ```bash
-# Only show placeholder
-{{ cookiecutter.command_name }} log.txt --explain 2>&1 | grep "placeholder"
+# Only show TEMPLATE_PLACEHOLDER
+{{ cookiecutter.command_name }} log.txt --explain 2>&1 | grep "TEMPLATE_PLACEHOLDER"
 ```
 
 ### Separate Stdout and Stderr
 
 ```bash
-# placeholder to file, explanations to terminal
+# TEMPLATE_PLACEHOLDER to file, explanations to terminal
 {{ cookiecutter.command_name }} log.txt --explain > clean.log
 
 # Both to separate files
@@ -155,16 +155,16 @@ Explain messages provide actionable information:
 Explain mode has minimal overhead:
 - Simple conditional check before printing
 - Messages only written when explain is enabled
-- No impact on placeholder performance
+- No impact on TEMPLATE_PLACEHOLDER performance
 - Stderr output is buffered (efficient)
 
 ## Rule of Thumb
 
-**Use explain mode when you need to understand** the placeholder.
+**Use explain mode when you need to understand** the TEMPLATE_PLACEHOLDER.
 
-- **Initial setup**: Validate placeholder are working correctly
-- **Debugging**: Understand why placeholder
-- **Pattern development**: Test and refine placeholder
+- **Initial setup**: Validate TEMPLATE_PLACEHOLDER are working correctly
+- **Debugging**: Understand why TEMPLATE_PLACEHOLDER
+- **Pattern development**: Test and refine TEMPLATE_PLACEHOLDER
 - **Troubleshooting**: Diagnose unexpected behavior
 - **Learning**: Understand how the algorithm works on your data
 

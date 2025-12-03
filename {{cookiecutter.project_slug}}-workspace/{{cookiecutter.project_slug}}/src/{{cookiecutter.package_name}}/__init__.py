@@ -1,4 +1,4 @@
-"""{{ cookiecutter.package_name }} - placeholder."""
+"""{{ cookiecutter.package_name }} - TEMPLATE_PLACEHOLDER."""
 
 from .{{ cookiecutter.package_name }} import {{ cookiecutter.class_name }}
 
