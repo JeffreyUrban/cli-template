@@ -123,6 +123,92 @@ Key documentation by purpose:
 - Python 3.13 was released in October 2024
 - Python 3.14 was released in October 2025 (per devguide.python.org/versions/)
 
+<!-- TEMPLATE-KICKOFF-SPECIFIC: Remove immediately after initial project kickoff -->
+## Initial Project Kickoff
+
+**This section defines project kickoff tasks for Claude Code to handle immediately after cookiecutter project generation.**
+
+When the user starts working on the freshly generated project, Claude should:
+
+### 1. Update Python Version Support
+
+Check the status of Python versions from https://devguide.python.org/versions/
+
+```bash
+# Check the current date from system <env> tag
+# Determine a range of supported Python versions based on:
+# - Minimum version: The most recent end-of-life version (include it)
+# - Maximum version: Latest numbered supported version (not main)
+# Example: If 3.4 is end-of-life and 3.5-3.9 are supported, use range 3.4-3.9
+```
+
+Replace the `PYTHON_VERSION_*_KICKOFF` placeholders with actual version numbers:
+- [ ] `pyproject.toml` - Replace `PYTHON_VERSION_MIN_KICKOFF` in `requires-python` and all version placeholders in classifiers
+  - Some intermediate placeholders may be unused if the range is smaller - delete unused classifier lines
+  - If more versions needed than placeholders available, add additional classifier lines
+- [ ] `.github/workflows/test.yml` - Replace `PYTHON_VERSION_MIN_KICKOFF` and `PYTHON_VERSION_MAX_KICKOFF` in test matrix
+  - Also update the commented-out full version list if you want to enable testing all intermediate versions later
+  - Update the `if: matrix.python-version == 'PYTHON_VERSION_MAX_KICKOFF'` condition for codecov upload
+  - Update the quality job's Python version (currently uses MAX for latest features)
+- [ ] `README.md` - Update Python version badge and requirements text
+- [ ] `.claude/development.md` - Update Python version references if they mention specific versions
+
+### 2. Configure Project Metadata
+
+Review and update if needed:
+- [ ] `pyproject.toml` - Verify author, description, repository URL
+- [ ] `LICENSE` - Verify license matches project intent
+- [ ] `README.md` - Verify badges have correct repository path
+
+### 3. Verify Template Generation
+
+Check that cookiecutter variables were properly substituted:
+```bash
+# Look for any remaining template syntax
+grep -r "{{cookiecutter\." . --exclude-dir=.git
+grep -r "TEMPLATE_PLACEHOLDER" . --exclude-dir=.git
+```
+
+Check that all kickoff placeholders have been replaced:
+```bash
+# Should return no results after kickoff is complete
+grep -r "PYTHON_VERSION_.*_KICKOFF" . --exclude-dir=.git
+```
+
+### 4. Initialize Development Environment
+
+If not already done:
+```bash
+uv venv
+source .venv/bin/activate  # or activate.fish, activate.ps1
+uv pip install -e ".[dev,docs]"
+pre-commit install
+```
+
+### 5. Run Initial Checks
+
+Verify everything works:
+```bash
+ruff format .
+ruff check .
+pyright
+pytest
+mkdocs build
+```
+
+### 6. Remove This Section
+
+After completing initial kickoff tasks:
+- [ ] Delete this "Initial Project Kickoff" section (lines 127-XXX)
+- [ ] Commit with message: "Complete initial project kickoff"
+
+**When to skip this section:**
+- Project already has commits beyond initial template generation
+- User explicitly says to skip initial setup
+- Project has real implementation (no placeholders remaining)
+
+<!-- END TEMPLATE-KICKOFF-SPECIFIC -->
+
 ## Universal Workflows
 
 ### Git & Commits

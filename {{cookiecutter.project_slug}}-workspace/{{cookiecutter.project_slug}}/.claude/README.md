@@ -85,6 +85,7 @@ The main `CLAUDE.md` at the project root provides universal rules and navigation
 - PRs should update guidance if they change patterns
 - Review guidance during code review
 
+<!-- TEMPLATE-SPECIFIC: Remove when project has real implementation (check: no "placeholder" or "TODO" in code/docs) -->
 ## Maturing Your Project
 
 As your project develops real implementation, remove template-specific guidance:
@@ -110,3 +111,4 @@ grep -r "placeholder\|TODO\|FIXME\|example\|template doc" src/ docs/ tests/
 - Keep infrastructure scaffolding even if not yet relevant
 - Keep documentation structure even if sections are minimal
 - Keep testing patterns even if few tests exist yet
+<!-- END TEMPLATE-SPECIFIC -->
