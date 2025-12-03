@@ -47,12 +47,10 @@ Documentation is not an afterthought - it's part of the implementation. All feat
 
 ### Key Principles
 
-- **Planning/progress docs are valuable during development** - create freely, archive after completion
-- **Work product docs describe current reality** - not plans or history
+**Applies to all documentation types:**
+
 - **Put function details in docstrings** - not external docs
 - **Reference code locations** - don't duplicate values or implementation
-- **Preserve design rationales** - when converting planning → work product docs
-- **Evidence-based documentation** - distinguish observed facts from inferred causes
 
 ---
 

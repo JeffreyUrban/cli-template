@@ -898,45 +898,6 @@ Pre-commit hooks can run tests before each commit:
 
 ---
 
-## Best Practices Summary
-
-**Test Naming:**
-- Use descriptive names: `test_user_creation_with_valid_email`
-- Start with `test_`
-- Include what's being tested and expected outcome
-
-**Test Structure:**
-- Follow AAA pattern (Arrange, Act, Assert)
-- One logical assertion per test (can be multiple assert statements)
-- Use class grouping for related tests
-
-**Markers:**
-- Always mark tests (`@pytest.mark.unit` etc.)
-- Use multiple markers when appropriate
-- Define custom markers in pytest.ini
-
-**Fixtures:**
-- Use fixtures for setup/teardown
-- Keep fixtures focused and reusable
-- Document fixture purpose in docstring
-
-**Test Data:**
-- Use fixtures/ directory for test files
-- Separate input/ and expected/ subdirectories
-- Version control test data
-
-**Documentation:**
-- Add docstrings to complex tests
-- Explain WHY, not just WHAT
-- Note specification tests clearly
-
-**Maintenance:**
-- Keep tests updated with code changes
-- Remove obsolete tests
-- Add tests for bugs found and fixed
-
----
-
 ## Next Steps
 
 **Related guidance:**
