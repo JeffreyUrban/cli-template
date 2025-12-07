@@ -74,7 +74,7 @@ mkdocs serve
 ```bash
 # Fork on GitHub, then:
 git clone https://github.com/YOUR_USERNAME/processor.git
-cd {{ cookiecutter.command_name }}
+cd {{ cookiecutter.command_name }}-workspace/{{ cookiecutter.command_name }}
 ```
 
 **Set up development environment**:

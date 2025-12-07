@@ -111,6 +111,9 @@ pre-commit install
 # Verify everything works
 pytest
 
+# Complete initial project setup
+# Prompt Claude Code: "Please perform Initial Project Kickoff"
+
 # View documentation
 mkdocs serve
 ```

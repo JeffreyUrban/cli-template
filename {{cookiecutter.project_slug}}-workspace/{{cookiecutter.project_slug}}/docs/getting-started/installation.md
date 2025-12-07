@@ -42,7 +42,7 @@ For development or the latest unreleased features:
 
 ```bash
 git clone https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.command_name }}.git
-cd {{ cookiecutter.command_name }}
+cd {{ cookiecutter.command_name }}-workspace/{{ cookiecutter.command_name }}
 pip install .
 ```
 
@@ -57,7 +57,7 @@ For contributing or modifying `{{ cookiecutter.command_name }}`, install in edit
 
 ```bash
 git clone https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.command_name }}.git
-cd {{ cookiecutter.command_name }}
+cd {{ cookiecutter.command_name }}-workspace/{{ cookiecutter.command_name }}
 pip install -e ".[dev]"
 ```
 
@@ -147,7 +147,7 @@ pip install --upgrade {{ cookiecutter.command_name }}
 ### Source Installation
 
 ```bash
-cd {{ cookiecutter.command_name }}
+cd {{ cookiecutter.command_name }}-workspace/{{ cookiecutter.command_name }}
 git pull
 pip install --upgrade .
 ```
@@ -155,7 +155,7 @@ pip install --upgrade .
 For development installations:
 
 ```bash
-cd {{ cookiecutter.command_name }}
+cd {{ cookiecutter.command_name }}-workspace/{{ cookiecutter.command_name }}
 git pull
 pip install --upgrade -e ".[dev]"
 ```
