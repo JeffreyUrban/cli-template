@@ -204,14 +204,14 @@ pre-commit install
 
 ### 5. Run Initial Checks
 
-Verify everything works:
+Run quality checks (some may have warnings with template placeholders - that's expected):
 ```bash
 ruff format .
 ruff check .
-pyright
 pytest
-mkdocs build
 ```
+
+**Note:** Skip `pyright` and `mkdocs build` during kickoff - they may fail with template placeholders. These will pass once you implement your project logic.
 
 ### 6. Gitignore Local Settings
 
@@ -225,8 +225,9 @@ echo ".claude/settings.local.json" >> .gitignore
 ### 7. Remove This Section
 
 After completing initial kickoff tasks:
-- [ ] Delete this "Initial Project Kickoff" section (lines 127-XXX)
-- [ ] Commit with message: "Complete initial project kickoff"
+- [ ] Delete this "Initial Project Kickoff" section (lines 147-XXX)
+
+**DO NOT create a git commit** - the user will handle git initialization and commits per the README workflow.
 
 **When to skip this section:**
 - Project already has commits beyond initial template generation
