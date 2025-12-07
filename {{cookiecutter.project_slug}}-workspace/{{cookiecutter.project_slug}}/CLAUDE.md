@@ -213,7 +213,16 @@ pytest
 mkdocs build
 ```
 
-### 6. Remove This Section
+### 6. Gitignore Local Settings
+
+Add `.claude/settings.local.json` to `.gitignore` so users can customize permissions without committing:
+```bash
+echo "" >> .gitignore
+echo "# Claude Code local settings" >> .gitignore
+echo ".claude/settings.local.json" >> .gitignore
+```
+
+### 7. Remove This Section
 
 After completing initial kickoff tasks:
 - [ ] Delete this "Initial Project Kickoff" section (lines 127-XXX)
