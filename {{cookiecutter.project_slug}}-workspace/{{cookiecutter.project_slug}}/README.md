@@ -118,6 +118,9 @@ cd {{ cookiecutter.command_name }}-workspace/{{ cookiecutter.command_name }}
 # Install development dependencies
 pip install -e ".[dev]"
 
+# Complete initial project setup
+# Prompt Claude Code: "Please perform Initial Project Kickoff"
+
 # Run tests
 pytest
 
