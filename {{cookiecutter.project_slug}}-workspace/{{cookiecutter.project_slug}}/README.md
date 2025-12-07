@@ -51,7 +51,7 @@ Use `pip` if you want to use {{ cookiecutter.command_name }} as a library in you
 ```bash
 # Development installation
 git clone https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.command_name }}
-cd {{ cookiecutter.command_name }}
+cd {{ cookiecutter.command_name }}-workspace/{{ cookiecutter.command_name }}
 pip install -e ".[dev]"
 ```
 
@@ -113,7 +113,7 @@ Key sections:
 ```bash
 # Clone repository
 git clone https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.command_name }}.git
-cd {{ cookiecutter.command_name }}
+cd {{ cookiecutter.command_name }}-workspace/{{ cookiecutter.command_name }}
 
 # Install development dependencies
 pip install -e ".[dev]"

@@ -38,7 +38,7 @@ def main() -> None:
     print(f"   1. {{ cookiecutter.project_slug }}/ - Main project")
     print(f"   2. homebrew-{{ cookiecutter.project_slug }}/ - Homebrew tap")
     print("\n📝 Main project setup ({{ cookiecutter.project_slug }}):")
-    print(f"   1. cd {{ cookiecutter.project_slug }}")
+    print(f"   1. cd {{ cookiecutter.project_slug }}-workspace/{{ cookiecutter.command_name }}")
     print("   2. git init")
     print("   3. uv venv && source .venv/bin/activate")
     print("   4. uv pip install -e '.[dev,docs]'")

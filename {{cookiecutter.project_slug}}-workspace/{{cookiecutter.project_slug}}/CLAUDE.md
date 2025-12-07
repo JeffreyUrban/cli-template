@@ -10,6 +10,28 @@ This file is the **entry point** for Claude guidance. Detailed guidance is organ
 
 ## Critical Rules
 
+### Design Before Implementation
+
+**MANDATORY: Before writing ANY code, ask and answer these design questions OUT LOUD to the user:**
+
+**For API Design:**
+1. "What does the ideal API for this look like, ignoring current implementation?"
+2. "What would Python standard library or well-known packages do?" (e.g., itertools, csv module)
+3. "Am I designing around current limitations or designing the right thing?"
+
+**For Refactoring:**
+1. "What is the clean architecture, ignoring how much code needs to change?"
+2. "Where should the responsibility for X live?" (e.g., "Should output formatting live in _emit_merged_lines or in a wrapper?")
+3. "Am I refactoring toward the right design, or just rearranging the current design?"
+
+**For Any Change:**
+1. "If I was building this from scratch today, would I design it this way?"
+2. "Am I adding complexity to avoid changing existing complexity?"
+
+**State your answers to these questions and get user agreement BEFORE implementing.**
+
+### Version Numbers
+
 **NEVER mention version numbers** (v0.x, v1.x, etc.) unless they have been explicitly agreed upon and documented in planning. Use:
 - **"Stage X"** for implementation phases (e.g., "Stage 3: Pattern Libraries")
 - **"Current implementation"** for what exists now
@@ -23,12 +45,7 @@ This file is the **entry point** for Claude guidance. Detailed guidance is organ
 - Planning documents
 - Unless the user has explicitly specified and approved a versioning scheme and specific versions
 
-**Safe rm -rf usage:**
-- Never `rm -rf` with `*` or `~` in the target
-- Never `rm -rf` outside of the project or /tmp
-- Always specify specific targets within the project for `rm -rf`
-
-## Project-Specific Critical Rules
+### Requirements and Scope
 
 **CRITICAL: NEVER assume content is not applicable without explicit user confirmation!**
 - If the user asks you to integrate or verify content coverage, ALL content is relevant unless the user explicitly says otherwise
@@ -42,18 +59,22 @@ This file is the **entry point** for Claude guidance. Detailed guidance is organ
 - Do NOT implement the opposite behavior and add a TODO noting it should be fixed later
 - If the requirement needs clarification or would require significant changes, ASK first
 
+### Problem-Solving Standards
+
 **CRITICAL: Use proper solutions, not workarounds!**
 - When encountering issues (especially in CI/testing), investigate the root cause
 - Find the standard/best-practice solution for the problem
 - Examples of workarounds to AVOID:
-  - Weakening test assertions to pass (e.g., changing "window-size" to "window")
-  - Adding `# type: ignore` comments instead of fixing type issues
-  - Disabling linters/checkers instead of fixing the underlying issue
+- Weakening test assertions to pass (e.g., changing "window-size" to "window")
+- Adding `# type: ignore` comments instead of fixing type issues
+- Disabling linters/checkers instead of fixing the underlying issue
 - Examples of proper solutions:
-  - Setting environment variables for consistent behavior (e.g., `COLUMNS` for terminal width)
-  - Using appropriate imports for Python version compatibility (e.g., `Optional` vs `|`)
-  - Configuring tools correctly in config files
+- Setting environment variables for consistent behavior (e.g., `COLUMNS` for terminal width)
+- Using appropriate imports for Python version compatibility (e.g., `Optional` vs `|`)
+- Configuring tools correctly in config files
 - If unsure whether a solution is a workaround or proper fix, ASK the user
+
+### Documentation Standards
 
 **Evidence-Based Documentation:**
 - Distinguish between **observed facts** and **inferred causes**
