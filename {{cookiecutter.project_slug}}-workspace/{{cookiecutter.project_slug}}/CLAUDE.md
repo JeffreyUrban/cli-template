@@ -74,6 +74,33 @@ This file is the **entry point** for Claude guidance. Detailed guidance is organ
 - Configuring tools correctly in config files
 - If unsure whether a solution is a workaround or proper fix, ASK the user
 
+### Data Safety
+
+**CRITICAL: Protect user's work products!**
+
+**Before modifying files containing user data/work:**
+1. **STOP and assess risk**: Hours of work? Irreplaceable?
+2. **Suggest backup FIRST**: "Let's backup X before making changes"
+3. **Test on sample data**: Never test destructive operations on real data
+4. **Design for safety**: Default behavior should preserve, not destroy
+
+**For "resume" or "state tracking" features:**
+- Resume means "skip already done" NOT "overwrite existing output"
+- Must test with BOTH empty state AND existing output files
+- When in doubt: preserve existing files, don't touch them
+
+**Red flags requiring extra caution:**
+- Modifying output files that took >30 minutes to generate
+- Implementing "skip" or "resume" logic
+- Batch operations on user's work products
+- State tracking that touches existing files
+
+**Testing requirement for data-modifying code:**
+Before recommending user run ANY code that modifies their files or data:
+- Test it yourself if possible, OR
+- Explicitly tell user "I haven't tested this - please test on sample data first"
+- For data-modifying operations: ALWAYS suggest backup first
+
 ### Documentation Standards
 
 **Evidence-Based Documentation:**
@@ -97,6 +124,7 @@ Claude guidance is organized by scope:
 - **[Development](.claude/development.md)** - Coding standards, patterns, tools, modern practices
 - **[Testing](.claude/testing.md)** - Test strategy, pytest, coverage, oracle testing
 - **[Documentation](.claude/documentation.md)** - Doc standards, MkDocs, Sybil, doc testing
+- **[Data Safety](.claude/data-safety.md)** - Protecting user work, backup strategies, safe defaults
 - **[Workflows](.claude/workflows/)** - Common task workflows and checklists
 - **[Handoffs](.claude/handoffs/)** - Context preservation between Claude instances
 
@@ -312,6 +340,7 @@ See [Handoffs README](.claude/handoffs/README.md) for detailed template and guid
    - Adding features? → [Development](.claude/development.md)
    - Writing tests? → [Testing](.claude/testing.md)
    - Updating docs? → [Documentation](.claude/documentation.md)
+   - Modifying user data/output? → [Data Safety](.claude/data-safety.md)
 3. **Reference project documentation** in `dev-docs/` for design decisions
 4. **Follow workflows** in `.claude/workflows/` for common tasks
 
