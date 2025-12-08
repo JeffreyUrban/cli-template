@@ -27,7 +27,17 @@ def main() -> None:
         "GPL-3.0": "LICENSE-GPL",
     }
 
-    # For now, just keep the current LICENSE file
+    # Remove LICENSE files if "None" is selected
+    if license_choice == "None":
+        # Remove LICENSE from main project
+        main_license = PROJECT_DIRECTORY / "{{ cookiecutter.project_slug }}" / "LICENSE"
+        remove_file(main_license)
+
+        # Remove LICENSE from homebrew tap
+        homebrew_license = PROJECT_DIRECTORY / "homebrew-{{ cookiecutter.project_slug }}" / "LICENSE"
+        remove_file(homebrew_license)
+
+    # For now, just keep the current LICENSE file for other license types
     # Users can manually update it for other licenses
     # (We could add all license files to the template later)
 
