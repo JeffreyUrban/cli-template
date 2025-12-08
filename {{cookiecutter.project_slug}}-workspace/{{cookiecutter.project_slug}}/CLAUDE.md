@@ -304,6 +304,25 @@ When creating commits:
 - **Output text directly** - never use bash echo or comments to communicate
 - **Don't be markety** - Avoid promotional language, "New!" callouts, or marketing-style announcements
 
+**Background Jobs:**
+- **ALWAYS provide full transparency** when running background jobs
+- When running any command in the background, you MUST immediately tell the user:
+  1. **What command you're running** - show the exact command with full path and arguments
+  2. **Why you're running it in background** - explain the purpose and expected duration
+  3. **Shell ID** - provide the background job ID so user can manage it
+  4. **How to monitor it** - show commands to check status, view output, or kill it
+- **Example good communication:**
+  ```
+  Running in background (shell ID: abc123):
+    command: python3 scripts/comprehensive_mining.py --category personal_branding
+    purpose: Mining 6 documents, takes ~5-10 minutes
+
+  To monitor: Use /tasks or BashOutput tool with bash_id: abc123
+  To kill: Use /kill abc123
+  ```
+- Background jobs are appropriate for long-running operations (>30 seconds)
+- The user needs enough information to manage the job themselves
+
 ## Handoffs Between Claude Instances
 
 **When transitioning work to another Claude instance:**
